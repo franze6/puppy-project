@@ -1,15 +1,17 @@
-const path = require("path")
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (env, argv) => {
-  const watchMode = argv.liveReload || false
-  const modeEnv = argv.mode || 'development'
-  const isProd = modeEnv === 'production'
+  const watchMode = argv.liveReload || false;
+  const modeEnv = argv.mode || 'development';
+  const isProd = modeEnv === 'production';
 
   const optimizations = {
-    splitChunks: { // Чанки для нашего приложения. Все наши npm-пакеты вынесем в отдельный файл с определенным хешем, чтобы клиент каждый раз при изменениях не выкачивал все по-новой
+    splitChunks: {
+      // Чанки для нашего приложения. Все наши npm-пакеты вынесем в отдельный файл с определенным хешем, чтобы клиент каждый раз при изменениях не выкачивал все по-новой
       cacheGroups: {
         vendors: {
           name: 'vendors',
@@ -20,15 +22,15 @@ module.exports = (env, argv) => {
       },
     },
     minimizer: [],
-  }
+  };
 
   if (isProd) {
-    optimizations.minimizer.push(new UglifyJsPlugin())
+    optimizations.minimizer.push(new UglifyJsPlugin());
   }
 
   return {
     devServer: {
-      contentBase: path.join(__dirname, "build"),
+      contentBase: path.join(__dirname, 'build'),
       compress: true,
       port: 4200,
       watchContentBase: true,
@@ -37,7 +39,7 @@ module.exports = (env, argv) => {
       open: true,
       historyApiFallback: true, // Не забудьте про этот параметр, ибо со значением false WDS будет «прямолинейно» обрабатывать ссылки для React Router'а. Т.е. он будет по путь->директория искать index.html, а он у нас один и в корне.
     },
-    resolve:{
+    resolve: {
       extensions: ['.js', '.jsx', '.sass'],
     },
     module: {
@@ -50,24 +52,24 @@ module.exports = (env, argv) => {
         {
           test: /\.sass$/, // сопоставляет только файлы .css (т.е. не .scss и др.)
           use: [
-              'style-loader',
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                  modules: {
-                    localIdentName: "[name]__[local]___[hash:base64:5]"
-                  }
-                }
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                modules: {
+                  localIdentName: '[name]__[local]___[hash:base64:5]',
+                },
               },
+            },
 
             'postcss-loader',
-            'sass-loader'
+            'sass-loader',
           ],
         },
         {
           test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-          type: "asset",
+          type: 'asset',
         },
       ],
     },
@@ -89,5 +91,5 @@ module.exports = (env, argv) => {
       hints: false,
     },
     optimization: optimizations,
-  }
-}
+  };
+};
