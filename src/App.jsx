@@ -1,7 +1,8 @@
 import React from 'react';
+import style from './App.css'
 
 export const App = () => {
   return (
-      <div>123</div>
+      <div className={style.main}>123</div>
   );
 }

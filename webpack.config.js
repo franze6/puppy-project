@@ -49,7 +49,23 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.css$/, // сопоставляет только файлы .css (т.е. не .scss и др.)
-          use: ['style-loader', 'css-loader'],
+          use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 1,
+                  modules: {
+                    localIdentName: "[name]__[local]___[hash:base64:5]"
+                  }
+                }
+              },
+              'postcss-loader'
+          ],
+        },
+        {
+          test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+          type: "asset",
         },
       ],
     },
