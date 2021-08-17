@@ -38,7 +38,7 @@ module.exports = (env, argv) => {
       historyApiFallback: true, // Не забудьте про этот параметр, ибо со значением false WDS будет «прямолинейно» обрабатывать ссылки для React Router'а. Т.е. он будет по путь->директория искать index.html, а он у нас один и в корне.
     },
     resolve:{
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.sass'],
     },
     module: {
       rules: [
@@ -48,7 +48,7 @@ module.exports = (env, argv) => {
           exclude: /node_modules/,
         },
         {
-          test: /\.css$/, // сопоставляет только файлы .css (т.е. не .scss и др.)
+          test: /\.sass$/, // сопоставляет только файлы .css (т.е. не .scss и др.)
           use: [
               'style-loader',
               {
@@ -60,7 +60,9 @@ module.exports = (env, argv) => {
                   }
                 }
               },
-              'postcss-loader'
+
+            'postcss-loader',
+            'sass-loader'
           ],
         },
         {
