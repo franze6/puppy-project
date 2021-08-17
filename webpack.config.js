@@ -11,7 +11,6 @@ module.exports = (env, argv) => {
 
   const optimizations = {
     splitChunks: {
-      // Чанки для нашего приложения. Все наши npm-пакеты вынесем в отдельный файл с определенным хешем, чтобы клиент каждый раз при изменениях не выкачивал все по-новой
       cacheGroups: {
         vendors: {
           name: 'vendors',
@@ -37,7 +36,7 @@ module.exports = (env, argv) => {
       progress: true,
       hot: true,
       open: true,
-      historyApiFallback: true, // Не забудьте про этот параметр, ибо со значением false WDS будет «прямолинейно» обрабатывать ссылки для React Router'а. Т.е. он будет по путь->директория искать index.html, а он у нас один и в корне.
+      historyApiFallback: true,
     },
     resolve: {
       extensions: ['.js', '.jsx', '.sass'],
@@ -45,12 +44,12 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.js(x?)$/, // сопоставляет файлы .js, .ts, и .tsx
-          loader: 'babel-loader', // использует для указанных типов файлов загрузчик babel-loader (ts-loader не требуется).
+          test: /\.js(x?)$/,
+          loader: 'babel-loader',
           exclude: /node_modules/,
         },
         {
-          test: /\.sass$/, // сопоставляет только файлы .css (т.е. не .scss и др.)
+          test: /\.scss$/,
           use: [
             'style-loader',
             {
@@ -76,15 +75,15 @@ module.exports = (env, argv) => {
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        template: './src/html/template.html', // Скармливаем наш HTML-темплейт
+        template: './src/html/template.html',
       }),
     ],
     entry: {
-      main: './src/index.js', // Энтрипоинт-файл, с которого и начнется наша сборка
+      main: './src/index.js',
     },
     output: {
-      filename: watchMode ? 'assets/[name].[hash].js' : 'assets/[name].[chunkhash].js', // небольшое условие, т.к. WDS не будет работать с chunkhash
-      path: path.resolve(__dirname, 'build'), // Весь наш результат складываем в папку dist
+      filename: watchMode ? 'assets/[name].[hash].js' : 'assets/[name].[chunkhash].js',
+      path: path.resolve(__dirname, 'build'),
       publicPath: '/',
     },
     performance: {

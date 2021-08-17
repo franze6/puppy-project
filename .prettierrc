@@ -1,8 +1,19 @@
 {
-  "semi": true,
-  "trailingComma": "all",
-  "singleQuote": true,
+  "arrowParens": "avoid",
   "printWidth": 120,
-  "tabWidth": 2,
-  "arrowParens": "avoid"
+  "trailingComma": "all",
+  "useTabs": false,
+  "endOfLine": "auto",
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 70,
+        "useTabs": false,
+        "trailingComma": "none",
+        "proseWrap": "never"
+      }
+    }
+  ]
 }
