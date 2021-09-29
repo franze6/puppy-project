@@ -1,0 +1,44 @@
+.main {
+  font-size: 40px;
+  opacity: 0.5;
+}
+
+.submain {
+  opacity: 0.6;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.thead {
+  display: flex;
+  padding-left: 6px;
+  border-bottom: 2px solid #000000;
+}
+
+.tbody {
+  display: flex;
+  flex-direction: column;
+}
+
+.tcol {
+  display: flex;
+  padding: 6px 6px;
+}
+
+.trow {
+  display: flex;
+  padding-left: 6px;
+  border-bottom: 1px solid #000;
+
+  .tcol {
+    padding: 6px;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
