@@ -1,0 +1,52 @@
+.default {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 320px;
+  }
+  
+  .labelDefault {
+    color: #7B7E86;
+    font-size: 14px;
+  }
+  
+   .inputDefault {
+    width: inherit;
+    color: #B1B5BB;
+    border: 1px solid #B1B5BB; 
+    border-radius: 4px;
+    color: #22242A;
+    font-size: 16px;
+    margin-top: 8px;
+    font-family: "VTBGroupUI-Regular";
+  }
+  
+  .inputDefault:focus {
+   outline: 0;
+   border: 2px solid #0062FF
+  }
+  
+  .inputDefault:focus + .labelDefault {
+    color: #22242A;
+  }
+  
+  .inputDefault::placeholder {
+    color: #7B7E86;
+  }
+  
+  .labelDisable {
+    color: #B1B5BB;
+  }
+  
+  .inputDisable{
+    background: #E5E7EB;
+    border: 0; 
+  }
+  
+  .inputDisable::placeholder {
+    color: #B1B5BB;
+  }
+  
+  .size32 {
+    height: 32px;
+    padding: 6px;
+  }
