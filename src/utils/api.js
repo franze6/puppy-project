@@ -1,4 +1,4 @@
-export function getContacts() {
+export function getPersons() {
   return [
     {
       id: 1,
