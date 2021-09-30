@@ -1,4 +1,4 @@
-export function getPersons() {
+export async function getPersons() {
   return [
     {
       id: 1,
