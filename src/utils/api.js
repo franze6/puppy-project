@@ -1,6 +1,6 @@
-export async function getPersons(page = 1, page_size = 10) {
+export async function getPersons(page = 1, page_size = 10, last_name = '') {
   // eslint-disable-next-line camelcase
-  const url = `http://pet.kandrusyak.ru:8000/api/persons/?page=${page}&page_size=${page_size}`;
+  const url = `http://pet.kandrusyak.ru:8000/api/persons/?last_name=${last_name}&page=${page}&page_size=${page_size}`;
   const resp = await fetch(url);
   const json = await resp
     .json()
