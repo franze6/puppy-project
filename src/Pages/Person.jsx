@@ -8,7 +8,7 @@ const Person = () => {
 
   useEffect(async () => {
     const data = await getPersons();
-    setList(data);
+    setList(data?.results || []);
   }, []);
 
   const columns = [
@@ -24,7 +24,7 @@ const Person = () => {
     },
     {
       name: 'second_name',
-      display: 'Отчесво',
+      display: 'Отчество',
       width: 150,
     },
     {
@@ -34,7 +34,7 @@ const Person = () => {
     },
     {
       name: 'tax_id',
-      display: 'Номер ИНН',
+      display: 'ИНН',
       width: 150,
     },
     {
@@ -45,7 +45,7 @@ const Person = () => {
     {
       name: 'gender',
       display: 'Пол',
-      width: 30,
+      width: 100,
     },
   ];
   return (
