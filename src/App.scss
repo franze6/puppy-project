@@ -1,0 +1,7 @@
+:global(#root) {
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+}
