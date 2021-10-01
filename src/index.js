@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { App } from './App';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+import { BrowserRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+import { routes } from './utils/routes';
+
+ReactDOM.render(<BrowserRouter>{renderRoutes(routes)}</BrowserRouter>, document.querySelector('#root'));

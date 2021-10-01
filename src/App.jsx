@@ -1,7 +1,5 @@
-import React from 'react';
+import { renderRoutes } from 'react-router-config';
 
-import style from './App.scss';
-
-export const App = () => {
-  return <div className={style.main}>123</div>;
+export const App = ({ route }) => {
+  return renderRoutes(route.routes);
 };
