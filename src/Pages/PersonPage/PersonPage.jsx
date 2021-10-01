@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
-import Table from '../Components/Table/Table';
-import { getPersons } from '../utils/api';
+import Table from '../../Components/Table/Table';
+import Search from '../../Components/Search/Search';
+import { getPersons } from '../../utils/api';
 
-const Person = () => {
+import styles from './PesonPage.scss';
+
+const PersonPage = () => {
   const [list, setList] = useState([]);
 
   const history = useHistory();
@@ -14,6 +17,11 @@ const Person = () => {
     const data = await getPersons();
     setList(data?.results || []);
   }, []);
+
+  async function onSearch(searchTxt) {
+    const data = await getPersons(searchTxt);
+    setList(data?.results || []);
+  }
 
   const columns = [
     {
@@ -53,10 +61,13 @@ const Person = () => {
     },
   ];
   return (
-    <div>
+    <div className={styles.page}>
+      <div className={styles.search}>
+        <Search onSearch={onSearch} />
+      </div>
       <Table columns={columns} rows={list} onRowClick={id => history.push(`${history.location.pathname}/${id}`)} />
     </div>
   );
 };
 
-export default Person;
+export default PersonPage;
