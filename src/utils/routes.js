@@ -13,7 +13,7 @@ export const routes = [
         path: '/',
         redirect: '/123',
         exact: true,
-        component: () => <Redirect to="/persons" />,
+        component: () => <Redirect to="/persons/" />,
       },
       {
         path: '/persons',

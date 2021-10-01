@@ -35,7 +35,7 @@ const AddressPage = () => {
   ];
   return (
     <div className={styles.page}>
-      <Table columns={columns} rows={list} />
+      <Table columns={columns} rows={list} canDelete canUpdate />
     </div>
   );
 };
