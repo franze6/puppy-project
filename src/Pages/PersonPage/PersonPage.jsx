@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import Table from '../../Components/Table/Table';
 import Search from '../../Components/Search/Search';
-import Pagination from '../../Components/Pogination/Pagination';
+import Pagination from '../../Components/Pagination/Pagination';
 import { getPersons } from '../../utils/api';
 
 import styles from './PesonPage.scss';
@@ -12,12 +12,12 @@ import styles from './PesonPage.scss';
 const PersonPage = () => {
   const [list, setList] = useState([]);
   const [pageCount, setPageCount] = useState();
-  const [activPage, setActivPage] = useState(1);
+  const [activePage, setActivePage] = useState(1);
 
   const history = useHistory();
 
   async function onPageChange(e) {
-    setActivPage(e);
+    setActivePage(e);
     const data = await getPersons('', e);
     setList(data?.results || []);
   }
@@ -77,7 +77,7 @@ const PersonPage = () => {
       </div>
       <Table columns={columns} rows={list} onRowClick={id => history.push(`${history.location.pathname}/${id}`)} />
       <div className={styles.pagination}>
-        <Pagination pageCount={pageCount} activPage={activPage} onPageChange={onPageChange} />
+        <Pagination pageCount={pageCount} activePage={activePage} onPageChange={onPageChange} />
       </div>
     </div>
   );

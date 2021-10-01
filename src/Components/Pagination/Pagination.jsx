@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PageButton from './PageButton';
+import Button from '../Kit/Button/Button';
+
+import styles from './Pagination.scss';
 
 const Pagination = props => {
   const pageArr = Array.from(Array(props.pageCount + 1).keys()).slice(1);
   return (
-    <div>
+    <div className={styles.buttonsList}>
       {pageArr.map(e => {
         return (
-          <PageButton
-            text={e.toString()}
-            active={e === props.activPage}
+          <Button
+            className={styles.paginationButton}
+            outlined={e !== props.activePage}
+            small
             key={e}
             onClick={() => props.onPageChange(e)}
-          />
+          >
+            {e}
+          </Button>
         );
       })}
     </div>
@@ -26,7 +31,7 @@ Pagination.propTypes = {
   pageCount: PropTypes.number.isRequired,
   pageLimit: PropTypes.number,
   onPageChange: PropTypes.func,
-  activPage: PropTypes.number,
+  activePage: PropTypes.number,
 };
 
 Pagination.defaultProps = {
@@ -34,7 +39,7 @@ Pagination.defaultProps = {
   pageLimit: 5,
   onPageChange: () => {},
   disabled: false,
-  activPage: 3,
+  activePage: 3,
 };
 
 export default Pagination;
