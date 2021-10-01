@@ -26,6 +26,38 @@ export async function getPerson(id = 3) {
   return json;
 }
 
+export async function getCareer() {
+  return [
+    {
+      id: 1,
+      date: '2017-02-01',
+      company: {
+        id: 22,
+        company_name: 'ТСК',
+      },
+      position: 'Разработчик',
+    },
+    {
+      id: 2,
+      date: '2019-07-12',
+      company: {
+        id: 22,
+        company_name: 'Яндекс',
+      },
+      position: 'Аналитик',
+    },
+    {
+      id: 3,
+      date: '2016-11-04',
+      company: {
+        id: 33,
+        company_name: 'Google',
+      },
+      position: 'Тестировщик',
+    },
+  ];
+}
+
 export async function getAddress() {
   return [
     {
