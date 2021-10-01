@@ -50,7 +50,7 @@ const Person = () => {
   ];
   return (
     <div>
-      <Table columns={columns} rows={list} />
+      <Table columns={columns} rows={list} onRowClick={() => {}} />
     </div>
   );
 };
