@@ -2,7 +2,7 @@ import { Redirect } from 'react-router-dom';
 import React from 'react';
 
 import { App } from '../App';
-import Person from '../Pages/Person';
+import PersonPage from '../Pages/PersonPage/PersonPage';
 import PersonsDetail from '../Pages/PersonsDetail';
 
 export const routes = [
@@ -18,7 +18,7 @@ export const routes = [
       {
         path: '/persons',
         exact: true,
-        component: Person,
+        component: PersonPage,
       },
       {
         path: '/persons/:id',
