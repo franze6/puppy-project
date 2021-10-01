@@ -1,0 +1,23 @@
+.buttonActiv {
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  height: 30px;
+  width: 30px;
+
+  line-height: 24px;
+  color: #fff;
+  background: #696969;
+}
+
+.buttonNoActiv {
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  height: 30px;
+  width: 30px;
+
+  line-height: 24px;
+  color: #000000;
+  background: #fff;
+}
