@@ -13,10 +13,10 @@
   color: #b1b5bb;
   border: 1px solid #b1b5bb;
   border-radius: 4px;
-  color: #22242a;
   font-size: 16px;
-  font-family: 'VTBGroupUI-Regular';
   padding: 6px;
+  height: 32px;
+  width: 200px;
 }
 
 .inputDefault:focus {
@@ -43,9 +43,4 @@
 
 .inputDisable::placeholder {
   color: #b1b5bb;
-}
-
-.size32 {
-  height: 32px;
-  padding: 6px;
 }
