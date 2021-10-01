@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import styles from './PagButton.scss';
-
-const CustomSelect = ({ id, options, onChange }) => {
+const Dropdown = ({ id, options, onChange }) => {
   return (
     <select id={id} onChange={onChange}>
       {options.map((option, index) => (
@@ -15,16 +13,16 @@ const CustomSelect = ({ id, options, onChange }) => {
   );
 };
 
-CustomSelect.propTypes = {
+Dropdown.propTypes = {
   onChange: PropTypes.func,
   options: PropTypes.array,
   id: PropTypes.number,
 };
 
-CustomSelect.defaultProps = {
+Dropdown.defaultProps = {
   onChange: () => {},
   options: [],
   id: 1,
 };
 
-export default CustomSelect;
+export default Dropdown;
