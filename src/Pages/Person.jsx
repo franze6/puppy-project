@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
+import { useHistory } from 'react-router-dom';
+
 import Table from '../Components/Table/Table';
 import { getPersons } from '../utils/api';
 
 const Person = () => {
   const [list, setList] = useState([]);
+
+  const history = useHistory();
 
   useEffect(async () => {
     const data = await getPersons();
@@ -50,7 +54,7 @@ const Person = () => {
   ];
   return (
     <div>
-      <Table columns={columns} rows={list} onRowClick={() => {}} />
+      <Table columns={columns} rows={list} onRowClick={id => history.push(`${history.location.pathname}/${id}`)} />
     </div>
   );
 };
