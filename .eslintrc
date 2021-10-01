@@ -32,7 +32,8 @@
       }
     ],
     "import/prefer-default-export": 0,
-    "import/extensions": 0
+    "import/extensions": 0,
+    "react/display-name": "off"
   },
   "settings": {
     "import/resolver": {
