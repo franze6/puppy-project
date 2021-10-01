@@ -25,3 +25,28 @@ export async function getPerson(id = 3) {
     .catch(() => {});
   return json;
 }
+
+export async function getCompany() {
+  return [
+    {
+      id: 1,
+      name: 'ТСК',
+    },
+    {
+      id: 2,
+      name: 'MS',
+    },
+    {
+      id: 3,
+      name: 'LX',
+    },
+    {
+      id: 4,
+      name: 'Ромашка',
+    },
+    {
+      id: 5,
+      name: 'Лютик',
+    },
+  ];
+}
