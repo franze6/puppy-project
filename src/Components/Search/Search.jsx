@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
 
+import Button from '../Kit/Button/Button';
+
 import Input from './Input';
-import Button from './Button';
 
 import styles from './Search.scss';
 
@@ -16,7 +17,9 @@ const Search = ({ onSearch }) => {
         value={input}
         onChange={e => setInput(e.currentTarget.value)}
       />
-      <Button onClick={() => onSearch(input)}>Найти</Button>
+      <Button small className={styles.findButton} onClick={() => onSearch(input)}>
+        Найти
+      </Button>
     </div>
   );
 };

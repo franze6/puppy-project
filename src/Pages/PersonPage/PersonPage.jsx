@@ -4,18 +4,28 @@ import { useHistory } from 'react-router-dom';
 
 import Table from '../../Components/Table/Table';
 import Search from '../../Components/Search/Search';
+import Pagination from '../../Components/Pagination/Pagination';
 import { getPersons } from '../../utils/api';
 
 import styles from './PesonPage.scss';
 
 const PersonPage = () => {
   const [list, setList] = useState([]);
+  const [pageCount, setPageCount] = useState();
+  const [activePage, setActivePage] = useState(1);
 
   const history = useHistory();
+
+  async function onPageChange(e) {
+    setActivePage(e);
+    const data = await getPersons('', e);
+    setList(data?.results || []);
+  }
 
   useEffect(async () => {
     const data = await getPersons();
     setList(data?.results || []);
+    setPageCount(data?.page_count || 1);
   }, []);
 
   async function onSearch(searchTxt) {
@@ -66,6 +76,9 @@ const PersonPage = () => {
         <Search onSearch={onSearch} />
       </div>
       <Table columns={columns} rows={list} onRowClick={id => history.push(`${history.location.pathname}/${id}`)} />
+      <div className={styles.pagination}>
+        <Pagination pageCount={pageCount} activePage={activePage} onPageChange={onPageChange} />
+      </div>
     </div>
   );
 };

@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom';
 import PersonDetail from '../Components/PersonDetail/PersonDetail';
 import { getPerson } from '../utils/api';
 
+import AddressPage from './AddressPage/AddressPage';
+
 const PersonsDetail = () => {
   const [person, setPerson] = useState({});
 
@@ -20,6 +22,7 @@ const PersonsDetail = () => {
   return (
     <div>
       <PersonDetail person={person} />
+      <AddressPage />
     </div>
   );
 };
