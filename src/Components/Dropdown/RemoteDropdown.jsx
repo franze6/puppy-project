@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
 
 const RemoteDropdown = ({ getFunc, id, onChange }) => {
-  const [listCompany, setListCompany] = useState([]);
+  const [list, setList] = useState([]);
 
   useEffect(async () => {
     const data = await getFunc();
-    setListCompany(data || []);
+    setList(data || []);
   }, []);
-  return <Dropdown options={listCompany} id={id} onChange={onChange} />;
+  return <Dropdown options={list} id={id} onChange={onChange} />;
 };
 RemoteDropdown.propTypes = {
   onChange: PropTypes.func,
