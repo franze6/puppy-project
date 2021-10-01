@@ -20,7 +20,7 @@ export async function getPerson(id = 3) {
     id,
     last_name: 'Андрусяк',
     first_name: 'Кирилл',
-    second_name: null,
+    second_name: '',
     birth_date: '2021-09-29',
     tax_id: 240850327455,
     insurance_number: 22223344585,
