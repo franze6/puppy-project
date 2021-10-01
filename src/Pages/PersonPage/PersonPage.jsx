@@ -57,7 +57,7 @@ const PersonPage = () => {
     {
       name: 'gender',
       display: 'Пол',
-      width: 100,
+      width: 120,
     },
   ];
   return (

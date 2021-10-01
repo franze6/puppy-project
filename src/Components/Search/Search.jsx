@@ -11,7 +11,11 @@ const Search = ({ onSearch }) => {
   const [input, setInput] = useState('');
   return (
     <div className={styles.fieldSearch}>
-      <Input placeholder={'Поиск'} label={''} value={input} onChange={e => setInput(e.currentTarget.value)} />
+      <Input
+        placeholder={'Введите фамилию полностью...'}
+        value={input}
+        onChange={e => setInput(e.currentTarget.value)}
+      />
       <Button onClick={() => onSearch(input)}>Найти</Button>
     </div>
   );

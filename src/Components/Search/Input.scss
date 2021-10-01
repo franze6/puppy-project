@@ -1,22 +1,23 @@
 .default {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .labelDefault {
   color: #7b7e86;
-  font-size: 14px;
+  font-size: 16px;
+  margin-right: 8px;
 }
 
 .inputDefault {
-  width: inherit;
-  color: #b1b5bb;
+  color: #000;
   border: 1px solid #b1b5bb;
   border-radius: 4px;
   font-size: 16px;
   padding: 6px;
   height: 32px;
-  width: 200px;
+  width: 240px;
 }
 
 .inputDefault:focus {
@@ -30,6 +31,7 @@
 
 .inputDefault::placeholder {
   color: #7b7e86;
+  font-size: 14px;
 }
 
 .labelDisable {
