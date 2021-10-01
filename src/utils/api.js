@@ -15,15 +15,13 @@ export async function getPersons(page = 1, page_size = 10, last_name = '') {
     .catch(() => []);
   return json;
 }
+
 export async function getPerson(id = 3) {
-  return {
-    id,
-    last_name: 'Андрусяк',
-    first_name: 'Кирилл',
-    second_name: '',
-    birth_date: '2021-09-29',
-    tax_id: 240850327455,
-    insurance_number: 22223344585,
-    gender: 'Пушкатурбо',
-  };
+  const url = `http://pet.kandrusyak.ru:8000/api/person/${id}`;
+  const resp = await fetch(url);
+  const json = await resp
+    .json()
+    .then(res => res)
+    .catch(() => {});
+  return json;
 }
