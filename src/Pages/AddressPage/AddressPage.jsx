@@ -20,12 +20,12 @@ const AddressPage = () => {
     {
       name: 'address',
       display: 'Адрес',
-      width: 170,
+      width: 350,
     },
     {
       name: 'date_start',
       display: 'Дата заезда',
-      width: 110,
+      width: 120,
     },
     {
       name: 'date_end',
