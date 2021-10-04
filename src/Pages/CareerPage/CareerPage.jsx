@@ -28,7 +28,7 @@ const CareerPage = () => {
     {
       name: 'position',
       display: 'Должность',
-      width: 120,
+      width: 150,
     },
   ];
   return (
