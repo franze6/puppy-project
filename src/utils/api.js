@@ -168,3 +168,70 @@ export async function getPassport() {
     ],
   };
 }
+
+export async function getContactDetails() {
+  return {
+    results: [
+      {
+        id: 1,
+        type: {
+          id: 22,
+          type_name: 'WhatsApp',
+        },
+        basic: false,
+        active: true,
+        UID: '+7(950)657-48-93',
+      },
+      {
+        id: 2,
+        type: {
+          id: 22,
+          type_name: 'e-mail',
+        },
+        basic: true,
+        active: true,
+        UID: 'etopochta@yandex.ru',
+      },
+      {
+        id: 3,
+        type: {
+          id: 33,
+          type_name: 'Telegram',
+        },
+        basic: true,
+        active: true,
+        UID: '+7(950)657-48-93',
+      },
+      {
+        id: 4,
+        type: {
+          id: 44,
+          type_name: 'Телефон',
+        },
+        basic: true,
+        active: true,
+        UID: '+7(950)657-48-93',
+      },
+      {
+        id: 5,
+        type: {
+          id: 55,
+          type_name: 'ICQ',
+        },
+        basic: true,
+        active: false,
+        UID: '347348946',
+      },
+      {
+        id: 6,
+        type: {
+          id: 66,
+          type_name: 'Skype',
+        },
+        basic: true,
+        active: true,
+        UID: 'live:c8284n8kuxc4in',
+      },
+    ],
+  };
+}
