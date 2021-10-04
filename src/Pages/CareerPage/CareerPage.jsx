@@ -23,6 +23,7 @@ const CareerPage = () => {
     {
       name: 'company',
       display: 'Название компании',
+      display_field: 'company_name',
       width: 120,
     },
     {
