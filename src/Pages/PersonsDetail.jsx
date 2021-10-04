@@ -8,6 +8,7 @@ import PersonDetail from '../Components/PersonDetail/PersonDetail';
 import { getPerson } from '../utils/api';
 
 import AddressPage from './AddressPage/AddressPage';
+import PassportPage from './PassportPage/PassportPage';
 
 const PersonsDetail = () => {
   const [person, setPerson] = useState({});
@@ -23,6 +24,7 @@ const PersonsDetail = () => {
     <div>
       <PersonDetail person={person} />
       <AddressPage />
+      <PassportPage />
     </div>
   );
 };

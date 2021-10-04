@@ -119,3 +119,50 @@ export async function getCompany() {
     },
   ];
 }
+
+export async function getPassport() {
+  return {
+    results: [
+      {
+        id: 1,
+        series: '4588',
+        number: '938843',
+        department_code: '278-344',
+        issued_by: 'ГУ МВД ПО Г. МОСКВЕ',
+        date_issue: '2018-08-25',
+      },
+      {
+        id: 2,
+        series: '4798',
+        number: '902834',
+        department_code: '590-734',
+        issued_by: 'ГУ МВД ПО Г. МОСКВЕ',
+        date_issue: '2013-07-09',
+      },
+      {
+        id: 3,
+        series: '8454',
+        number: '383489',
+        department_code: '347-895',
+        issued_by: 'ГУ МВД ПО Г. МОСКВЕ',
+        date_issue: '2020-12-11',
+      },
+      {
+        id: 4,
+        series: '4589',
+        number: '348949',
+        department_code: '489-467',
+        issued_by: 'ГУ МВД ПО Г. МОСКВЕ',
+        date_issue: '2011-10-29',
+      },
+      {
+        id: 5,
+        series: '8949',
+        number: '939339',
+        department_code: '383-899',
+        issued_by: 'ГУ МВД ПО Г. МОСКВЕ',
+        date_issue: '2017-03-20',
+      },
+    ],
+  };
+}
