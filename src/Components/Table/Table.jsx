@@ -39,6 +39,13 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
                   </div>
                 );
               }
+              if (col.display_field) {
+                return (
+                  <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
+                    {e[col.name][col.display_field]}
+                  </div>
+                );
+              }
               return (
                 <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
                   {e[col.name]}
