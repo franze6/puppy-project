@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 
 import Button from '../Kit/Button/Button';
 
+import Cell from '../Cell/Cell';
+
 import style from './Table.scss';
 
 const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
   const [internalColumns, setInternalColumns] = useState(columns);
+  const [editRowIndex, setEditRowIndex] = useState(-1);
 
   useEffect(() => {
     if ((canDelete || canUpdate) && internalColumns.findIndex(col => col.name === 'operations') === -1) {
@@ -35,7 +38,11 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
                     {canDelete && <Button small>Удалить</Button>}
-                    {canUpdate && <Button small>Изменить</Button>}
+                    {canUpdate && (
+                      <Button onClick={() => setEditRowIndex(editRowIndex === e.id ? -1 : e.id)} small>
+                        Изменить
+                      </Button>
+                    )}
                   </div>
                 );
               }
@@ -48,7 +55,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
               }
               return (
                 <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                  {e[col.name]}
+                  <Cell value={e[col.name]} data={col} isEdit={e.id === editRowIndex} />
                 </div>
               );
             })}
@@ -64,12 +71,13 @@ Table.propTypes = {
   canDelete: PropTypes.bool,
   columns: PropTypes.array,
   rows: PropTypes.array,
-  onRowClick: PropTypes.array,
+  onRowClick: PropTypes.func,
 };
 
 Table.defaultProps = {
   canUpdate: false,
   canDelete: false,
+  onRowClick: () => {},
 };
 
 export default Table;
