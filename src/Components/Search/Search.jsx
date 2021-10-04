@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Button from '../Kit/Button/Button';
 
-import Input from './Input';
+import Input from '../Kit/Input/Input';
 
 import styles from './Search.scss';
 
@@ -15,9 +15,12 @@ const Search = ({ onSearch }) => {
       <Input
         placeholder={'Введите фамилию полностью...'}
         value={input}
-        onChange={e => setInput(e.currentTarget.value)}
+        onChange={setInput}
+        onEnterKeyDown={() => onSearch(input)}
+        className={styles.searchInput}
+        onCrossButtonClick={() => setInput('')}
       />
-      <Button small className={styles.findButton} onClick={() => onSearch(input)}>
+      <Button className={styles.findButton} onClick={() => onSearch(input)}>
         Найти
       </Button>
     </div>

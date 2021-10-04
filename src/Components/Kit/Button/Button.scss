@@ -9,7 +9,7 @@
   border-radius: 4px;
   border: 1px solid #0062ff;
   width: fit-content;
-  cursor: pointer;
+  cursor: var(--pointer);
   user-select: none;
   position: relative;
 }

@@ -1,8 +1,14 @@
-:global(#root) {
+:global(*) {
   *,
   *::after,
   *::before {
     box-sizing: border-box;
     font-family: sans-serif;
+    cursor: var(--default);
   }
+}
+
+:root {
+  --pointer: url('./assets/img/pointer.png'), pointer;
+  --default: url('./assets/img/cursor.png'), default;
 }
