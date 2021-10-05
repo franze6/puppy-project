@@ -25,11 +25,13 @@ const ContactDetailsPage = () => {
       name: 'basic',
       display: 'Основной',
       width: 120,
+      format: 'bool',
     },
     {
       name: 'active',
       display: 'Действующий',
       width: 150,
+      format: 'bool',
     },
     {
       name: 'UID',
