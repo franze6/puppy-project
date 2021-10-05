@@ -26,13 +26,13 @@ const AddressPage = () => {
     {
       name: 'date_start',
       display: 'Дата заезда',
-      width: 120,
+      width: 180,
       format: 'date',
     },
     {
       name: 'date_end',
       display: 'Дата выезда',
-      width: 120,
+      width: 180,
       format: 'date',
     },
   ];

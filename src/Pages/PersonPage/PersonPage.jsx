@@ -38,36 +38,43 @@ const PersonPage = () => {
       name: 'last_name',
       display: 'Фамилия',
       width: 100,
+      format: 'default',
     },
     {
       name: 'first_name',
       display: 'Имя',
       width: 100,
+      format: 'default',
     },
     {
       name: 'second_name',
       display: 'Отчество',
       width: 150,
+      format: 'default',
     },
     {
       name: 'birth_date',
       display: 'Дата рождения',
       width: 150,
+      format: 'date',
     },
     {
       name: 'tax_id',
       display: 'ИНН',
       width: 150,
+      format: 'default',
     },
     {
       name: 'insurance_number',
       display: 'СНИЛС',
       width: 150,
+      format: 'default',
     },
     {
       name: 'gender',
       display: 'Пол',
       width: 120,
+      format: 'default',
     },
   ];
   return (

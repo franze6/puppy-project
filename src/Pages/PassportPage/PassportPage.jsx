@@ -20,27 +20,32 @@ const PassportPage = () => {
     {
       name: 'series',
       display: 'Серия',
-      width: 120,
+      width: 180,
+      format: 'default',
     },
     {
       name: 'number',
       display: 'Номер',
-      width: 120,
+      width: 180,
+      format: 'default',
     },
     {
       name: 'department_code',
       display: 'Код подразделения',
-      width: 170,
+      width: 180,
+      format: 'default',
     },
     {
       name: 'date_issue',
       display: 'Дата выдачи',
-      width: 120,
+      width: 180,
+      format: 'date',
     },
     {
       name: 'issued_by',
       display: 'Кем выдан',
       width: 250,
+      format: 'default',
     },
   ];
   return (

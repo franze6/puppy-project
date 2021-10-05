@@ -18,18 +18,21 @@ const CareerPage = () => {
     {
       name: 'date',
       display: 'Дата',
-      width: 120,
+      width: 200,
+      format: 'date',
     },
     {
       name: 'company',
       display: 'Название компании',
       display_field: 'company_name',
-      width: 120,
+      width: 200,
+      format: 'default',
     },
     {
       name: 'position',
       display: 'Должность',
-      width: 150,
+      width: 200,
+      format: 'default',
     },
   ];
   return (
