@@ -3,9 +3,18 @@ import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+import styles from './DateCell.scss';
+
 const DateCell = ({ value, isEdit, onChange }) => {
   if (isEdit) {
-    return <DatePicker selected={new Date(value)} onChange={e => onChange(e)} />;
+    return (
+      <DatePicker
+        dateFormat="MM.dd.yyyy"
+        selected={new Date(value)}
+        onChange={e => onChange(e)}
+        className={styles.customInput}
+      />
+    );
   }
   return <div>{new Date(value).toLocaleDateString()}</div>;
 };
