@@ -49,7 +49,8 @@ module.exports = (env, argv) => {
           exclude: /node_modules/,
         },
         {
-          test: /\.scss$/,
+          test: /\.(s?)css$/,
+          exclude: /node_modules/,
           use: [
             'style-loader',
             {
@@ -65,6 +66,10 @@ module.exports = (env, argv) => {
             'postcss-loader',
             'sass-loader',
           ],
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader', 'postcss-loader'],
         },
         {
           test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
