@@ -11,7 +11,7 @@ const Cell = ({ value, data, isEdit, onChange }) => {
   }
 
   if (data.format === 'bool') {
-    return <BoolCell value={value} isEdit={isEdit} />;
+    return <BoolCell value={value} isEdit={isEdit} onChange={onChange} />;
   }
 
   return <DefaultCell value={value} isEdit={isEdit} onChange={onChange} />;
@@ -27,6 +27,7 @@ Cell.defaultProps = {
   value: '',
   data: {},
   isEdit: false,
+  onChange: () => {},
 };
 
 export default Cell;
