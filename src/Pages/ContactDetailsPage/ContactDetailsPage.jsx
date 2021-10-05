@@ -19,24 +19,26 @@ const ContactDetailsPage = () => {
       name: 'type',
       display: 'Тип',
       display_field: 'type_name',
-      width: 120,
+      width: 180,
+      format: 'default',
     },
     {
       name: 'basic',
       display: 'Основной',
-      width: 120,
+      width: 180,
       format: 'bool',
     },
     {
       name: 'active',
       display: 'Действующий',
-      width: 150,
+      width: 180,
       format: 'bool',
     },
     {
       name: 'UID',
       display: 'UID',
       width: 200,
+      format: 'default',
     },
   ];
   return (
