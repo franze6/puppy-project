@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+}
+
+.checkbox {
+  border-radius: 4px;
+  border: 1px solid #7b7e86;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.size20 {
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.size16 {
+  width: 16px;
+  height: 16px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.size16 + .text {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.size20 + .text {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.text {
+  margin-left: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.hide:checked + .checkbox {
+  background: #0062ff;
+  color: #fff;
+  border: none;
+}
+
+.middle {
+  background-color: #fff;
+  width: 10px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.union {
+  background-image: url(./img/Union.svg);
+  width: 12px;
+  height: 8px;
+  border-radius: 1px;
+}
+
+.disabled {
+  border: 1px solid #b1b5bb;
+}
+
+.textDisabled {
+  color: #b1b5bb;
+}
