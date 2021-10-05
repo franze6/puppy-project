@@ -7,7 +7,7 @@ import DefaultCell from './DefaultCell';
 
 const Cell = ({ value, data, isEdit, onChange }) => {
   if (data.format === 'date') {
-    return <DateCell value={value} isEdit={isEdit} />;
+    return <DateCell value={value} isEdit={isEdit} onChange={onChange} />;
   }
 
   if (data.format === 'bool') {
