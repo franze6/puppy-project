@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import Button from '../Kit/Button/Button';
 
+import Cell from '../Cell/Cell';
+
 import style from './Table.scss';
 
 const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
@@ -53,7 +55,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
               }
               return (
                 <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                  {e.id === editRowIndex ? <input type="text" value={e[col.name]} /> : e[col.name]}
+                  <Cell value={e[col.name]} data={col} isEdit={e.id === editRowIndex} />
                 </div>
               );
             })}

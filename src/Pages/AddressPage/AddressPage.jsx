@@ -21,16 +21,19 @@ const AddressPage = () => {
       name: 'address',
       display: 'Адрес',
       width: 350,
+      format: 'default',
     },
     {
       name: 'date_start',
       display: 'Дата заезда',
       width: 120,
+      format: 'date',
     },
     {
       name: 'date_end',
       display: 'Дата выезда',
       width: 120,
+      format: 'date',
     },
   ];
   return (
