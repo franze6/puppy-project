@@ -10,6 +10,7 @@ import style from './Table.scss';
 
 const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
   const [internalColumns, setInternalColumns] = useState(columns);
+  const [internalRows, setInternalRows] = useState(rows);
   const [editRowIndex, setEditRowIndex] = useState(-1);
 
   useEffect(() => {
@@ -21,6 +22,22 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
     }
   }, [canUpdate, canDelete, columns]);
 
+  useEffect(() => setInternalRows(rows), [rows]);
+
+  function editRowCell(rowId, cellName, newValue) {
+    setInternalRows(
+      internalRows.map(row => {
+        if (row.id === rowId) {
+          return {
+            ...row,
+            [cellName]: newValue,
+          };
+        }
+        return row;
+      }),
+    );
+  }
+
   return (
     <div className={style.table}>
       <div className={style.thead}>
@@ -31,15 +48,15 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
         ))}
       </div>
       <div className={style.tbody}>
-        {rows.map(e => (
-          <div key={e.id} className={style.trow} onClick={() => onRowClick(e.id)}>
+        {internalRows.map(row => (
+          <div key={row.id} className={style.trow} onClick={() => onRowClick(row.id)}>
             {internalColumns.map(col => {
               if (col.name === 'operations') {
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
                     {canDelete && <Button small>Удалить</Button>}
                     {canUpdate && (
-                      <Button onClick={() => setEditRowIndex(editRowIndex === e.id ? -1 : e.id)} small>
+                      <Button onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)} small>
                         Изменить
                       </Button>
                     )}
@@ -49,13 +66,18 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
               if (col.display_field) {
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                    {e[col.name][col.display_field]}
+                    {row[col.name][col.display_field]}
                   </div>
                 );
               }
               return (
                 <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                  <Cell value={e[col.name]} data={col} isEdit={e.id === editRowIndex} />
+                  <Cell
+                    value={row[col.name]}
+                    data={col}
+                    isEdit={row.id === editRowIndex}
+                    onChange={val => editRowCell(row.id, col.name, val)}
+                  />
                 </div>
               );
             })}
