@@ -8,7 +8,7 @@ import Icon from '../Icon/Icon';
 
 import style from './Input.scss';
 
-const Input = memo(({ placeholder, isError, onChange, value, onCrossButtonClick, onEnterKeyDown, className }) => {
+const Input = memo(({ placeholder, isError, onChange, value, onCrossButtonClick, onEnterKeyDown, className, size }) => {
   const onChangeHandler = val => {
     onChange(val);
   };
@@ -17,12 +17,17 @@ const Input = memo(({ placeholder, isError, onChange, value, onCrossButtonClick,
     if (event.key === 'Enter') onEnterKeyDown();
   };
 
+  const classes = {
+    [style.error]: isError,
+    [style.size_small]: size === 'small',
+  };
+
   return (
     <div className={style.wrapper}>
       <input
         value={value}
         placeholder={placeholder}
-        className={cn(style.input, { [style.error]: isError }, className)}
+        className={cn(style.input, classes, className)}
         onChange={e => onChangeHandler(e.target.value)}
         onKeyDown={onKeyDown}
       />
@@ -43,6 +48,7 @@ Input.propTypes = {
   onCrossButtonClick: PropTypes.func,
   onEnterKeyDown: PropTypes.func,
   className: PropTypes.string,
+  size: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -52,6 +58,7 @@ Input.defaultProps = {
   onCrossButtonClick: () => {},
   onEnterKeyDown: () => {},
   className: '',
+  size: '',
 };
 
 Input.displayName = 'SearchInput';
