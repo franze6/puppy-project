@@ -9,7 +9,7 @@ const DateCell = ({ value, isEdit, onChange }) => {
   if (isEdit) {
     return (
       <DatePicker
-        dateFormat="MM.dd.yyyy"
+        dateFormat="dd.MM.yyyy"
         selected={new Date(value)}
         onChange={e => onChange(e)}
         className={styles.customInput}
