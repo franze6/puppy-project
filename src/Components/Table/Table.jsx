@@ -54,7 +54,11 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
               if (col.name === 'operations') {
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                    {canDelete && <Button small>Удалить</Button>}
+                    {canDelete && (
+                      <Button onClick={() => setInternalRows(internalRows.filter(item => item.id !== row.id))} small>
+                        Удалить
+                      </Button>
+                    )}
                     {canUpdate && (
                       <Button onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)} small>
                         Изменить
