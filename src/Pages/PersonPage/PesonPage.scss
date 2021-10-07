@@ -2,7 +2,9 @@
   width: fit-content;
 }
 
-.search,
+.search {
+  margin: 8px 0;
+}
 .pagination {
   display: flex;
   justify-content: flex-end;

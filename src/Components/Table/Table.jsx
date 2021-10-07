@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
+import cn from 'classnames';
+
 import Button from '../Kit/Button/Button';
 
 import Cell from '../Cell/Cell';
@@ -48,8 +50,12 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
         ))}
       </div>
       <div className={style.tbody}>
-        {internalRows.map(row => (
-          <div key={row.id} className={style.trow} onClick={() => onRowClick(row.id)}>
+        {internalRows.map((row, index) => (
+          <div
+            key={row.id}
+            className={cn(style.trow, { [style.otrow]: index % 2 === 0 })}
+            onClick={() => onRowClick(row.id)}
+          >
             {internalColumns.map(col => {
               if (col.name === 'operations') {
                 return (

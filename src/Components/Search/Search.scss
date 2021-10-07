@@ -1,11 +1,25 @@
 .fieldSearch {
   display: flex;
-}
+  margin-left: 0;
 
-.searchInput {
-  width: 280px;
-}
+  .rectangle {
+    position: relative;
+  }
 
-.findButton {
-  margin-left: 8px;
+  .icon {
+    position: absolute;
+    bottom: 0;
+    top: 10px;
+    left: 10px;
+  }
+
+  .searchInput {
+    width: 280px;
+    background: #dae1ec;
+    border-radius: 4px;
+  }
+
+  .findButton {
+    margin-left: 8px;
+  }
 }
