@@ -1,5 +1,5 @@
 .button {
-  padding: 9px 23px;
+  padding: 11px 10px;
   color: #fff;
   font-style: normal;
   font-weight: 500;
@@ -12,6 +12,9 @@
   cursor: var(--pointer);
   user-select: none;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .outlined {
