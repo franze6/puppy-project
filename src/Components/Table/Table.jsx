@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import cn from 'classnames';
 
+import { nanoid } from 'nanoid';
+
 import Button from '../Kit/Button/Button';
 
 import Cell from '../Cell/Cell';
@@ -42,6 +44,17 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
 
   return (
     <div className={style.table}>
+      <div className={style.buttAdd}>
+        <Button
+          onClick={() => {
+            const checkboxId = nanoid();
+            setInternalRows([...internalRows, { id: checkboxId }]);
+            setEditRowIndex(checkboxId);
+          }}
+        >
+          Добавить
+        </Button>
+      </div>
       <div className={style.thead}>
         {internalColumns.map(e => (
           <div key={e.name} style={{ width: `${e.width}px` }} className={style.tcol}>
