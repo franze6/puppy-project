@@ -23,7 +23,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
     if ((canDelete || canUpdate) && internalColumns.findIndex(col => col.name === 'operations') === -1) {
       setInternalColumns([
         ...internalColumns,
-        { name: 'operations', display: 'Операции', width: 0 + (canDelete ? 100 : 0) + (canUpdate ? 100 : 0) },
+        { name: 'operations', display: 'Операции', width: 0 + (canDelete ? 60 : 0) + (canUpdate ? 60 : 0) },
       ]);
     }
   }, [canUpdate, canDelete, columns]);
