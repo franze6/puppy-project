@@ -10,6 +10,8 @@ import Button from '../Kit/Button/Button';
 
 import Cell from '../Cell/Cell';
 
+import Icon from '../Kit/Icon/Icon';
+
 import style from './Table.scss';
 
 const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
@@ -73,10 +75,18 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
               if (col.name === 'operations') {
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                    {canDelete && <Button small>Удалить</Button>}
                     {canUpdate && (
-                      <Button onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)} small>
-                        Изменить
+                      <Button
+                        onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)}
+                        className={style.icon}
+                        small
+                      >
+                        <Icon name="edit" />
+                      </Button>
+                    )}
+                    {canDelete && (
+                      <Button className={style.icon} small>
+                        <Icon name="delete" />
                       </Button>
                     )}
                   </div>
