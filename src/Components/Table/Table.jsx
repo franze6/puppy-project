@@ -9,6 +9,7 @@ import { nanoid } from 'nanoid';
 import Button from '../Kit/Button/Button';
 
 import Cell from '../Cell/Cell';
+import Icon from '../Kit/Icon/Icon';
 
 import Icon from '../Kit/Icon/Icon';
 
@@ -54,6 +55,9 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
             setEditRowIndex(checkboxId);
           }}
         >
+          <div className={style.icon}>
+            <Icon name="plus" />
+          </div>
           Добавить
         </Button>
       </div>
@@ -75,6 +79,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
               if (col.name === 'operations') {
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
+
                     {canUpdate && (
                       <Button
                         onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)}
