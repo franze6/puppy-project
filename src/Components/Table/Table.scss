@@ -55,6 +55,28 @@
   background-color: #ffffff;
 }
 
-.icon {
+.iconAdd {
+  margin-right: 5px;
+  max-height: 20px;
+}
 
+.icon {
+  background-color: #3a3a3a00;
+  border: none;
+
+  path {
+    fill: #a0a0a0;
+  }
+
+  &:hover path {
+    fill: #6b6b6b;
+  }
+
+  &:active path {
+    fill: #4d4d4d;
+  }
+}
+
+.icon:hover {
+  background-color: white;
 }
