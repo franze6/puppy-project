@@ -84,7 +84,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
                         className={style.icon}
                         small
                       >
-                        <Icon name="edit" />
+                        <Icon name={row.id === editRowIndex ? 'saved' : 'edit'} />
                       </Button>
                     )}
                     {canDelete && (
