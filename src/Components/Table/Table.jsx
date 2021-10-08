@@ -9,6 +9,7 @@ import { nanoid } from 'nanoid';
 import Button from '../Kit/Button/Button';
 
 import Cell from '../Cell/Cell';
+import Icon from '../Kit/Icon/Icon';
 
 import style from './Table.scss';
 
@@ -52,6 +53,9 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
             setEditRowIndex(checkboxId);
           }}
         >
+          <div className={style.icon}>
+            <Icon name="plus" />
+          </div>
           Добавить
         </Button>
       </div>
