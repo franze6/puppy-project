@@ -1,7 +1,11 @@
+/* eslint-disable consistent-return */
+/* eslint-disable array-callback-return */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../Kit/Button/Button';
+
+import Icon from '../Kit/Icon/Icon';
 
 import styles from './Pagination.scss';
 
@@ -10,17 +14,32 @@ const Pagination = props => {
   return (
     <div className={styles.buttonsList}>
       {pageArr.map(e => {
-        return (
-          <Button
-            className={styles.paginationButton}
-            outlined={e !== props.activePage}
-            small
-            key={e}
-            onClick={() => props.onPageChange(e)}
-          >
-            {e}
-          </Button>
-        );
+        if (e === 1)
+          return (
+            <Button
+              outlined={e !== props.activePage}
+              small
+              key={e}
+              onClick={() => props.onPageChange(props.activePage - 1 || 1)}
+              className={styles.buttonRigth}
+            >
+              <Icon name="rigth" />
+            </Button>
+          );
+        if (e === pageArr.length - 1)
+          return (
+            <Button
+              outlined={e !== props.activePage}
+              small
+              key={e}
+              onClick={() =>
+                props.onPageChange(props.activePage + 1 <= pageArr.length ? props.activePage + 1 : pageArr.length)
+              }
+              className={styles.buttonLeft}
+            >
+              <Icon name="left" />
+            </Button>
+          );
       })}
     </div>
   );

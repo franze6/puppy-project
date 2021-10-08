@@ -5,3 +5,22 @@
 .paginationButton {
   margin-left: 4px;
 }
+
+.buttonRigth {
+  background-color: #ffffff00;
+  border: none;
+  margin-right: 23px;
+
+  &:hover {
+    background-color: #00000000;
+  }
+}
+
+.buttonLeft {
+  background-color: #ffffff00;
+  border: none;
+
+  &:hover {
+    background-color: #00000000;
+  }
+}
