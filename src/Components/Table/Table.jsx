@@ -11,6 +11,8 @@ import Button from '../Kit/Button/Button';
 import Cell from '../Cell/Cell';
 import Icon from '../Kit/Icon/Icon';
 
+import Icon from '../Kit/Icon/Icon';
+
 import style from './Table.scss';
 
 const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
@@ -22,7 +24,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
     if ((canDelete || canUpdate) && internalColumns.findIndex(col => col.name === 'operations') === -1) {
       setInternalColumns([
         ...internalColumns,
-        { name: 'operations', display: 'Операции', width: 0 + (canDelete ? 100 : 0) + (canUpdate ? 100 : 0) },
+        { name: 'operations', display: 'Операции', width: 0 + (canDelete ? 60 : 0) + (canUpdate ? 60 : 0) },
       ]);
     }
   }, [canUpdate, canDelete, columns]);
@@ -77,14 +79,19 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
               if (col.name === 'operations') {
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                    {canDelete && (
-                      <Button onClick={() => setInternalRows(internalRows.filter(item => item.id !== row.id))} small>
-                        Удалить
+
+                    {canUpdate && (
+                      <Button
+                        onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)}
+                        className={style.icon}
+                        small
+                      >
+                        <Icon name="edit" />
                       </Button>
                     )}
-                    {canUpdate && (
-                      <Button onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)} small>
-                        Изменить
+                    {canDelete && (
+                      <Button className={style.icon} small>
+                        <Icon name="delete" />
                       </Button>
                     )}
                   </div>
