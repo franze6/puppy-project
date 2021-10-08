@@ -22,7 +22,7 @@ const PersonPage = () => {
     setActivePage(e);
     const data = await getPersons('', e);
     setList(data?.results || []);
-    setActivePageCount(`${(e - 1) * 10 || 1}-${e * 10}`);
+    setActivePageCount(`${(e - 1) * 10 || 1}-${(e - 1) * 10 + list.length}`);
   }
 
   useEffect(async () => {
