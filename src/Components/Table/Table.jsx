@@ -2,9 +2,15 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
+import cn from 'classnames';
+
+import { nanoid } from 'nanoid';
+
 import Button from '../Kit/Button/Button';
 
 import Cell from '../Cell/Cell';
+
+import Icon from '../Kit/Icon/Icon';
 
 import style from './Table.scss';
 
@@ -17,7 +23,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
     if ((canDelete || canUpdate) && internalColumns.findIndex(col => col.name === 'operations') === -1) {
       setInternalColumns([
         ...internalColumns,
-        { name: 'operations', display: 'Операции', width: 0 + (canDelete ? 100 : 0) + (canUpdate ? 100 : 0) },
+        { name: 'operations', display: 'Операции', width: 0 + (canDelete ? 60 : 0) + (canUpdate ? 60 : 0) },
       ]);
     }
   }, [canUpdate, canDelete, columns]);
@@ -40,6 +46,20 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
 
   return (
     <div className={style.table}>
+      <div className={style.buttAdd}>
+        <Button
+          onClick={() => {
+            const checkboxId = nanoid();
+            setInternalRows([...internalRows, { id: checkboxId }]);
+            setEditRowIndex(checkboxId);
+          }}
+        >
+          <div className={style.iconAdd}>
+            <Icon name="plus" />
+          </div>
+          Добавить
+        </Button>
+      </div>
       <div className={style.thead}>
         {internalColumns.map(e => (
           <div key={e.name} style={{ width: `${e.width}px` }} className={style.tcol}>
@@ -48,16 +68,32 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
         ))}
       </div>
       <div className={style.tbody}>
-        {internalRows.map(row => (
-          <div key={row.id} className={style.trow} onClick={() => onRowClick(row.id)}>
+        {internalRows.map((row, index) => (
+          <div
+            key={row.id}
+            className={cn(style.trow, { [style.otrow]: index % 2 === 0 })}
+            onClick={() => onRowClick(row.id)}
+          >
             {internalColumns.map(col => {
               if (col.name === 'operations') {
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                    {canDelete && <Button small>Удалить</Button>}
                     {canUpdate && (
-                      <Button onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)} small>
-                        Изменить
+                      <Button
+                        onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)}
+                        className={style.icon}
+                        small
+                      >
+                        <Icon name={row.id === editRowIndex ? 'saved' : 'edit'} />
+                      </Button>
+                    )}
+                    {canDelete && (
+                      <Button
+                        className={style.icon}
+                        onClick={() => setInternalRows(internalRows.filter(item => item.id !== row.id))}
+                        small
+                      >
+                        <Icon name="delete" />
                       </Button>
                     )}
                   </div>

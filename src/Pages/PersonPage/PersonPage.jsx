@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import Table from '../../Components/Table/Table';
 import Search from '../../Components/Search/Search';
-import Pagination from '../../Components/Pagination/Pagination';
+import Footer from '../../Components/Table/Footer';
 import { getPersons } from '../../utils/api';
 
 import styles from './PesonPage.scss';
@@ -13,6 +13,8 @@ const PersonPage = () => {
   const [list, setList] = useState([]);
   const [pageCount, setPageCount] = useState();
   const [activePage, setActivePage] = useState(1);
+  const [activePageCount, setActivePageCount] = useState(`${1}-${10}`);
+  const [recordCount, setRecordCount] = useState();
 
   const history = useHistory();
 
@@ -20,12 +22,14 @@ const PersonPage = () => {
     setActivePage(e);
     const data = await getPersons('', e);
     setList(data?.results || []);
+    setActivePageCount(`${(e - 1) * 10 || 1}-${(e - 1) * 10 + list.length}`);
   }
 
   useEffect(async () => {
     const data = await getPersons();
     setList(data?.results || []);
     setPageCount(data?.page_count || 1);
+    setRecordCount(data?.record_count);
   }, []);
 
   async function onSearch(searchTxt) {
@@ -84,7 +88,13 @@ const PersonPage = () => {
       </div>
       <Table columns={columns} rows={list} onRowClick={id => history.push(`${history.location.pathname}${id}`)} />
       <div className={styles.pagination}>
-        <Pagination pageCount={pageCount} activePage={activePage} onPageChange={onPageChange} />
+        <Footer
+          activePageCount={activePageCount}
+          recordCount={recordCount}
+          pageCount={pageCount}
+          activePage={activePage}
+          onPageChange={onPageChange}
+        />
       </div>
     </div>
   );

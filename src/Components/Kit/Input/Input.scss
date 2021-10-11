@@ -10,12 +10,12 @@
   height: 40px;
   border-radius: 4px;
   border: 1px solid #b1b5bb;
-  padding: 0 16px;
+  padding: 0 5px 0 35px;
   font-size: 16px;
 
   &:focus {
     outline: 0;
-    padding: 15px;
+    padding: 0 5px 0 35px;
     border: 2px solid #0062ff;
   }
 
