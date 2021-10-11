@@ -89,7 +89,7 @@ export async function getAddress() {
       },
       {
         id: 5,
-        address: 'ул. 3-Бутырки, д. 11',
+        address: 'ул. 2-Бутырки, д. 11',
         date_start: '2000-12-11',
         date_end: '2021-08-22',
       },
