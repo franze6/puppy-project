@@ -10,7 +10,7 @@ const BoolCell = ({ value, isEdit, onChange }) => {
   return <Checkbox checked={value} isMiddle={false} disabled />;
 };
 BoolCell.propTypes = {
-  value: PropTypes.node,
+  value: PropTypes.bool,
   isEdit: PropTypes.bool,
   onChange: PropTypes.func,
 };
