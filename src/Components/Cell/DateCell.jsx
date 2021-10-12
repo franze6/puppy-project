@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+import Input from '../Kit/Input/Input';
+
 import styles from './DateCell.scss';
 
 const DateCell = ({ value, isEdit, onChange }) => {
@@ -13,6 +15,14 @@ const DateCell = ({ value, isEdit, onChange }) => {
         selected={new Date(value).toString() === 'Invalid Date' ? '' : new Date(value)}
         onChange={e => onChange(e)}
         className={styles.customInput}
+        customInput={
+          <Input
+            hasCloseIcon={false}
+            placeholder={'Дата'}
+            size={'small'}
+            value={new Date(value).toString() === 'Invalid Date' ? '' : new Date(value)}
+          />
+        }
       />
     );
   }

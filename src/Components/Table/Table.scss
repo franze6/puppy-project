@@ -10,7 +10,7 @@
 .buttAdd {
   display: flex;
   justify-content: flex-end;
-  margin: 15px 15px 15px 0px;
+  margin: 15px 15px 15px 0;
 }
 
 .thead {
@@ -31,6 +31,7 @@
   display: flex;
   padding: 15px 10px;
   cursor: var(--pointer);
+  align-items: center;
 }
 
 .trow {

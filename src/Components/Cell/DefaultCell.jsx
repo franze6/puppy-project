@@ -1,9 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Input from '../Kit/Input/Input';
+
 const DefaultCell = ({ value, isEdit, onChange }) => {
   if (isEdit) {
-    return <input type="text" value={value} onChange={e => onChange(e.target.value)} />;
+    return (
+      <Input
+        type="text"
+        size={'small'}
+        value={value}
+        onChange={e => onChange(e.target.value)}
+        placeholder={'Введите значение...'}
+        hasCloseIcon={false}
+      />
+    );
   }
   return <div>{value}</div>;
 };
