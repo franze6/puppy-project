@@ -3,16 +3,20 @@ body {
 }
 
 .container {
-  padding: 15px;
-  border: 2px solid rgb(155, 155, 155);
+  display: flex;
+  // border: 2px solid rgb(155, 155, 155);
   border-radius: 5px;
-  width: 800px;
+  width: 900px;
 }
 
 .header {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
+  border-right: 1px solid rgb(155, 155, 155);
+  margin-right: 10px;
+  height: max;
 }
 
 .photo {
@@ -32,19 +36,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .main {
   display: flex;
+  width: 100%;
   margin-top: 30px;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .title {
   font-size: 20px;
   color: rgb(94, 94, 94);
-  border-bottom: 1px solid rgb(155, 155, 155);
   display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(155, 155, 155);
+  height: 70px;
+  margin: 10px;
 }
 
 .main :last-child {
@@ -52,11 +61,13 @@ body {
 }
 
 .text {
+  display: flex;
+  align-items: center;
   color: rgb(0, 0, 0);
+  width: 150px;
 }
 
 .label {
-  width: 150px;
-  text-align: right;
-  margin-right: 10px;
+  width: 200px;
+  margin-bottom: 15px;
 }
