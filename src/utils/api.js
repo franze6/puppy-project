@@ -200,7 +200,7 @@ export async function getContactDetails() {
         },
         basic: true,
         active: true,
-        UID: '+7(950)657-48-93',
+        UID: '@yaloginteleg',
       },
       {
         id: 4,
