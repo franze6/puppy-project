@@ -81,9 +81,9 @@ const Icon = memo(({ name, className }) => {
       return (
         <svg
           className={className}
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          viewBox="3 3 18 18"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -145,6 +145,44 @@ const Icon = memo(({ name, className }) => {
         </svg>
       );
     }
+    case 'calendar': {
+      return (
+        <svg
+          width="30px"
+          height="30px"
+          viewBox="0 0 30 30"
+          id="_04_-_Calendar"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+        >
+          <path
+            id="Path_219"
+            d="M31,7.8a4,4,0,0,0-4-4H5a4,4,0,0,0-4,4V27a4,4,0,0,0,4,4H27a4,4,0,0,0,4-4V7.8Zm-2,0V27a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V7.8a2,2,0,0,1,2-2H27a2,2,0,0,1,2,2Z"
+            transform="translate(-1 -1)"
+            fillRule="evenodd"
+          />
+          <path
+            id="Path_220"
+            d="M8,2V7.6a1,1,0,1,0,2,0V2A1,1,0,0,0,8,2Z"
+            transform="translate(-1 -1)"
+            fillRule="evenodd"
+          />
+          <path id="Path_221" d="M2,14.2H30v-2H2Z" transform="translate(-1 -1)" fillRule="evenodd" />
+          <path
+            id="Path_222"
+            d="M22,2V7.6a1,1,0,1,0,2,0V2a1,1,0,0,0-2,0Z"
+            transform="translate(-1 -1)"
+            fillRule="evenodd"
+          />
+          <circle id="Ellipse_2" cx="1.505" cy="1.505" r="1.505" transform="translate(5.795 15.595)" />
+          <circle id="Ellipse_3" cx="1.505" cy="1.505" r="1.505" transform="translate(13.495 15.595)" />
+          <circle id="Ellipse_4" cx="1.505" cy="1.505" r="1.505" transform="translate(21.195 15.595)" />
+          <circle id="Ellipse_5" cx="1.505" cy="1.505" r="1.505" transform="translate(21.195 22.486)" />
+          <circle id="Ellipse_6" cx="1.505" cy="1.505" r="1.505" transform="translate(13.495 22.486)" />
+          <circle id="Ellipse_7" cx="1.505" cy="1.505" r="1.505" transform="translate(5.795 22.486)" />
+        </svg>
+      );
+    }
     default:
       return null;
   }
@@ -154,7 +192,8 @@ Icon.displayName = 'Icon';
 
 Icon.propTypes = {
   className: PropTypes.string,
-  name: PropTypes.oneOf(['clear', 'union', 'search', 'plus', 'edit', 'delete', 'saved', 'left', 'rigth']).isRequired,
+  name: PropTypes.oneOf(['clear', 'union', 'search', 'plus', 'edit', 'delete', 'saved', 'left', 'rigth', 'calendar'])
+    .isRequired,
 };
 
 Icon.defaultProps = {

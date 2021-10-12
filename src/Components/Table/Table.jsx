@@ -79,22 +79,20 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
                     {canUpdate && (
-                      <Button
+                      <div
                         onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)}
                         className={style.icon}
-                        small
                       >
                         <Icon name={row.id === editRowIndex ? 'saved' : 'edit'} />
-                      </Button>
+                      </div>
                     )}
                     {canDelete && (
-                      <Button
+                      <div
                         className={style.icon}
                         onClick={() => setInternalRows(internalRows.filter(item => item.id !== row.id))}
-                        small
                       >
                         <Icon name="delete" />
-                      </Button>
+                      </div>
                     )}
                   </div>
                 );

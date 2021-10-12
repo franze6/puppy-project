@@ -1,3 +1,13 @@
 .customInput {
   width: inherit;
 }
+
+.calendarIcon {
+  width: 20px;
+  height: 20px;
+
+  path,
+  circle {
+    fill: #a0a0a0;
+  }
+}
