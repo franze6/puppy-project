@@ -6,6 +6,8 @@ import Table from '../../Components/Table/Table';
 // import Search from '../../Components/Search/Search';
 import { getAddress } from '../../utils/api';
 
+import Map1 from '../../Components/Map/Map';
+
 import styles from './AddressPage.scss';
 
 const AddressPage = () => {
@@ -39,6 +41,7 @@ const AddressPage = () => {
   return (
     <div className={styles.page}>
       <Table columns={columns} rows={list} canDelete canUpdate />
+      <Map1 />
     </div>
   );
 };
