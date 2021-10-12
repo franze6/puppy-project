@@ -16,11 +16,23 @@
 
   .searchInput {
     width: 280px;
-    background: #dae1ec;
-    border-radius: 4px;
+    background: #f9fcf8;
+    border: none;
+    border-radius: 8px;
+
+    &:focus {
+      border: none;
+    }
   }
 
   .findButton {
     margin-left: 8px;
+    background: #d46b4d;
+    border: none;
+    border-radius: 8px;
+
+    &:hover {
+      background: #ee7858;
+    }
   }
 }
