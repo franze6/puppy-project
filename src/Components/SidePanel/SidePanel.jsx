@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import Icon from '../Kit/Icon/Icon';
 
 import styles from './SidePanel.scss';
@@ -15,13 +17,13 @@ const SidePanel = () => {
         <div className={styles.menu_list}>
           <Icon name="home" className={styles.icon} />
           <li href="" className={styles.menu_item}>
-            ГЛАВНАЯ
+            <Link to="/main">ГЛАВНАЯ</Link>
           </li>
         </div>
         <div className={styles.menu_list}>
           <Icon name="persons" className={styles.icon} />
-          <li href="" className={styles.menu_item}>
-            СОТРУДНИКИ
+          <li className={styles.menu_item}>
+            <Link to="/persons">СОТРУДНИКИ </Link>
           </li>
         </div>
       </ul>

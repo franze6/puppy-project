@@ -12,3 +12,23 @@
   --pointer: url('./assets/img/pointer.png'), pointer;
   --default: url('./assets/img/cursor.png'), default;
 }
+
+.wrapper {
+  display: flex;
+  position: relative;
+}
+
+.SidePanel {
+}
+
+.search {
+  z-index: 1;
+  position: absolute;
+  left: 224px;
+}
+
+.page {
+  position: absolute;
+  left: 224px;
+  top: 65px;
+}
