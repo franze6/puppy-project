@@ -8,37 +8,53 @@ import Icon from '../Icon/Icon';
 
 import style from './Input.scss';
 
-const Input = memo(({ placeholder, isError, onChange, value, onCrossButtonClick, onEnterKeyDown, className, size }) => {
-  const onChangeHandler = val => {
-    onChange(val);
-  };
+const Input = memo(
+  ({
+    placeholder,
+    isError,
+    onChange,
+    value,
+    onCrossButtonClick,
+    onEnterKeyDown,
+    className,
+    size,
+    suffix,
+    hasCloseIcon,
+    onClick,
+  }) => {
+    const onChangeHandler = val => {
+      onChange(val);
+    };
 
-  const onKeyDown = event => {
-    if (event.key === 'Enter') onEnterKeyDown();
-  };
+    const onKeyDown = event => {
+      if (event.key === 'Enter') onEnterKeyDown();
+    };
 
-  const classes = {
-    [style.error]: isError,
-    [style.size_small]: size === 'small',
-  };
+    const classes = {
+      [style.error]: isError,
+      [style.size_small]: size === 'small',
+    };
 
-  return (
-    <div className={style.wrapper}>
-      <input
-        value={value}
-        placeholder={placeholder}
-        className={cn(style.input, classes, className)}
-        onChange={e => onChangeHandler(e.target.value)}
-        onKeyDown={onKeyDown}
-      />
-      {value && (
-        <button onClick={onCrossButtonClick} className={cn(style.cross, style.button)} type="button">
-          <Icon name="clear" className={style.icon} />
-        </button>
-      )}
-    </div>
-  );
-});
+    return (
+      <div className={style.wrapper}>
+        <input
+          value={value}
+          placeholder={placeholder}
+          className={cn(style.input, classes, className)}
+          onChange={e => onChangeHandler(e.target.value)}
+          onKeyDown={onKeyDown}
+          onClick={onClick}
+        />
+        {value && hasCloseIcon && (
+          <button onClick={onCrossButtonClick} className={cn(style.cross, style.button)} type="button">
+            <Icon name="clear" className={style.icon} />
+          </button>
+        )}
+        {suffix && <div className={style.suffix}>{suffix}</div>}
+      </div>
+    );
+  },
+);
 
 Input.propTypes = {
   placeholder: PropTypes.string.isRequired,
@@ -49,6 +65,9 @@ Input.propTypes = {
   onEnterKeyDown: PropTypes.func,
   className: PropTypes.string,
   size: PropTypes.string,
+  hasCloseIcon: PropTypes.bool,
+  onClick: PropTypes.func,
+  suffix: PropTypes.node,
 };
 
 Input.defaultProps = {
@@ -59,6 +78,9 @@ Input.defaultProps = {
   onEnterKeyDown: () => {},
   className: '',
   size: '',
+  hasCloseIcon: true,
+  suffix: null,
+  onClick: () => {},
 };
 
 Input.displayName = 'SearchInput';

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Table from '../../Components/Table/Table';
-// import Search from '../../Components/Search/Search';
+import Search from '../../Components/Search/Search';
 import Footer from '../../Components/Table/Footer';
 import { getPersons } from '../../utils/api';
 
@@ -32,10 +32,10 @@ const PersonPage = () => {
     setRecordCount(data?.record_count);
   }, []);
 
-  // async function onSearch(searchTxt) {
-  //   const data = await getPersons(searchTxt);
-  //   setList(data?.results || []);
-  // }
+  async function onSearch(searchTxt) {
+    const data = await getPersons(searchTxt);
+    setList(data?.results || []);
+  }
 
   const columns = [
     {
@@ -83,10 +83,10 @@ const PersonPage = () => {
   ];
   return (
     <div className={styles.page}>
-      {/* <div className={styles.search}>
+      <div className={styles.search}>
         <Search onSearch={onSearch} />
-      </div> */}
-      <Table columns={columns} rows={list} onRowClick={id => history.push(`${history.location.pathname}/${id}`)} />
+      </div>
+      <Table columns={columns} rows={list} onRowClick={id => history.push(`${history.location.pathname}${id}`)} />
       <div className={styles.pagination}>
         <Footer
           activePageCount={activePageCount}
