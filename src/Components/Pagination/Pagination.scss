@@ -2,25 +2,17 @@
   display: flex;
 }
 
-.paginationButton {
-  margin-left: 4px;
+.arrowButton path {
+  fill: #606f89;
+  &:hover {
+    fill: #2e3b52;
+  }
 }
 
-.buttonRigth {
-  background-color: #ffffff00;
-  border: none;
-  margin-right: 23px;
-
-  &:hover {
-    background-color: #00000000;
-  }
+.hide {
+  opacity: 0;
 }
 
 .buttonLeft {
-  background-color: #ffffff00;
-  border: none;
-
-  &:hover {
-    background-color: #00000000;
-  }
+  margin-right: 50px;
 }

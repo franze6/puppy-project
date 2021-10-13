@@ -7,7 +7,7 @@
   border-radius: 10px;
 }
 
-.buttAdd {
+.buttonAdd {
   display: flex;
   justify-content: flex-end;
   margin: 15px 15px 15px 0;
@@ -29,7 +29,7 @@
 
 .tcol {
   display: flex;
-  padding: 15px 10px;
+  padding: 15px 20px;
   cursor: var(--pointer);
   align-items: center;
 }
@@ -38,10 +38,10 @@
   display: flex;
   padding-left: 6px;
   background-color: #f4f7fc;
-  border-bottom: 5px solid #ffffff;
+  height: 56px;
 
   .tcol {
-    padding: 10px;
+    padding: 0 20px;
   }
 
   &:last-child {
@@ -49,7 +49,7 @@
   }
 }
 
-.otrow {
+.white {
   background-color: #ffffff;
 }
 
@@ -61,17 +61,20 @@
 .icon {
   background-color: #3a3a3a00;
   border: none;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
 
   path {
     fill: #a0a0a0;
-  }
 
-  &:hover path {
-    fill: #6b6b6b;
-  }
+    &:hover {
+      fill: #6b6b6b;
+    }
 
-  &:active path {
-    fill: #4d4d4d;
+    &:active {
+      fill: #4d4d4d;
+    }
   }
 }
 

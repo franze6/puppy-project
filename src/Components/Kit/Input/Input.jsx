@@ -21,6 +21,7 @@ const Input = memo(
     suffix,
     hasCloseIcon,
     onClick,
+    disabled,
   }) => {
     const onChangeHandler = val => {
       onChange(val);
@@ -44,6 +45,7 @@ const Input = memo(
           onChange={e => onChangeHandler(e.target.value)}
           onKeyDown={onKeyDown}
           onClick={onClick}
+          disabled={disabled}
         />
         {value && hasCloseIcon && (
           <button onClick={onCrossButtonClick} className={cn(style.cross, style.button)} type="button">
@@ -68,6 +70,7 @@ Input.propTypes = {
   hasCloseIcon: PropTypes.bool,
   onClick: PropTypes.func,
   suffix: PropTypes.node,
+  disabled: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -81,6 +84,7 @@ Input.defaultProps = {
   hasCloseIcon: true,
   suffix: null,
   onClick: () => {},
+  disabled: false,
 };
 
 Input.displayName = 'SearchInput';
