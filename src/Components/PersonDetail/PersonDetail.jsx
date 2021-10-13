@@ -29,7 +29,13 @@ const PersonDetail = ({ person }) => {
             <Icon name="phone" />{' '}
           </div>
           <span className={styles.text}>
-            {list.map(contact => (contact.type.type_name === 'Телефон' && contact.active ? contact.UID : ''))}
+            {list.map(contact =>
+              contact.type.type_name === 'Телефон' && contact.active ? (
+                <a href="tel:{contact.UID}">{contact.UID}</a>
+              ) : (
+                ''
+              ),
+            )}
           </span>
         </div>
         <div className={styles.title_contact}>
@@ -38,7 +44,13 @@ const PersonDetail = ({ person }) => {
             <Icon name="telegram" />{' '}
           </div>
           <span className={styles.text}>
-            {list.map(contact => (contact.type.type_name === 'Telegram' && contact.active ? contact.UID : ''))}
+            {list.map(contact =>
+              contact.type.type_name === 'Telegram' && contact.active ? (
+                <a href="https://web.telegram.org/z/">{contact.UID}</a>
+              ) : (
+                ''
+              ),
+            )}
           </span>
         </div>
         <div className={styles.title_contact}>
@@ -47,7 +59,13 @@ const PersonDetail = ({ person }) => {
             <Icon name="mail" />{' '}
           </div>
           <span className={styles.text}>
-            {list.map(contact => (contact.type.type_name === 'e-mail' && contact.active ? contact.UID : ''))}
+            {list.map(contact =>
+              contact.type.type_name === 'e-mail' && contact.active ? (
+                <a href="https://mail.yandex.ru/">{contact.UID}</a>
+              ) : (
+                ''
+              ),
+            )}
           </span>
         </div>
         <div className={styles.title_contact}>
@@ -56,7 +74,13 @@ const PersonDetail = ({ person }) => {
             <Icon name="whatsApp" />{' '}
           </div>
           <span className={styles.text}>
-            {list.map(contact => (contact.type.type_name === 'WhatsApp' && contact.active ? contact.UID : ''))}
+            {list.map(contact =>
+              contact.type.type_name === 'WhatsApp' && contact.active ? (
+                <a href="https://web.whatsapp.com/">{contact.UID}</a>
+              ) : (
+                ''
+              ),
+            )}
           </span>
         </div>
       </div>
