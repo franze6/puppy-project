@@ -1,6 +1,3 @@
-.wrapper {
-}
-
 .timeline {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -32,6 +29,7 @@
   position: relative;
   top: 10px;
   text-align: center;
+  align-items: center;
 }
 
 .circle {
@@ -44,23 +42,23 @@
   z-index: 1;
   bottom: calc(50% - 10px);
   left: -29.5px;
+
+  &:hover {
+    border: 2px solid #91d9b0;
+  }
 }
 
-.circle:hover {
-  border: 2px solid #91d9b0;
-}
-
-.carrers {
+.careers {
   padding: 15px 20px;
   border-left: 1px solid #ececec;
   border-right: 1px solid #ececec;
   font-size: 14px;
   color: #282635;
   width: 130px;
-}
 
-.carrers:last-child {
-  border-right: none;
+  &:last-child {
+    border-right: none;
+  }
 }
 
 .title {
@@ -70,7 +68,7 @@
 
 .date {
   padding: 15px 20px;
-  line-height: 35px;
   color: #282635;
   font-size: 20px;
+  align-items: center;
 }
