@@ -16,7 +16,7 @@ const SidePanel = () => {
         </div>
         <div className={styles.menu_list}>
           <Icon name="home" className={styles.icon} />
-          <li href="" className={styles.menu_item}>
+          <li className={styles.menu_item}>
             <Link to="/main">ГЛАВНАЯ</Link>
           </li>
         </div>
