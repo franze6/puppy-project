@@ -8,12 +8,12 @@ import styles from './SidePanel.scss';
 
 const SidePanel = () => {
   return (
-    <div>
+    <div className={styles.menu_wrap}>
+      <div className={styles.logo_item}>
+        <Icon name="logo" className={styles.logo} />
+        <p className={styles.text_logo}>LOGO</p>
+      </div>
       <ul className={styles.menu}>
-        <div className={styles.logo_item}>
-          <Icon name="logo" className={styles.logo} />
-          <p className={styles.text_logo}>LOGO</p>
-        </div>
         <div className={styles.menu_list}>
           <Icon name="home" className={styles.icon} />
           <li className={styles.menu_item}>
