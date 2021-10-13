@@ -10,12 +10,12 @@
   height: 40px;
   border-radius: 4px;
   border: 1px solid #b1b5bb;
-  padding: 0 5px 0 35px;
+  padding: 0 16px;
   font-size: 16px;
 
   &:focus {
     outline: 0;
-    padding: 0 5px 0 35px;
+    padding: 15px;
     border: 2px solid #0062ff;
   }
 
@@ -76,4 +76,12 @@
   &:active path {
     fill: #022d9a;
   }
+}
+
+.suffix {
+  position: absolute;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

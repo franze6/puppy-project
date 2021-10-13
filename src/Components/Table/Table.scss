@@ -3,22 +3,21 @@
   flex-direction: column;
   width: fit-content;
   font-size: 16px;
-  background-color: #e0ebe0;
+  background-color: #f4f7fc;
   border-radius: 10px;
 }
 
 .buttAdd {
   display: flex;
   justify-content: flex-end;
-  margin: 15px 15px 15px 0px;
+  margin: 15px 15px 15px 0;
 }
 
 .thead {
   display: flex;
   height: 45px;
   padding-left: 6px;
-  background-color: #e0ebe0;
-  letter-spacing: 1px;
+  background-color: #f4f7fc;
 }
 
 .tbody {
@@ -32,12 +31,13 @@
   display: flex;
   padding: 15px 10px;
   cursor: var(--pointer);
+  align-items: center;
 }
 
 .trow {
   display: flex;
   padding-left: 6px;
-  background-color: #e0ebe0;
+  background-color: #f4f7fc;
   border-bottom: 5px solid #ffffff;
 
   .tcol {
