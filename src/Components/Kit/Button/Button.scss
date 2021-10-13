@@ -5,9 +5,9 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  background-color: #d46b4d;
+  background-color: #0062ff;
   border-radius: 4px;
-  border: 1px solid #d46b4d;
+  border: 1px solid #0062ff;
   width: fit-content;
   cursor: var(--pointer);
   user-select: none;
@@ -21,11 +21,11 @@
 }
 
 .button:hover {
-  background-color: #ee7858;
+  background-color: #0142d3;
 }
 
 .button:active {
-  background-color: #ee7858;
+  background-color: #022d9a;
 }
 
 .outlined:hover {
