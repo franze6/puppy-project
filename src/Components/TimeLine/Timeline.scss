@@ -3,7 +3,7 @@
   margin-bottom: 10px;
   padding-left: 15px;
   padding-bottom: 5px;
-  background-color: #eff1f7;
+  background-color: #f6f9f6;
   width: max-content;
   height: max-content;
   border-radius: 3%;
@@ -11,7 +11,7 @@
 }
 
 .line {
-  background-color: #2b76cc;
+  background-color: #d46b4d;
   position: absolute;
   height: 100%;
   width: 3px;
@@ -34,7 +34,7 @@
 
 .circle {
   background-color: #ffffff;
-  border: 2px solid #2b76cc;
+  border: 2px solid #d46b4d;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -44,7 +44,7 @@
   left: -29.5px;
 
   &:hover {
-    border: 2px solid #91d9b0;
+    border: 2px solid #ee7858;
   }
 }
 
