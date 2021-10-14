@@ -4,6 +4,7 @@ import React from 'react';
 import { App } from '../App';
 import PersonPage from '../Pages/PersonPage/PersonPage';
 import PersonsDetail from '../Pages/PersonsDetail';
+import MainPage from '../Pages/MainPage/MainPage';
 
 export const routes = [
   {
@@ -13,7 +14,12 @@ export const routes = [
         path: '/',
         redirect: '/123',
         exact: true,
-        component: () => <Redirect to="/persons/" />,
+        component: () => <Redirect to="/main/" />,
+      },
+      {
+        path: '/main',
+        exact: true,
+        component: MainPage,
       },
       {
         path: '/persons',

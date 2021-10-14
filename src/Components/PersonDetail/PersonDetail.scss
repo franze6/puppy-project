@@ -4,7 +4,7 @@ body {
 
 .container {
   padding: 15px;
-  border: 2px solid rgb(155, 155, 155);
+  border: 2px solid #9b9b9b;
   border-radius: 5px;
   width: 800px;
 }
@@ -42,8 +42,8 @@ body {
 
 .title {
   font-size: 20px;
-  color: rgb(94, 94, 94);
-  border-bottom: 1px solid rgb(155, 155, 155);
+  color: #5e5e5e;
+  border-bottom: 1px solid #9b9b9b;
   display: flex;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .text {
-  color: rgb(0, 0, 0);
+  color: #000000;
 }
 
 .label {
