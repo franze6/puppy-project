@@ -17,6 +17,11 @@ const DateCell = ({ value, isEdit, onChange }) => {
         selected={new Date(value).toString() === 'Invalid Date' ? '' : new Date(value)}
         onChange={e => onChange(e)}
         className={styles.customInput}
+        dayClassName={function getClass(date) {
+          return this.selected.getDate() === date.getDate() && this.selected.getMonth() === date.getMonth()
+            ? styles.openDate
+            : styles.anyDate;
+        }}
         customInput={
           <Input
             hasCloseIcon={false}
