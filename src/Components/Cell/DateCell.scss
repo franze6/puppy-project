@@ -11,3 +11,19 @@
     fill: #a0a0a0;
   }
 }
+
+.openDate {
+  border-radius: 50%;
+  background-color: #d46b4d;
+
+  &:hover {
+    background-color: #ee7858;
+    border-radius: 50%;
+  }
+}
+
+.anyDate {
+  &:hover {
+    border-radius: 50%;
+  }
+}
