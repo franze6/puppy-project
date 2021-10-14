@@ -57,7 +57,7 @@ const PersonDetail = ({ person }) => {
           <span className={styles.text}>
             {list.map(contact =>
               contact.type.type_name === 'Telegram' && contact.active ? (
-                <a href="https://web.telegram.org/z/">{contact.UID}</a>
+                <a href={`tg:${contact.UID}`}>{contact.UID}</a>
               ) : (
                 ''
               ),
@@ -85,7 +85,7 @@ const PersonDetail = ({ person }) => {
           <span className={styles.text}>
             {list.map(contact =>
               contact.type.type_name === 'WhatsApp' && contact.active ? (
-                <a href="https://web.whatsapp.com/">{contact.UID}</a>
+                <a href={`whatsapp:${contact.UID}`}>{contact.UID}</a>
               ) : (
                 ''
               ),
