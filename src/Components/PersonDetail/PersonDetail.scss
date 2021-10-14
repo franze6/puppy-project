@@ -3,16 +3,25 @@ body {
 }
 
 .container {
-  padding: 15px;
-  border: 2px solid #9b9b9b;
-  border-radius: 5px;
-  width: 800px;
+  display: flex;
+  border-radius: 20px;
+  width: 1000px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f6f9f6;
 }
 
 .header {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
+  border-right: 1px solid rgb(197, 197, 197);
+  margin-right: 10px;
+  height: max;
+}
+
+.header :last-child {
+  border-bottom: 0;
 }
 
 .photo {
@@ -25,26 +34,36 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  margin-top: 10px;
 }
 
 .fio {
-  font-size: 40px;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .main {
   display: flex;
+  width: 100%;
   margin-top: 30px;
-  flex-direction: column;
+  flex-wrap: wrap;
+  height: auto;
 }
 
 .title {
-  font-size: 20px;
-  color: #5e5e5e;
-  border-bottom: 1px solid #9b9b9b;
+  font-size: 15px;
+  color: rgb(94, 94, 94);
   display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(197, 197, 197);
+  height: 70px;
+  margin: 10px 40px;
+  width: 150px;
 }
 
 .main :last-child {
@@ -52,11 +71,37 @@ body {
 }
 
 .text {
+  display: flex;
+  align-items: center;
+  width: 200px;
   color: #000000;
 }
 
 .label {
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title_contact {
+  font-size: 15px;
+  color: rgb(94, 94, 94);
+  display: flex;
+  margin: 20px;
+  width: 300px;
+}
+
+.label_contact {
   width: 150px;
   text-align: right;
   margin-right: 10px;
+  width: 30px;
+}
+
+a {
+  color: #ee7858;
+}
+
+.cake {
+  width: 25px;
+  margin-left: 5px;
 }
