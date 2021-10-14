@@ -80,7 +80,7 @@ const PersonPage = () => {
       {/* <div className={styles.search}>
         <Search onSearch={onSearch} />
       </div> */}
-      <Table columns={columns} rows={list} onRowClick={id => history.push(`${history.location.pathname}/${id}`)} />
+      <Table columns={columns} rows={list} onRowClick={id => history.replace(`/persons/${id}`)} />
       <div className={styles.pagination}>
         <Footer
           activePageCount={`${(activePage - 1) * 10 + 1}-${recordCount < 10 ? recordCount : activePage * 10}`}

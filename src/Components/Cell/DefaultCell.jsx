@@ -10,7 +10,7 @@ const DefaultCell = ({ value, isEdit, onChange }) => {
         type="text"
         size={'small'}
         value={value}
-        onChange={e => onChange(e.target.value)}
+        onChange={onChange}
         placeholder={'Введите значение...'}
         hasCloseIcon={false}
       />
