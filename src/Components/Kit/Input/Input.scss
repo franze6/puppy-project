@@ -16,7 +16,7 @@
   &:focus {
     outline: 0;
     padding: 15px;
-    border: 2px solid #0062ff;
+    border: 2px solid #d46b4d;
   }
 
   &::placeholder {
@@ -69,11 +69,11 @@
   }
 
   &:hover path {
-    fill: #0142d3;
+    fill: #ff8f70;
   }
 
   &:active path {
-    fill: #022d9a;
+    fill: #d46b4d;
   }
 }
 
