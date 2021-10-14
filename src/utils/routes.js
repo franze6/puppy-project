@@ -31,6 +31,11 @@ export const routes = [
         exact: true,
         component: PersonsDetail,
       },
+      {
+        path: '/persons/search/:searchText',
+        exact: true,
+        component: PersonPage,
+      },
     ],
   },
 ];
