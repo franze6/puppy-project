@@ -43,7 +43,9 @@ const PersonDetail = ({ person }) => {
           <span className={styles.text}>
             {list.map(contact =>
               contact.type.type_name === 'Телефон' && contact.active ? (
-                <a href={`tel:${contact.UID}`}>{contact.UID}</a>
+                <a className={styles.link} href={`tel:${contact.UID}`}>
+                  {contact.UID}
+                </a>
               ) : (
                 ''
               ),
@@ -57,7 +59,9 @@ const PersonDetail = ({ person }) => {
           <span className={styles.text}>
             {list.map(contact =>
               contact.type.type_name === 'Telegram' && contact.active ? (
-                <a href={`tg:${contact.UID}`}>{contact.UID}</a>
+                <a className={styles.link} href={`tg:${contact.UID}`}>
+                  {contact.UID}
+                </a>
               ) : (
                 ''
               ),
@@ -71,7 +75,9 @@ const PersonDetail = ({ person }) => {
           <span className={styles.text}>
             {list.map(contact =>
               contact.type.type_name === 'e-mail' && contact.active ? (
-                <a href={`mailto:${contact.UID}`}>{contact.UID}</a>
+                <a className={styles.link} href={`mailto:${contact.UID}`}>
+                  {contact.UID}
+                </a>
               ) : (
                 ''
               ),
@@ -85,7 +91,9 @@ const PersonDetail = ({ person }) => {
           <span className={styles.text}>
             {list.map(contact =>
               contact.type.type_name === 'WhatsApp' && contact.active ? (
-                <a href={`whatsapp:${contact.UID}`}>{contact.UID}</a>
+                <a className={styles.link} href={`whatsapp:${contact.UID}`}>
+                  {contact.UID}
+                </a>
               ) : (
                 ''
               ),
