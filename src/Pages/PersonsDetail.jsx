@@ -7,8 +7,9 @@ import { useParams } from 'react-router-dom';
 import PersonDetail from '../Components/PersonDetail/PersonDetail';
 import { getPerson } from '../utils/api';
 
+import Timeline from '../Components/TimeLine/Timeline';
+
 import AddressPage from './AddressPage/AddressPage';
-import CareerPage from './CareerPage/CareerPage';
 import PassportPage from './PassportPage/PassportPage';
 import ContactDetailsPage from './ContactDetailsPage/ContactDetailsPage';
 
@@ -20,13 +21,13 @@ const PersonsDetail = () => {
   useEffect(async () => {
     const data = await getPerson(id || 1);
     setPerson(data);
-  }, []);
+  }, [id]);
 
   return (
     <div>
       <PersonDetail person={person} />
       <AddressPage />
-      <CareerPage />
+      <Timeline />
       <PassportPage />
       <ContactDetailsPage />
     </div>

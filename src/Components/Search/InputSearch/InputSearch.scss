@@ -1,0 +1,23 @@
+.rectangle {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  bottom: 0;
+  top: 10px;
+  left: 10px;
+}
+
+.searchInput {
+  width: 280px;
+  background: #f9fcf8;
+  border-radius: 4px;
+  padding: 0 5px 0 35px;
+  border: none;
+
+  &:focus {
+    padding: 0 5px 0 34px;
+    border: none;
+  }
+}

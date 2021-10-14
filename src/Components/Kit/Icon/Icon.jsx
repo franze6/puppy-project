@@ -81,9 +81,9 @@ const Icon = memo(({ name, className }) => {
       return (
         <svg
           className={className}
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          viewBox="3 3 18 18"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -117,7 +117,14 @@ const Icon = memo(({ name, className }) => {
     }
     case 'plus': {
       return (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+        >
           <path
             d="M11 9H15V11H11V15H9V11H5V9H9V5H11V9ZM10 20C7.34784 20 4.8043 18.9464 2.92893 17.0711C1.05357 15.1957 0 12.6522 0 10C0 7.34784 1.05357 4.8043 2.92893 2.92893C4.8043 1.05357 7.34784 0 10 0C12.6522 0 15.1957 1.05357 17.0711 2.92893C18.9464 4.8043 20 7.34784 20 10C20 12.6522 18.9464 15.1957 17.0711 17.0711C15.1957 18.9464 12.6522 20 10 20ZM10 18C12.1217 18 14.1566 17.1571 15.6569 15.6569C17.1571 14.1566 18 12.1217 18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 12.1217 2.84285 14.1566 4.34315 15.6569C5.84344 17.1571 7.87827 18 10 18Z"
             fill="white"
@@ -125,9 +132,16 @@ const Icon = memo(({ name, className }) => {
         </svg>
       );
     }
-    case 'left': {
+    case 'right': {
       return (
-        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="6"
+          height="10"
+          viewBox="0 0 6 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+        >
           <path
             d="M0.200293 1.10636C-0.428118 0.51287 0.566865 -0.426818 1.19528 0.216126L5.80362 4.51891C6.06546 4.7662 6.06546 5.21131 5.80362 5.4586L1.19528 9.81084C0.566865 10.4043 -0.428118 9.46464 0.200293 8.87115L4.28496 5.01348L0.200293 1.10636Z"
             fill="#606F89"
@@ -135,13 +149,116 @@ const Icon = memo(({ name, className }) => {
         </svg>
       );
     }
-    case 'rigth': {
+    case 'left': {
       return (
-        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="6"
+          height="10"
+          viewBox="0 0 6 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+        >
           <path
             d="M5.79971 1.10636C6.42812 0.51287 5.43313 -0.426818 4.80472 0.216126L0.196378 4.51891C-0.0654595 4.7662 -0.0654595 5.21131 0.196378 5.4586L4.80472 9.81084C5.43313 10.4043 6.42812 9.46464 5.79971 8.87115L1.71504 5.01348L5.79971 1.10636Z"
             fill="#606F89"
           />
+        </svg>
+      );
+    }
+    case 'home': {
+      return (
+        <svg
+          className={className}
+          width="30"
+          height="28"
+          viewBox="0 0 30 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.6965 25.4394V17.3144H18.1965V25.4394C18.1965 26.3331 18.9278 27.0644 19.8215 27.0644H24.6965C25.5903 27.0644 26.3215 26.3331 26.3215 25.4394V14.0644H29.084C29.8315 14.0644 30.189 13.1381 29.6203 12.6506L16.0353 0.414375C15.4178 -0.138125 14.4753 -0.138125 13.8578 0.414375L0.272759 12.6506C-0.279741 13.1381 0.0615093 14.0644 0.809009 14.0644H3.57151V25.4394C3.57151 26.3331 4.30276 27.0644 5.19651 27.0644H10.0715C10.9653 27.0644 11.6965 26.3331 11.6965 25.4394Z"
+            fill="black"
+            fillOpacity="0.5"
+          />
+        </svg>
+      );
+    }
+    case 'persons': {
+      return (
+        <svg
+          className={className}
+          width="30"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 22C4 19.8783 4.84285 17.8434 6.34315 16.3431C7.84344 14.8429 9.87827 14 12 14C14.1217 14 16.1566 14.8429 17.6569 16.3431C19.1571 17.8434 20 19.8783 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"
+            fill="#7b7c7b"
+          />
+        </svg>
+      );
+    }
+    case 'logo': {
+      return (
+        <svg
+          className={className}
+          width="120"
+          height="120"
+          viewBox="0 0 120 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M118.191 74.5143C110.178 106.657 77.6222 126.219 45.4752 118.204C13.3417 110.19 -6.22004 77.6324 1.79691 45.4918C9.80683 13.3451 42.3626 -6.21803 74.4997 1.79541C106.644 9.80884 126.205 42.3702 118.191 74.5149L118.191 74.5143H118.191Z"
+            fill="#d1e2d1"
+          />
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M67.5924 66.8022C67.1681 66.834 64.9761 66.9648 60.0866 66.9648C56.1976 66.9648 53.4364 66.8482 52.4677 66.8022C37.4385 66.1411 26.2205 63.5248 26.2205 60.3924C26.2205 57.26 37.4385 54.6473 52.4677 53.9756V64.1966C53.4506 64.2673 56.2648 64.4335 60.1538 64.4335C64.8206 64.4335 67.1575 64.239 67.5782 64.2001V53.9827C82.5756 54.6509 93.7689 57.2671 93.7689 60.3924C93.7689 63.5178 82.5792 66.134 67.5782 66.7987L67.5924 66.8022ZM67.5924 52.9256V43.7793H88.5223V29.832H31.5378V43.7793H52.4642V52.922C35.4551 53.7034 22.6638 57.0726 22.6638 61.1101C22.6638 65.1476 35.4551 68.5134 52.4642 69.2982V98.6071H67.5888V69.2876C84.559 68.5063 97.3291 65.1405 97.3291 61.1066C97.3291 57.0726 84.5696 53.7069 67.5888 52.922L67.5924 52.9256Z"
+            fill="white"
+          />
+        </svg>
+      );
+    }
+    case 'calendar': {
+      return (
+        <svg
+          width="30px"
+          height="30px"
+          viewBox="0 0 30 30"
+          id="_04_-_Calendar"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+        >
+          <path
+            id="Path_219"
+            d="M31,7.8a4,4,0,0,0-4-4H5a4,4,0,0,0-4,4V27a4,4,0,0,0,4,4H27a4,4,0,0,0,4-4V7.8Zm-2,0V27a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V7.8a2,2,0,0,1,2-2H27a2,2,0,0,1,2,2Z"
+            transform="translate(-1 -1)"
+            fillRule="evenodd"
+          />
+          <path
+            id="Path_220"
+            d="M8,2V7.6a1,1,0,1,0,2,0V2A1,1,0,0,0,8,2Z"
+            transform="translate(-1 -1)"
+            fillRule="evenodd"
+          />
+          <path id="Path_221" d="M2,14.2H30v-2H2Z" transform="translate(-1 -1)" fillRule="evenodd" />
+          <path
+            id="Path_222"
+            d="M22,2V7.6a1,1,0,1,0,2,0V2a1,1,0,0,0-2,0Z"
+            transform="translate(-1 -1)"
+            fillRule="evenodd"
+          />
+          <circle id="Ellipse_2" cx="1.505" cy="1.505" r="1.505" transform="translate(5.795 15.595)" />
+          <circle id="Ellipse_3" cx="1.505" cy="1.505" r="1.505" transform="translate(13.495 15.595)" />
+          <circle id="Ellipse_4" cx="1.505" cy="1.505" r="1.505" transform="translate(21.195 15.595)" />
+          <circle id="Ellipse_5" cx="1.505" cy="1.505" r="1.505" transform="translate(21.195 22.486)" />
+          <circle id="Ellipse_6" cx="1.505" cy="1.505" r="1.505" transform="translate(13.495 22.486)" />
+          <circle id="Ellipse_7" cx="1.505" cy="1.505" r="1.505" transform="translate(5.795 22.486)" />
         </svg>
       );
     }
@@ -319,7 +436,7 @@ const Icon = memo(({ name, className }) => {
             <path
               fill="#FFCFCF"
               d="M24.5 16.5c0-1.375-2.5-5-2.5-5s-2.5 3.625-2.5 5S20.625 19 22 19s2.5-1.125 2.5-2.5z"
-            ></path>
+            />
           </g>
         </svg>
       );
@@ -342,7 +459,11 @@ Icon.propTypes = {
     'delete',
     'saved',
     'left',
-    'rigth',
+    'right',
+    'home',
+    'persons',
+    'logo',
+    'calendar',
     'mail',
     'phone',
     'whatsApp',

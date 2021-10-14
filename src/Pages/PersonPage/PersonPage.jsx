@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Table from '../../Components/Table/Table';
-import Search from '../../Components/Search/Search';
+// import Search from '../../Components/Search/Search';
 import Footer from '../../Components/Table/Footer';
 import { getPersons } from '../../utils/api';
 
@@ -13,9 +13,8 @@ const PersonPage = () => {
   const [list, setList] = useState([]);
   const [pageCount, setPageCount] = useState();
   const [activePage, setActivePage] = useState(1);
-  const [activePageCount, setActivePageCount] = useState(`${1}-${10}`);
+  const [activePageCount, setActivePageCount] = useState(`1-10`);
   const [recordCount, setRecordCount] = useState();
-
   const history = useHistory();
 
   async function onPageChange(e) {
@@ -27,15 +26,10 @@ const PersonPage = () => {
 
   useEffect(async () => {
     const data = await getPersons();
-    setList(data?.results || []);
+    setList(history.location.list || data?.results || []);
     setPageCount(data?.page_count || 1);
     setRecordCount(data?.record_count);
-  }, []);
-
-  async function onSearch(searchTxt) {
-    const data = await getPersons(searchTxt);
-    setList(data?.results || []);
-  }
+  }, [history.location]);
 
   const columns = [
     {
@@ -83,10 +77,10 @@ const PersonPage = () => {
   ];
   return (
     <div className={styles.page}>
-      <div className={styles.search}>
+      {/* <div className={styles.search}>
         <Search onSearch={onSearch} />
-      </div>
-      <Table columns={columns} rows={list} onRowClick={id => history.push(`${history.location.pathname}${id}`)} />
+      </div> */}
+      <Table columns={columns} rows={list} onRowClick={id => history.push(`${history.location.pathname}/${id}`)} />
       <div className={styles.pagination}>
         <Footer
           activePageCount={activePageCount}

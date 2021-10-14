@@ -37,6 +37,7 @@ export async function getCareer() {
           company_name: 'ТСК',
         },
         position: 'Разработчик',
+        project: 'VTB',
       },
       {
         id: 2,
@@ -46,6 +47,7 @@ export async function getCareer() {
           company_name: 'Яндекс',
         },
         position: 'Аналитик',
+        project: 'MTS',
       },
       {
         id: 3,
@@ -55,6 +57,7 @@ export async function getCareer() {
           company_name: 'Google',
         },
         position: 'Тестировщик',
+        project: 'Sber',
       },
     ],
   };
