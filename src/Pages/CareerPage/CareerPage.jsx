@@ -34,6 +34,12 @@ const CareerPage = () => {
       width: 200,
       format: 'default',
     },
+    {
+      name: 'project',
+      display: 'Название проекта',
+      width: 200,
+      format: 'default',
+    },
   ];
   return (
     <div className={styles.page}>
