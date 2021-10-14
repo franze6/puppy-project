@@ -17,8 +17,17 @@ export const App = ({ route }) => {
   const history = useHistory();
   async function onSearch(searchTxt) {
     const data = await getPersons(searchTxt);
-    setId(data?.results.map(curr => curr.id));
-    history.replace(`/persons/${data?.results.map(curr => curr.id)}`);
+    const listId = data?.results.map(curr => curr.id);
+    setId(listId);
+    if (listId.length === 0) {
+      // eslint-disable-next-line no-alert
+      alert('Ничего не найдено');
+    } else if (listId.length > 1) {
+      history.replace(`/persons`);
+      history.location.list = data?.results;
+    } else {
+      history.replace(`/persons/${listId}`);
+    }
   }
   return (
     <div className={style.wrapper}>

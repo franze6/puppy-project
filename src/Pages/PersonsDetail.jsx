@@ -20,7 +20,7 @@ const PersonsDetail = () => {
   useEffect(async () => {
     const data = await getPerson(id || 1);
     setPerson(data);
-  }, []);
+  }, [id]);
 
   return (
     <div>
