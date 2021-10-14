@@ -17,9 +17,7 @@ const App = ({ route }) => {
   }
   return (
     <div className={style.wrapper}>
-      <div>
-        <SidePanel />
-      </div>
+      <SidePanel />
       <div className={style.search}>
         <Search onSearch={onSearch} />
       </div>

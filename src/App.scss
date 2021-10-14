@@ -18,15 +18,16 @@
 .wrapper {
   display: flex;
   position: relative;
+  min-height: 100vh;
 }
 
 .search {
-  position: absolute;
+  position: fixed;
   left: 224px;
 }
 
 .page {
-  position: absolute;
-  left: 224px;
-  top: 65px;
+  width: 100%;
+  margin-left: 224px;
+  margin-top: 65px;
 }

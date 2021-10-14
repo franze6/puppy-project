@@ -3,7 +3,7 @@ import React from 'react';
 
 import { App } from '../App';
 import PersonPage from '../Pages/PersonPage/PersonPage';
-import PersonsDetail from '../Pages/PersonsDetail';
+import PersonsDetail from '../Pages/PersonsDetail/PersonsDetail';
 import MainPage from '../Pages/MainPage/MainPage';
 
 export const routes = [
