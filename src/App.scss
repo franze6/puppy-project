@@ -22,8 +22,12 @@
 }
 
 .search {
+  width: 100%;
+  height: 70px;
   position: fixed;
   left: 224px;
+  background-color: #ffffff;
+  z-index: 2;
 }
 
 .page {
