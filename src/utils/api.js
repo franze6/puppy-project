@@ -238,3 +238,26 @@ export async function getContactDetails() {
     ],
   };
 }
+
+export async function getNotification() {
+  return {
+    results: [
+      {
+        text: 'bla-bla 1',
+        date: '2021-01-01',
+      },
+      {
+        text: 'bla-bla 2',
+        date: '2021-02-01',
+      },
+      {
+        text: 'bla-bla 3',
+        date: '2021-03-01',
+      },
+      {
+        text: 'bla-bla 4',
+        date: '2021-09-10',
+      },
+    ],
+  };
+}
