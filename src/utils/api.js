@@ -243,20 +243,24 @@ export async function getNotification() {
   return {
     results: [
       {
+        id: 1,
         text: 'bla-bla 1',
-        date: '2021-01-01',
+        date: '2017-03-20',
       },
       {
-        text: 'bla-bla 2',
-        date: '2021-02-01',
+        id: 2,
+        text: 'Тестовое уведомление номер два',
+        date: '2021-05-01',
       },
       {
+        id: 3,
         text: 'bla-bla 3',
         date: '2021-03-01',
       },
       {
+        id: 4,
         text: 'bla-bla 4',
-        date: '2021-09-10',
+        date: '2019-09-10',
       },
     ],
   };
