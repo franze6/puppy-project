@@ -9,7 +9,7 @@ import Button from '../Kit/Button/Button';
 import styles from './Notification.scss';
 
 const Notification = ({ onClose, onClickOk }) => {
-  const [viewAll, setViewAll] = useState(-1);
+  const [viewAll, setViewAll] = useState(false);
   const [activeNote, setActiveNote] = useState({});
   const [listNotification, setListNotification] = useState([]);
 
@@ -20,18 +20,18 @@ const Notification = ({ onClose, onClickOk }) => {
   }, []);
 
   function onViewClick() {
-    setViewAll(viewAll === 1 ? -1 : 1);
+    setViewAll(!viewAll);
   }
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        <div className={styles.titleNote}>{viewAll === 1 ? 'Уведомления' : 'Уведомление'}</div>
+        <div className={styles.titleNote}>{viewAll ? 'Уведомления' : 'Уведомление'}</div>
         <div className={styles.viewAll} onClick={() => onViewClick()}>
-          {viewAll === 1 ? 'Скрыть' : 'Показать все'}
+          {viewAll ? 'Скрыть' : 'Показать все'}
         </div>
       </div>
-      {viewAll === 1 ? (
+      {viewAll ? (
         listNotification
           .sort((a, b) => new Date(a.date) - new Date(b.date))
           .map(e => (
