@@ -8,7 +8,7 @@ import Button from '../Kit/Button/Button';
 
 import styles from './Notification.scss';
 
-const Natification = (onClose, onClickOk) => {
+const Notification = ({ onClose, onClickOk }) => {
   const [viewAll, setViewAll] = useState(-1);
   const [activeNote, setActiveNote] = useState({});
   const [listNotification, setListNotification] = useState([]);
@@ -78,4 +78,4 @@ Notification.defaultProps = {
   onClickOk: () => {},
 };
 
-export default Natification;
+export default Notification;
