@@ -43,6 +43,7 @@ const CareerPage = () => {
   ];
   return (
     <div className={styles.page}>
+      <div className={styles.name__table}>Карьерный путь</div>
       <Table columns={columns} rows={list} canDelete canUpdate />
     </div>
   );

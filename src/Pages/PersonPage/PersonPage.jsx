@@ -77,6 +77,7 @@ const PersonPage = () => {
   ];
   return (
     <div className={styles.page}>
+      <div className={styles.name__table}>Персональные данные</div>
       {/* <div className={styles.search}>
         <Search onSearch={onSearch} />
       </div> */}

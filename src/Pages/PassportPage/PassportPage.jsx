@@ -50,6 +50,7 @@ const PassportPage = () => {
   ];
   return (
     <div className={styles.page}>
+      <div className={styles.name__table}>Паспортные данные</div>
       <Table columns={columns} rows={list} canDelete canUpdate />
     </div>
   );

@@ -38,6 +38,7 @@ const AddressPage = () => {
   ];
   return (
     <div className={styles.page}>
+      <div className={styles.name__table}>Место жительства</div>
       <Table columns={columns} rows={list} canDelete canUpdate />
     </div>
   );

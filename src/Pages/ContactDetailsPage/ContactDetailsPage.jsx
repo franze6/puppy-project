@@ -13,14 +13,31 @@ const ContactDetailsPage = () => {
     const data = await getContactDetails();
     setList(data?.results || []);
   }, []);
-
+  const options = [
+    {
+      id: 1,
+      type_name: 'Телефон',
+    },
+    {
+      id: 2,
+      type_name: 'telegram',
+    },
+    {
+      id: 3,
+      type_name: 'e-mail',
+    },
+    {
+      id: 4,
+      type_name: 'WhatsApp',
+    },
+  ];
   const columns = [
     {
       name: 'type',
       display: 'Тип',
       display_field: 'type_name',
       width: 180,
-      format: 'default',
+      format: 'dropdown',
     },
     {
       name: 'basic',
@@ -43,7 +60,8 @@ const ContactDetailsPage = () => {
   ];
   return (
     <div className={styles.page}>
-      <Table columns={columns} rows={list} canDelete canUpdate />
+      <div className={styles.name__table}>Контактная информация</div>
+      <Table columns={columns} options={options} rows={list} canDelete canUpdate />
     </div>
   );
 };
