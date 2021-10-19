@@ -16,7 +16,7 @@ import Modal from '../Modal/Modal';
 
 import style from './Table.scss';
 
-const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
+const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, options }) => {
   const [internalColumns, setInternalColumns] = useState(columns);
   const [internalRows, setInternalRows] = useState(rows);
   const [editRowIndex, setEditRowIndex] = useState(-1);
@@ -106,7 +106,13 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
                 if (col.display_field) {
                   return (
                     <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                      {row[col.name][col.display_field]}
+                      <Cell
+                        value={row[col.name][col.display_field]}
+                        data={col}
+                        isEdit={row.id === editRowIndex}
+                        onChange={val => editRowCell(row.id, col.name, val)}
+                        options={options}
+                      />
                     </div>
                   );
                 }
@@ -136,12 +142,14 @@ Table.propTypes = {
   columns: PropTypes.array,
   rows: PropTypes.array,
   onRowClick: PropTypes.func,
+  options: PropTypes.array,
 };
 
 Table.defaultProps = {
   canUpdate: false,
   canDelete: false,
   onRowClick: () => {},
+  options: [],
 };
 
 export default Table;
