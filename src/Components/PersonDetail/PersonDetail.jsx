@@ -43,7 +43,7 @@ const PersonDetail = ({ person }) => {
             )}
           </div>
         </div>
-        <div>
+        <div className={styles.header__fio}>
           <div className={styles.fio}>{`${person.last_name} ${person.first_name}`}</div>
           <div className={styles.fio}>{`${person.second_name}`}</div>
           <div className={styles.title}>
@@ -57,9 +57,6 @@ const PersonDetail = ({ person }) => {
         </div>
         <div className={styles.header__link}>
           <div className={styles.title_contact}>
-            <div className={styles.label_contact} onClick={() => setEditLink(!editLink)}>
-              <Icon name="phone" className={styles.logo__link} />
-            </div>
             {editLink ? (
               <span className={styles.text}>
                 {list.map(contact =>
@@ -75,11 +72,11 @@ const PersonDetail = ({ person }) => {
             ) : (
               ''
             )}
+            <div className={styles.label_contact} onClick={() => setEditLink(!editLink)}>
+              <Icon name="phone" className={styles.logo__link} />
+            </div>
           </div>
           <div className={styles.title_contact}>
-            <div className={styles.label_contact} onClick={() => setEditLinkTeleg(!editLinkTeleg)}>
-              <Icon name="telegram" className={styles.logo__link} />
-            </div>
             {editLinkTeleg ? (
               <span className={styles.text}>
                 {list.map(contact =>
@@ -95,11 +92,11 @@ const PersonDetail = ({ person }) => {
             ) : (
               ''
             )}
+            <div className={styles.label_contact} onClick={() => setEditLinkTeleg(!editLinkTeleg)}>
+              <Icon name="telegram" className={styles.logo__link} />
+            </div>
           </div>
           <div className={styles.title_contact}>
-            <div className={styles.label_contact} onClick={() => setEditLinkMail(!editLinkMail)}>
-              <Icon name="mail" className={styles.logo__link} />
-            </div>
             {editLinkMail ? (
               <span className={styles.text}>
                 {list.map(contact =>
@@ -115,11 +112,11 @@ const PersonDetail = ({ person }) => {
             ) : (
               ''
             )}
+            <div className={styles.label_contact} onClick={() => setEditLinkMail(!editLinkMail)}>
+              <Icon name="mail" className={styles.logo__link} />
+            </div>
           </div>
           <div className={styles.title_contact}>
-            <div className={styles.label_contact} onClick={() => setEditLinkWhats(!editLinkWhats)}>
-              <Icon name="whatsApp" className={styles.logo__link} />
-            </div>
             {editLinkWhats ? (
               <span className={styles.text}>
                 {list.map(contact =>
@@ -135,6 +132,9 @@ const PersonDetail = ({ person }) => {
             ) : (
               ''
             )}
+            <div className={styles.label_contact} onClick={() => setEditLinkWhats(!editLinkWhats)}>
+              <Icon name="whatsApp" className={styles.logo__link} />
+            </div>
           </div>
         </div>
       </div>
