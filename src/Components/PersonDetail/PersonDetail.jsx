@@ -16,6 +16,7 @@ const PersonDetail = ({ person }) => {
   const [editLinkTeleg, setEditLinkTeleg] = useState(false);
   const [editLinkMail, setEditLinkMail] = useState(false);
   const [editLinkWhats, setEditLinkWhats] = useState(false);
+  const [currentCareer, setCurrentCareer] = useState({});
 
   useEffect(async () => {
     const data = await getContactDetails();
@@ -26,6 +27,7 @@ const PersonDetail = ({ person }) => {
     const currentDate = new Date();
     const userBirthDay = new Date(person.birth_date);
     setBirthDay(currentDate.getDate() === userBirthDay.getDate() && currentDate.getMonth() === userBirthDay.getMonth());
+    setCurrentCareer(person.career.filter(current => current.end_date === null)[0] || {});
   }, [person]);
 
   return (
@@ -43,7 +45,7 @@ const PersonDetail = ({ person }) => {
         </div>
         <div>
           <div className={styles.fio}>{`${person.last_name} ${person.first_name} ${person.second_name}`}</div>
-          <div className={styles.main}></div>
+          <div className={styles.main}>{`${currentCareer.job_title} ${currentCareer.company_id}`}</div>
         </div>
       </div>
       <div className={styles.header__link}>
