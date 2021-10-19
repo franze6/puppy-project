@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 // import { Checkbox, Grid, Menu, Segment, Sidebar } from 'semantic-ui-react';
 
-// import cn from 'classnames';
+import cn from 'classnames';
 
 import Icon from '../Kit/Icon/Icon';
 
@@ -14,24 +14,27 @@ import styles from './SidePanel.scss';
 const SidePanel = ({ show, onClick }) => {
   const [active, setActive] = useState('menu');
   return (
-    <div className={styles.menu_wrap}>
+    <div className={cn(styles.menu_wrap, { [styles.open]: show })}>
       <div className={styles.logo_item} onClick={onClick}>
         <Icon name="logo" />
       </div>
-      <nav className={show ? [styles.navMenuActive] : [styles.navMenu]}>
+      <nav>
         <ul className={styles.menu}>
           <div className={active === 'menu' ? styles.menuActive : styles.menu_list} onClick={() => setActive('menu')}>
             <li className={styles.menu_item}>
               <Link to="/main">
-                <Icon name="home" className={styles.icon} /> {show ? '' : 'ГЛАВНАЯ'}
+                <Icon name="home" className={styles.icon} /> {!show ? '' : 'ГЛАВНАЯ'}
               </Link>
             </li>
           </div>
-          <div className={active === 'sotr' ? styles.menuActive : styles.menu_list} onClick={() => setActive('sotr')}>
+          <div
+            className={active === 'persons' ? styles.menuActive : styles.menu_list}
+            onClick={() => setActive('persons')}
+          >
             <li className={styles.menu_item}>
               <Link to="/persons">
                 <Icon name="persons" className={styles.icon} />
-                {show ? '' : 'СОТРУДНИКИ'}
+                {!show ? '' : 'СОТРУДНИКИ'}
               </Link>
             </li>
           </div>

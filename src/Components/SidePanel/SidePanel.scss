@@ -1,21 +1,26 @@
 .menu_wrap {
-  width: 5%;
+  width: 70px;
   height: 100%;
   background-color: #f6f9f6;
   position: fixed;
-  top: 0;
+  margin-top: 20px;
   bottom: 0;
   margin: 0;
-  // -webkit-transition: left 0.3s;
-  // -moz-transition: left 0.3s;
-  // transition: left 0.3s;
-  // z-index: 20000;
+  transition: all 800ms cubic-bezier(0.8, 0, 0.33, 1);
+  z-index: 1;
 }
 
+.open {
+  width: 25vw;
+}
+
+// a{
+//   align-items: center;
+// }
+
 .logo_item {
-  display: flex;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 20px;
   justify-content: center;
 }
 
@@ -23,37 +28,26 @@
   list-style-type: none;
   padding: 0;
   margin-top: 100px;
-  margin-left: 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .menuActive {
-  display: flex;
   margin-top: 20px;
-  margin-left: 10px;
   border-radius: 10px;
   background-color: #d1e2d1;
 }
 
 .menu_list {
-  display: flex;
   margin-top: 20px;
   border-radius: 10px;
-  margin-left: 10px;
+  transition: 0.3s;
 }
 
 .menu_list:hover {
   background-color: #d1e2d1;
-  // animation: icon .1s 1;
-  // animation-iteration-count:unset;
 }
-
-// @keyframes icon {
-//   0%{ transform: rotateZ(-10deg); }
-//   100%{ transform: rotateZ(10deg); }
-// }
 
 .menu_item {
   width: max-content;
@@ -68,47 +62,16 @@
 
 .icon {
   margin-top: 10px;
-  margin-left: 15px;
+  margin-left: 20px;
 }
 
 .menu_item:hover {
   font-weight: 600;
-  align-items: center;
   & .icon {
     height: 40px;
     width: 40px;
     transition: 0.6s;
     margin-top: 5px;
-    margin-left: 10px;
-  }
-}
-
-.navMenu {
-  background-color: #f6f9f6;
-  width: 270px;
-  height: 100vh;
-  // display: flex;
-  transition: 2s;
-  position: absolute;
-}
-
-.navMenuActive {
-  transition: 2s;
-  transform: translateX(-15%);
-}
-
-@media only screen and (max-width: 600px) {
-  .menu_wrap {
-    bottom: 0;
-    width: 100vw;
-    height: 5rem;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .menu_wrap {
-    top: 0;
-    width: 5rem;
-    height: 100vh;
+    margin-left: 15px;
   }
 }
