@@ -1,0 +1,47 @@
+.select {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 14px;
+  border: 1px solid #b1b5bb;
+  border-radius: 4px;
+}
+
+.select__disabled {
+  pointer-events: none;
+}
+
+.select__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+}
+
+.select__current {
+  padding: 0 16px;
+}
+
+.select__icon {
+  color: #a0a0a0;
+  user-select: none;
+  padding: 0 16px;
+}
+
+.select__body {
+  position: absolute;
+  background-color: #fff;
+  border: 2px solid #d46b4d;
+  border-radius: 4px;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+}
+
+.select__item:hover {
+  background-color: #d46b4d;
+  color: #fff;
+}
