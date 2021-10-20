@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-
-import { getCareer } from '../../utils/api';
+import PropTypes from 'prop-types';
 
 import style from './Timeline.scss';
 
-const Timeline = () => {
+const Timeline = ({ person }) => {
   const [list, setList] = useState([]);
 
   useEffect(async () => {
-    const data = await getCareer();
-    setList(data?.results || []);
+    const data = person;
+    setList(data.career || []);
   }, []);
   return (
     <div className={style.timeline}>
@@ -19,23 +18,31 @@ const Timeline = () => {
         .map(curr => (
           <div className={style.list} key={curr.id}>
             <div className={style.circle}></div>
-            <div className={style.date}>{new Date(curr.date).getFullYear()}</div>
+            <div className={style.date}>
+              {curr.end_date
+                ? `${new Date(curr.start_date).toLocaleDateString()}-${new Date(curr.end_date).toLocaleDateString()}`
+                : `${new Date(curr.start_date).toLocaleDateString()}`}
+            </div>
             <div className={style.careers}>
               <div className={style.title}>Компания</div>
-              {curr.company.company_name}
+              {curr.company_id}
             </div>
             <div className={style.careers}>
               <div className={style.title}>Проект</div>
-              {curr.project}
+              {curr.project_id}
             </div>
             <div className={style.careers}>
               <div className={style.title}>Должность</div>
-              {curr.position}
+              {curr.job_title}
             </div>
           </div>
         ))}
     </div>
   );
+};
+
+Timeline.propTypes = {
+  person: PropTypes.object,
 };
 
 export default Timeline;
