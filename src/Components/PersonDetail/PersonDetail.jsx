@@ -47,7 +47,7 @@ const PersonDetail = ({ person }) => {
         </div>
         <div className={styles.header__fio}>
           <div className={styles.fio}>{`${person.last_name} ${person.first_name}`}</div>
-          <div className={styles.fio}>{`${person.second_name}`}</div>
+          <div className={styles.fio}>{`${person.second_name === null ? '' : person.second_name}`}</div>
           <div className={styles.title}>
             <div className={styles.label}> Должность: </div>
             <span className={styles.text}>{`${currentCareer.job_title}`}</span>
