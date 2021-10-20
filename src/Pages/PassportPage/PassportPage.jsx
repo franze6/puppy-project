@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
-// import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Table from '../../Components/Table/Table';
-// import Search from '../../Components/Search/Search';
-import { getPassport } from '../../utils/api';
 
 import styles from './PassportPage.scss';
 
-const PassportPage = () => {
+const PassportPage = ({ person }) => {
   const [list, setList] = useState([]);
 
   useEffect(async () => {
-    const data = await getPassport();
-    setList(data?.results || []);
+    const data = person;
+    setList(data.passport || []);
   }, []);
 
   const columns = [
@@ -30,13 +28,13 @@ const PassportPage = () => {
       format: 'default',
     },
     {
-      name: 'department_code',
+      name: 'issued_by_code',
       display: 'Код подразделения',
       width: 180,
       format: 'default',
     },
     {
-      name: 'date_issue',
+      name: 'issued_date',
       display: 'Дата выдачи',
       width: 180,
       format: 'date',
@@ -53,6 +51,10 @@ const PassportPage = () => {
       <Table tableName={'Паспортные Даннные'} columns={columns} rows={list} canDelete canUpdate />
     </div>
   );
+};
+
+PassportPage.propTypes = {
+  person: PropTypes.object,
 };
 
 export default PassportPage;
