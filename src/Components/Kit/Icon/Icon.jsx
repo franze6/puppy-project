@@ -264,7 +264,14 @@ const Icon = memo(({ name, className }) => {
     }
     case 'mail': {
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">
+        <svg
+          className={className}
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
           <path
             fill="#b8b8b8"
             fillRule="evenodd"
@@ -276,7 +283,14 @@ const Icon = memo(({ name, className }) => {
     }
     case 'phone': {
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">
+        <svg
+          className={className}
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
           <path
             fill="#b8b8b8"
             d="M6.68 3.32l.613-.613a1 1 0 011.414 0l2.586 2.586a1 1 0 010 1.414L9.5 8.5a.982.982 0 00-.183 1.133 11.293 11.293 0 005.05 5.05.982.982 0 001.133-.184l1.793-1.792a1 1 0 011.414 0l2.586 2.586a1 1 0 010 1.414l-.613.613a6 6 0 01-7.843.558l-1.208-.907a22.996 22.996 0 01-4.6-4.6l-.907-1.208A6 6 0 016.68 3.32z"
@@ -286,7 +300,14 @@ const Icon = memo(({ name, className }) => {
     }
     case 'whatsApp': {
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+        <svg
+          className={className}
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="none"
+          viewBox="0 0 32 32"
+        >
           <path
             fill="#b8b8b8"
             fillRule="evenodd"
@@ -318,7 +339,14 @@ const Icon = memo(({ name, className }) => {
     }
     case 'telegram': {
       return (
-        <svg width="25" height="25" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className={className}
+          width="25"
+          height="25"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z"
             fill="#b8b8b8"
