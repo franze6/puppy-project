@@ -40,7 +40,7 @@ const PersonsDetail = () => {
         <div>
           <PersonDetail person={person} />
           <AddressPage person={person} />
-          <Timeline />
+          <Timeline person={person} />
           <PassportPage />
           <ContactDetailsPage person={person} />
         </div>
