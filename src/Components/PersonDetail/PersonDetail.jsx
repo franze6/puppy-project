@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
+import cn from 'classnames';
+
 import { getContactDetails } from '../../utils/api';
 
 import Icon from '../Kit/Icon/Icon';
@@ -57,121 +59,79 @@ const PersonDetail = ({ person }) => {
         </div>
         <div className={styles.header__link}>
           <div className={styles.title_contact}>
-            {editLink ? (
-              <span className={styles.text}>
-                {list.map(contact =>
-                  contact.type.type_name === 'Телефон' && contact.active ? (
-                    <a className={styles.link} href={`tel:${contact.UID}`}>
-                      {contact.UID}
-                    </a>
-                  ) : (
-                    ''
-                  ),
-                )}
-              </span>
-            ) : (
-              <span className={styles.text}>
-                {list.map(contact =>
-                  contact.type.type_name === 'Телефон' && contact.active ? (
-                    <a className={styles.link__none} href={`tel:${contact.UID}`}>
-                      {contact.UID}
-                    </a>
-                  ) : (
-                    ''
-                  ),
-                )}
-              </span>
-            )}
+            <span className={styles.text}>
+              {list.map(contact =>
+                contact.type.type_name === 'Телефон' && contact.active ? (
+                  <a
+                    className={cn({ [styles.link]: editLink, [styles.link__none]: !editLink })}
+                    href={`tel:${contact.UID}`}
+                  >
+                    {contact.UID}
+                  </a>
+                ) : (
+                  ''
+                ),
+              )}
+            </span>
             <div className={styles.label_contact} onClick={() => setEditLink(!editLink)}>
               <Icon name="phone" className={styles.logo__link} />
             </div>
           </div>
           <div className={styles.title_contact}>
-            {editLinkTeleg ? (
-              <span className={styles.text}>
-                {list.map(contact =>
-                  contact.type.type_name === 'Telegram' && contact.active ? (
-                    <a className={styles.link} href={`tg:${contact.UID}`}>
-                      {contact.UID}
-                    </a>
-                  ) : (
-                    ''
-                  ),
-                )}
-              </span>
-            ) : (
-              <span className={styles.text}>
-                {list.map(contact =>
-                  contact.type.type_name === 'Telegram' && contact.active ? (
-                    <a className={styles.link__none} href={`tg:${contact.UID}`}>
-                      {contact.UID}
-                    </a>
-                  ) : (
-                    ''
-                  ),
-                )}
-              </span>
-            )}
+            <span className={styles.text}>
+              {list.map(contact =>
+                contact.type.type_name === 'Telegram' && contact.active ? (
+                  <a
+                    className={cn({ [styles.link]: editLinkTeleg, [styles.link__none]: !editLinkTeleg })}
+                    href={`tg:${contact.UID}`}
+                  >
+                    {contact.UID}
+                  </a>
+                ) : (
+                  ''
+                ),
+              )}
+            </span>
             <div className={styles.label_contact} onClick={() => setEditLinkTeleg(!editLinkTeleg)}>
               <Icon name="telegram" className={styles.logo__link} />
             </div>
           </div>
           <div className={styles.title_contact}>
-            {editLinkMail ? (
-              <span className={styles.text}>
-                {list.map(contact =>
-                  contact.type.type_name === 'e-mail' && contact.active ? (
-                    <a className={styles.link} href={`mailto:${contact.UID}`}>
-                      {contact.UID}
-                    </a>
-                  ) : (
-                    ''
-                  ),
-                )}
-              </span>
-            ) : (
-              <span className={styles.text}>
-                {list.map(contact =>
-                  contact.type.type_name === 'e-mail' && contact.active ? (
-                    <a className={styles.link__none} href={`mailto:${contact.UID}`}>
-                      {contact.UID}
-                    </a>
-                  ) : (
-                    ''
-                  ),
-                )}
-              </span>
-            )}
+            <span className={styles.text}>
+              {list.map(contact =>
+                contact.type.type_name === 'e-mail' && contact.active ? (
+                  <a
+                    className={cn({ [styles.link]: editLinkMail, [styles.link__none]: !editLinkMail })}
+                    href={`mailto:${contact.UID}`}
+                  >
+                    {contact.UID}
+                  </a>
+                ) : (
+                  ''
+                ),
+              )}
+            </span>
+
             <div className={styles.label_contact} onClick={() => setEditLinkMail(!editLinkMail)}>
               <Icon name="mail" className={styles.logo__link} />
             </div>
           </div>
           <div className={styles.title_contact}>
-            {editLinkWhats ? (
-              <span className={styles.text}>
-                {list.map(contact =>
-                  contact.type.type_name === 'WhatsApp' && contact.active ? (
-                    <a className={styles.link} href={`whatsapp:${contact.UID}`}>
-                      {contact.UID}
-                    </a>
-                  ) : (
-                    ''
-                  ),
-                )}
-              </span>
-            ) : (
-              <span className={styles.text}>
-                {list.map(contact =>
-                  contact.type.type_name === 'WhatsApp' && contact.active ? (
-                    <a className={styles.link__none} href={`whatsapp:${contact.UID}`}>
-                      {contact.UID}
-                    </a>
-                  ) : (
-                    ''
-                  ),
-                )}
-              </span>
-            )}
+            <span className={styles.text}>
+              {list.map(contact =>
+                contact.type.type_name === 'WhatsApp' && contact.active ? (
+                  <a
+                    className={cn({ [styles.link]: editLinkWhats, [styles.link__none]: !editLinkWhats })}
+                    href={`whatsapp:${contact.UID}`}
+                  >
+                    {contact.UID}
+                  </a>
+                ) : (
+                  ''
+                ),
+              )}
+            </span>
+
             <div className={styles.label_contact} onClick={() => setEditLinkWhats(!editLinkWhats)}>
               <Icon name="whatsApp" className={styles.logo__link} />
             </div>

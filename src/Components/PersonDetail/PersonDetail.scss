@@ -112,30 +112,20 @@ body {
   }
 }
 
-.link {
-  color: #ee7858;
-  animation: 0.7s link 0s forwards;
-  transform: translateX(100%);
-  opacity: 0;
-}
-@keyframes link {
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 .link__none {
   color: #ee7858;
-  animation: 0.7s link__none 0s forwards;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all linear 0.7s;
+  transition-property: transform, opacity;
+}
+
+.link {
+  color: #ee7858;
   transform: translateX(0);
   opacity: 1;
-}
-@keyframes link__none {
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
+  transition: all linear 0.7s;
+  transition-property: transform, opacity;
 }
 
 .cake {
