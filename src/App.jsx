@@ -26,7 +26,9 @@ const App = ({ route }) => {
         <SidePanel show={showNav} onClick={() => setShowNav(!showNav)} />
       </div>
       <div className={cn(style.content, { [style.content_active]: showNav })}>
-        <Search />
+        <div className={style.search}>
+          <Search />
+        </div>
         <div className={style.page}>{renderRoutes(route.routes)}</div>
       </div>
     </div>
