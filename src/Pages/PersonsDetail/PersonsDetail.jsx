@@ -42,7 +42,7 @@ const PersonsDetail = () => {
           <AddressPage person={person} />
           <Timeline />
           <PassportPage />
-          <ContactDetailsPage />
+          <ContactDetailsPage person={person} />
         </div>
       )}
     </>

@@ -1,41 +1,35 @@
 import React, { useEffect, useState } from 'react';
 
-import Table from '../../Components/Table/Table';
+import PropTypes from 'prop-types';
 
-import { getContactDetails } from '../../utils/api';
+import Table from '../../Components/Table/Table';
 
 import styles from './ContactDetailsPage.scss';
 
-const ContactDetailsPage = () => {
+const ContactDetailsPage = ({ person }) => {
   const [list, setList] = useState([]);
 
   useEffect(async () => {
-    const data = await getContactDetails();
-    setList(data?.results || []);
+    const data = person;
+    setList(data.messenger || []);
   }, []);
 
   const columns = [
     {
-      name: 'type',
+      name: 'name',
       display: 'Тип',
-      display_field: 'type_name',
+      // display_field: 'type_name',
       width: 180,
       format: 'default',
     },
     {
-      name: 'basic',
-      display: 'Основной',
-      width: 180,
-      format: 'bool',
-    },
-    {
-      name: 'active',
+      name: 'is_active',
       display: 'Действующий',
       width: 180,
       format: 'bool',
     },
     {
-      name: 'UID',
+      name: 'uid',
       display: 'UID',
       width: 200,
       format: 'default',
@@ -46,6 +40,10 @@ const ContactDetailsPage = () => {
       <Table tableName={'Контактная информация'} columns={columns} rows={list} canDelete canUpdate />
     </div>
   );
+};
+
+ContactDetailsPage.propTypes = {
+  person: PropTypes.object,
 };
 
 export default ContactDetailsPage;
