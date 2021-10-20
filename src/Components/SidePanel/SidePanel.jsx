@@ -1,32 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
+
+// import { Checkbox, Grid, Menu, Segment, Sidebar } from 'semantic-ui-react';
+
+import cn from 'classnames';
 
 import Icon from '../Kit/Icon/Icon';
 
 import styles from './SidePanel.scss';
 
-const SidePanel = () => {
+// eslint-disable-next-line react/prop-types
+const SidePanel = ({ show, onClick }) => {
+  const [active, setActive] = useState('menu');
   return (
-    <div className={styles.menu_wrap}>
-      <div className={styles.logo_item}>
-        <Icon name="logo" className={styles.logo} />
-        <p className={styles.text_logo}>LOGO</p>
+    <div className={cn(styles.menu_wrap, { [styles.open]: show })}>
+      <div className={styles.logo_item} onClick={onClick}>
+        <Icon name="logo" />
       </div>
-      <ul className={styles.menu}>
-        <div className={styles.menu_list}>
-          <Icon name="home" className={styles.icon} />
-          <li className={styles.menu_item}>
-            <Link to="/main">ГЛАВНАЯ</Link>
-          </li>
-        </div>
-        <div className={styles.menu_list}>
-          <Icon name="persons" className={styles.icon} />
-          <li className={styles.menu_item}>
-            <Link to="/persons">СОТРУДНИКИ </Link>
-          </li>
-        </div>
-      </ul>
+      <nav>
+        <ul className={styles.menu}>
+          <div className={active === 'menu' ? styles.menuActive : styles.menu_list} onClick={() => setActive('menu')}>
+            <li className={styles.menu_item}>
+              <Link to="/main">
+                <Icon name="home" className={styles.icon} /> {!show ? '' : 'ГЛАВНАЯ'}
+              </Link>
+            </li>
+          </div>
+          <div
+            className={active === 'persons' ? styles.menuActive : styles.menu_list}
+            onClick={() => setActive('persons')}
+          >
+            <li className={styles.menu_item}>
+              <Link to="/persons">
+                <Icon name="persons" className={styles.icon} />
+                {!show ? '' : 'СОТРУДНИКИ'}
+              </Link>
+            </li>
+          </div>
+        </ul>
+      </nav>
     </div>
   );
 };
