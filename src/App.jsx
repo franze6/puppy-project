@@ -5,7 +5,9 @@ import { renderRoutes } from 'react-router-config';
 
 import PropTypes from 'prop-types';
 
-// import Search from './Components/Search/Search';
+import cn from 'classnames';
+
+import Search from './Components/Search/Search';
 
 // import Icon from './Components/Kit/Icon/Icon';
 
@@ -17,11 +19,16 @@ const App = ({ route }) => {
   // async function onSearch(searchTxt) {
   //   history.replace(`/persons/search/${searchTxt}`);
   // }
-  const [showNav, setShowNav] = useState(true);
+  const [showNav, setShowNav] = useState(false);
   return (
     <div className={style.wrapper}>
-      <SidePanel show={showNav} onClick={() => setShowNav(!showNav)} />
-      <div className={style.page}>{renderRoutes(route.routes)}</div>
+      <div className={style.sidePanel}>
+        <SidePanel show={showNav} onClick={() => setShowNav(!showNav)} />
+      </div>
+      <div className={cn(style.content, { [style.content_active]: showNav })}>
+        <Search />
+        <div className={style.page}>{renderRoutes(route.routes)}</div>
+      </div>
     </div>
   );
 };
