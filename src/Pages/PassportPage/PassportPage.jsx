@@ -48,7 +48,7 @@ const PassportPage = ({ person }) => {
   ];
   return (
     <div className={styles.page}>
-      <Table columns={columns} rows={list} canDelete canUpdate />
+      <Table tableName={'Паспортные Даннные'} columns={columns} rows={list} canDelete canUpdate />
     </div>
   );
 };

@@ -1,39 +1,48 @@
 .menu_wrap {
-  width: auto;
+  width: 70px;
   height: 100%;
-  margin: 0;
   background-color: #f6f9f6;
   position: fixed;
+  margin-top: 20px;
+  bottom: 0;
+  margin: 0;
+  transition: all 800ms cubic-bezier(0.8, 0, 0.33, 1);
+  z-index: 1;
 }
+
+.open {
+  width: 25vw;
+}
+
+// a{
+//   align-items: center;
+// }
 
 .logo_item {
-  display: flex;
   text-align: center;
-}
-
-.logo {
-  width: 60px;
-  margin-left: 10%;
-}
-.text_logo {
-  text-align: center;
-  margin-top: auto;
-  font-size: 20px;
+  margin-top: 20px;
+  justify-content: center;
 }
 
 .menu {
   list-style-type: none;
   padding: 0;
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menuActive {
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: #d1e2d1;
 }
 
 .menu_list {
-  display: flex;
-  margin-top: 10px;
-  width: 200px;
-  height: 50px;
-  justify-content: center;
+  margin-top: 20px;
   border-radius: 10px;
+  transition: 0.3s;
 }
 
 .menu_list:hover {
@@ -41,12 +50,11 @@
 }
 
 .menu_item {
-  width: 151px;
-  height: 28px;
+  width: max-content;
+  height: max-content;
   font-size: 20px;
   line-height: 25px;
   padding: 0;
-  margin-top: 13px;
   text-align: center;
   color: #000000;
   letter-spacing: 1px;
@@ -54,4 +62,16 @@
 
 .icon {
   margin-top: 10px;
+  margin-left: 20px;
+}
+
+.menu_item:hover {
+  font-weight: 600;
+  & .icon {
+    height: 40px;
+    width: 40px;
+    transition: 0.6s;
+    margin-top: 5px;
+    margin-left: 15px;
+  }
 }
