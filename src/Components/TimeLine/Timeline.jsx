@@ -7,8 +7,7 @@ const Timeline = ({ person }) => {
   const [list, setList] = useState([]);
 
   useEffect(async () => {
-    const data = person;
-    setList(data.career || []);
+    setList(person.career || []);
   }, []);
   return (
     <div className={style.timeline}>
@@ -20,16 +19,16 @@ const Timeline = ({ person }) => {
             <div className={style.circle}></div>
             <div className={style.date}>
               {curr.end_date
-                ? `${new Date(curr.start_date).toLocaleDateString()}-${new Date(curr.end_date).toLocaleDateString()}`
+                ? `${new Date(curr.start_date).toLocaleDateString()} - ${new Date(curr.end_date).toLocaleDateString()}`
                 : `${new Date(curr.start_date).toLocaleDateString()}`}
             </div>
             <div className={style.careers}>
               <div className={style.title}>Компания</div>
-              {curr.company_id}
+              {curr.company_id.name}
             </div>
             <div className={style.careers}>
               <div className={style.title}>Проект</div>
-              {curr.project_id}
+              {curr.project_id.name}
             </div>
             <div className={style.careers}>
               <div className={style.title}>Должность</div>
