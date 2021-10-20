@@ -1,46 +1,42 @@
 import React, { useEffect, useState } from 'react';
 
-// import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Table from '../../Components/Table/Table';
-// import Search from '../../Components/Search/Search';
-import { getAddress } from '../../utils/api';
 
 import styles from './AddressPage.scss';
 
-const AddressPage = () => {
+const AddressPage = ({ person }) => {
   const [list, setList] = useState([]);
 
   useEffect(async () => {
-    const data = await getAddress();
-    setList(data?.results || []);
+    // const data = await getPerson();
+    setList(person.address || []);
   }, []);
 
   const columns = [
     {
-      name: 'address',
+      name: 'address_plain',
       display: 'Адрес',
       width: 350,
       format: 'default',
     },
     {
-      name: 'date_start',
-      display: 'Дата заезда',
+      name: 'is_active',
+      display: 'Актуальный',
       width: 180,
-      format: 'date',
-    },
-    {
-      name: 'date_end',
-      display: 'Дата выезда',
-      width: 180,
-      format: 'date',
+      format: 'bool',
     },
   ];
   return (
     <div className={styles.page}>
-      <Table columns={columns} rows={list} canDelete canUpdate />
+      <Table tableName={'Место жительства'} columns={columns} rows={list} canDelete canUpdate />
     </div>
   );
+};
+
+AddressPage.propTypes = {
+  person: PropTypes.object,
 };
 
 export default AddressPage;

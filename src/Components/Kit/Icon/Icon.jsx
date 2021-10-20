@@ -166,6 +166,22 @@ const Icon = memo(({ name, className }) => {
         </svg>
       );
     }
+    case 'navbar': {
+      return (
+        <svg
+          className={className}
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fillRule="evenodd" clipRule="evenodd" d="M19 17H1V15H19V17Z" fill="black" />
+          <path fillRule="evenodd" clipRule="evenodd" d="M19 11H1V9H19V11Z" fill="black" />
+          <path fillRule="evenodd" clipRule="evenodd" d="M19 5H1V3H19V5Z" fill="black" />
+        </svg>
+      );
+    }
     case 'home': {
       return (
         <svg
@@ -196,7 +212,8 @@ const Icon = memo(({ name, className }) => {
         >
           <path
             d="M4 22C4 19.8783 4.84285 17.8434 6.34315 16.3431C7.84344 14.8429 9.87827 14 12 14C14.1217 14 16.1566 14.8429 17.6569 16.3431C19.1571 17.8434 20 19.8783 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"
-            fill="#7b7c7b"
+            fill="black"
+            fillOpacity="0.5"
           />
         </svg>
       );
@@ -205,15 +222,15 @@ const Icon = memo(({ name, className }) => {
       return (
         <svg
           className={className}
-          width="120"
-          height="120"
+          width="50"
+          height="50"
           viewBox="0 0 120 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M118.191 74.5143C110.178 106.657 77.6222 126.219 45.4752 118.204C13.3417 110.19 -6.22004 77.6324 1.79691 45.4918C9.80683 13.3451 42.3626 -6.21803 74.4997 1.79541C106.644 9.80884 126.205 42.3702 118.191 74.5149L118.191 74.5143H118.191Z"
-            fill="#d1e2d1"
+            fill="black"
           />
           <path
             fillRule="evenodd"
@@ -264,7 +281,14 @@ const Icon = memo(({ name, className }) => {
     }
     case 'mail': {
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">
+        <svg
+          className={className}
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
           <path
             fill="#b8b8b8"
             fillRule="evenodd"
@@ -276,7 +300,14 @@ const Icon = memo(({ name, className }) => {
     }
     case 'phone': {
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">
+        <svg
+          className={className}
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
           <path
             fill="#b8b8b8"
             d="M6.68 3.32l.613-.613a1 1 0 011.414 0l2.586 2.586a1 1 0 010 1.414L9.5 8.5a.982.982 0 00-.183 1.133 11.293 11.293 0 005.05 5.05.982.982 0 001.133-.184l1.793-1.792a1 1 0 011.414 0l2.586 2.586a1 1 0 010 1.414l-.613.613a6 6 0 01-7.843.558l-1.208-.907a22.996 22.996 0 01-4.6-4.6l-.907-1.208A6 6 0 016.68 3.32z"
@@ -286,7 +317,14 @@ const Icon = memo(({ name, className }) => {
     }
     case 'whatsApp': {
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+        <svg
+          className={className}
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="none"
+          viewBox="0 0 32 32"
+        >
           <path
             fill="#b8b8b8"
             fillRule="evenodd"
@@ -318,7 +356,14 @@ const Icon = memo(({ name, className }) => {
     }
     case 'telegram': {
       return (
-        <svg width="25" height="25" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className={className}
+          width="25"
+          height="25"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z"
             fill="#b8b8b8"
@@ -494,7 +539,7 @@ Icon.propTypes = {
     'phone',
     'whatsApp',
     'telegram',
-    'cake',
+    'navbar',
     'notes',
   ]).isRequired,
 };
