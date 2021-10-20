@@ -8,6 +8,9 @@
   height: max-content;
   border-radius: 3%;
   position: relative;
+  max-width: 75vw;
+  overflow: hidden;
+  overflow-x: auto;
 }
 
 .line {
@@ -71,4 +74,16 @@
   color: #282635;
   font-size: 20px;
   align-items: center;
+}
+
+@media (max-width: 1100px) {
+  .timeline {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 700px) {
+  .timeline {
+    max-width: 300px;
+  }
 }
