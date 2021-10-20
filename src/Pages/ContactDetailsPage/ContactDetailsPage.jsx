@@ -43,7 +43,7 @@ const ContactDetailsPage = () => {
   ];
   return (
     <div className={styles.page}>
-      <Table columns={columns} rows={list} canDelete canUpdate />
+      <Table tableName={'Контактная информация'} columns={columns} rows={list} canDelete canUpdate />
     </div>
   );
 };

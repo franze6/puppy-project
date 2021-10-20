@@ -16,7 +16,7 @@ import Modal from '../Modal/Modal';
 
 import style from './Table.scss';
 
-const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
+const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName }) => {
   const [internalColumns, setInternalColumns] = useState(columns);
   const [internalRows, setInternalRows] = useState(rows);
   const [editRowIndex, setEditRowIndex] = useState(-1);
@@ -55,6 +55,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete }) => {
   return (
     <>
       <div className={style.table}>
+        <div className={style.name__table}>{tableName}</div>
         <div className={style.buttonAdd}>
           <Button
             onClick={() => {
@@ -136,12 +137,14 @@ Table.propTypes = {
   columns: PropTypes.array,
   rows: PropTypes.array,
   onRowClick: PropTypes.func,
+  tableName: PropTypes.string,
 };
 
 Table.defaultProps = {
   canUpdate: false,
   canDelete: false,
   onRowClick: () => {},
+  tableName: '',
 };
 
 export default Table;
