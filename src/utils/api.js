@@ -46,6 +46,24 @@ export async function setPassport(arr, id) {
   return resp;
 }
 
+export async function setMessengers(arr, id) {
+  const url = `http://pet.kandrusyak.ru:8000/api/messengers/create/`;
+  const obj = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: arr.name,
+      is_active: arr.is_active,
+      uid: arr.uid,
+      person_id: id,
+    }),
+  };
+  const resp = await fetch(url, obj);
+  return resp;
+}
+
 export async function getCareer() {
   return {
     results: [
