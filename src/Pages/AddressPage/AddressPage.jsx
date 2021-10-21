@@ -2,17 +2,25 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
+import { setAddress } from '../../utils/api';
+
 import Table from '../../Components/Table/Table';
 
 import styles from './AddressPage.scss';
 
 const AddressPage = ({ person }) => {
   const [list, setList] = useState([]);
+  const [personId, setPersonId] = useState();
 
   useEffect(async () => {
-    // const data = await getPerson();
-    setList(person.address || []);
+    const data = person;
+    setPersonId(data.id);
+    setList(data.address || []);
   }, []);
+
+  function onCreate(arr) {
+    setAddress(arr, personId);
+  }
 
   const columns = [
     {
@@ -30,7 +38,7 @@ const AddressPage = ({ person }) => {
   ];
   return (
     <div className={styles.page}>
-      <Table tableName={'Место жительства'} columns={columns} rows={list} canDelete canUpdate />
+      <Table tableName={'Место жительства'} onCreate={onCreate} columns={columns} rows={list} canDelete canUpdate />
     </div>
   );
 };
