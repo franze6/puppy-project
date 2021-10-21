@@ -16,12 +16,12 @@ import Modal from '../Modal/Modal';
 
 import style from './Table.scss';
 
-const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName }) => {
+const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onCreate }) => {
   const [internalColumns, setInternalColumns] = useState(columns);
   const [internalRows, setInternalRows] = useState(rows);
   const [editRowIndex, setEditRowIndex] = useState(-1);
+  const [createId, setCreateId] = useState();
   const [currentDeletingId, setCurrentDeletingId] = useState(-1);
-
   useEffect(() => {
     if ((canDelete || canUpdate) && internalColumns.findIndex(col => col.name === 'operations') === -1) {
       setInternalColumns([
@@ -32,6 +32,14 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName }) =
   }, [canUpdate, canDelete, columns]);
 
   useEffect(() => setInternalRows(rows), [rows]);
+
+  // eslint-disable-next-line consistent-return
+  useEffect(async () => {
+    if (createId === -1) {
+      const arr = internalRows[internalRows.length - 1];
+      return onCreate(arr);
+    }
+  }, [createId]);
 
   function editRowCell(rowId, cellName, newValue) {
     setInternalRows(
@@ -62,6 +70,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName }) =
               const newRowId = nanoid();
               setInternalRows([...internalRows, { id: newRowId }]);
               setEditRowIndex(newRowId);
+              setCreateId(newRowId);
             }}
           >
             <div className={style.iconAdd}>
@@ -90,7 +99,12 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName }) =
                     <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
                       {canUpdate && (
                         <div
-                          onClick={() => setEditRowIndex(editRowIndex === row.id ? -1 : row.id)}
+                          onClick={() => {
+                            setEditRowIndex(editRowIndex === row.id ? -1 : row.id);
+                            if (createId === row.id) {
+                              setCreateId(-1);
+                            }
+                          }}
                           className={style.icon}
                         >
                           <Icon name={row.id === editRowIndex ? 'saved' : 'edit'} />
@@ -138,6 +152,7 @@ Table.propTypes = {
   rows: PropTypes.array,
   onRowClick: PropTypes.func,
   tableName: PropTypes.string,
+  onCreate: PropTypes.func,
 };
 
 Table.defaultProps = {
@@ -145,6 +160,7 @@ Table.defaultProps = {
   canDelete: false,
   onRowClick: () => {},
   tableName: '',
+  onCreate: () => {},
 };
 
 export default Table;
