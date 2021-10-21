@@ -64,6 +64,24 @@ export async function setMessengers(arr, id) {
   return resp;
 }
 
+export async function deletePassports(id) {
+  const url = `http://pet.kandrusyak.ru:8000/api/passports/${id}/delete/`;
+  const resp = await fetch(url, { method: 'DELETE' });
+  return resp;
+}
+
+export async function deleteAddresses(id) {
+  const url = `http://pet.kandrusyak.ru:8000/api/addresses/${id}/delete/`;
+  const resp = await fetch(url, { method: 'DELETE' });
+  return resp;
+}
+
+export async function deleteMessengers(id) {
+  const url = `http://pet.kandrusyak.ru:8000/api/messengers/${id}/delete/`;
+  const resp = await fetch(url, { method: 'DELETE' });
+  return resp;
+}
+
 export async function getCareer() {
   return {
     results: [
