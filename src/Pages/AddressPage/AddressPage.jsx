@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import Table from '../../Components/Table/Table';
 
+import { deleteAddresses } from '../../utils/api';
+
 import styles from './AddressPage.scss';
 
 const AddressPage = ({ person }) => {
@@ -13,6 +15,10 @@ const AddressPage = ({ person }) => {
     // const data = await getPerson();
     setList(person.address || []);
   }, []);
+
+  function onDelete(id) {
+    deleteAddresses(id);
+  }
 
   const columns = [
     {
@@ -30,7 +36,7 @@ const AddressPage = ({ person }) => {
   ];
   return (
     <div className={styles.page}>
-      <Table tableName={'Место жительства'} columns={columns} rows={list} canDelete canUpdate />
+      <Table tableName={'Место жительства'} onDelete={onDelete} columns={columns} rows={list} canDelete canUpdate />
     </div>
   );
 };

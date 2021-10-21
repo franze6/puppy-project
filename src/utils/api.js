@@ -17,13 +17,31 @@ export async function getPersons(last_name = '', page = 1, page_size = 10) {
 }
 
 export async function getPerson(id = 3) {
-  const url = `http://pet.kandrusyak.ru:8000/api/person/${id}`;
+  const url = `http://pet.kandrusyak.ru:8000/api/persons/${id}`;
   const resp = await fetch(url);
   const json = await resp
     .json()
     .then(res => res)
     .catch(() => {});
   return json;
+}
+
+export async function deletePassports(id) {
+  const url = `http://pet.kandrusyak.ru:8000/api/passports/${id}/delete/`;
+  const resp = await fetch(url, { method: 'DELETE' });
+  return resp;
+}
+
+export async function deleteAddresses(id) {
+  const url = `http://pet.kandrusyak.ru:8000/api/addresses/${id}/delete/`;
+  const resp = await fetch(url, { method: 'DELETE' });
+  return resp;
+}
+
+export async function deleteMessengers(id) {
+  const url = `http://pet.kandrusyak.ru:8000/api/messengers/${id}/delete/`;
+  const resp = await fetch(url, { method: 'DELETE' });
+  return resp;
 }
 
 export async function getCareer() {

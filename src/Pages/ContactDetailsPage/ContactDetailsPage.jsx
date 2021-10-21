@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import Table from '../../Components/Table/Table';
 
+import { deleteMessengers } from '../../utils/api';
+
 import styles from './ContactDetailsPage.scss';
 
 const ContactDetailsPage = ({ person }) => {
@@ -13,6 +15,10 @@ const ContactDetailsPage = ({ person }) => {
     const data = person;
     setList(data.messenger || []);
   }, []);
+
+  function onDelete(id) {
+    deleteMessengers(id);
+  }
 
   const columns = [
     {
@@ -37,7 +43,14 @@ const ContactDetailsPage = ({ person }) => {
   ];
   return (
     <div className={styles.page}>
-      <Table tableName={'Контактная информация'} columns={columns} rows={list} canDelete canUpdate />
+      <Table
+        tableName={'Контактная информация'}
+        columns={columns}
+        onDelete={onDelete}
+        rows={list}
+        canDelete
+        canUpdate
+      />
     </div>
   );
 };

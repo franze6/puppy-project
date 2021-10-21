@@ -16,7 +16,7 @@ import Modal from '../Modal/Modal';
 
 import style from './Table.scss';
 
-const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName }) => {
+const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onDelete }) => {
   const [internalColumns, setInternalColumns] = useState(columns);
   const [internalRows, setInternalRows] = useState(rows);
   const [editRowIndex, setEditRowIndex] = useState(-1);
@@ -49,6 +49,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName }) =
 
   function deleteRow() {
     setInternalRows(internalRows.filter(item => item.id !== currentDeletingId));
+    onDelete(currentDeletingId);
     setCurrentDeletingId(-1);
   }
 
@@ -138,6 +139,7 @@ Table.propTypes = {
   rows: PropTypes.array,
   onRowClick: PropTypes.func,
   tableName: PropTypes.string,
+  onDelete: PropTypes.func,
 };
 
 Table.defaultProps = {
@@ -145,6 +147,7 @@ Table.defaultProps = {
   canDelete: false,
   onRowClick: () => {},
   tableName: '',
+  onDelete: () => {},
 };
 
 export default Table;
