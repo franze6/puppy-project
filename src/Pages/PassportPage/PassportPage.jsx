@@ -6,6 +6,8 @@ import { setPassport, deletePassports } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
 
+import { deletePassports } from '../../utils/api';
+
 import styles from './PassportPage.scss';
 
 const PassportPage = ({ person }) => {

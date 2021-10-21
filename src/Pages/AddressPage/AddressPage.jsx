@@ -6,6 +6,8 @@ import { setAddress, deleteAddresses } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
 
+import { deleteAddresses } from '../../utils/api';
+
 import styles from './AddressPage.scss';
 
 const AddressPage = ({ person }) => {
@@ -25,7 +27,6 @@ const AddressPage = ({ person }) => {
   function onCreate(arr) {
     setAddress(arr, personId);
   }
-
   const columns = [
     {
       name: 'address_plain',
