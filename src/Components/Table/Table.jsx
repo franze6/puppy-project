@@ -16,12 +16,13 @@ import Modal from '../Modal/Modal';
 
 import style from './Table.scss';
 
-const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onCreate }) => {
+const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onCreate, onUpdate }) => {
   const [internalColumns, setInternalColumns] = useState(columns);
   const [internalRows, setInternalRows] = useState(rows);
   const [editRowIndex, setEditRowIndex] = useState(-1);
   const [createId, setCreateId] = useState();
   const [currentDeletingId, setCurrentDeletingId] = useState(-1);
+  const [updateId, setUpdateId] = useState();
   useEffect(() => {
     if ((canDelete || canUpdate) && internalColumns.findIndex(col => col.name === 'operations') === -1) {
       setInternalColumns([
@@ -35,11 +36,23 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onC
 
   // eslint-disable-next-line consistent-return
   useEffect(async () => {
-    if (createId === -1) {
+    if (editRowIndex === -1) {
       const arr = internalRows[internalRows.length - 1];
-      return onCreate(arr);
+      if (arr.length > 0) {
+        return onCreate(arr);
+      }
     }
   }, [createId]);
+
+  // eslint-disable-next-line consistent-return
+  useEffect(() => {
+    if (editRowIndex === -1) {
+      const arr = internalRows.filter(curr => curr.id === updateId);
+      if (arr.length > 0) {
+        return onUpdate(arr[0]);
+      }
+    }
+  }, [editRowIndex]);
 
   function editRowCell(rowId, cellName, newValue) {
     setInternalRows(
@@ -104,6 +117,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onC
                             if (createId === row.id) {
                               setCreateId(-1);
                             }
+                            setUpdateId(row.id);
                           }}
                           className={style.icon}
                         >
@@ -153,6 +167,7 @@ Table.propTypes = {
   onRowClick: PropTypes.func,
   tableName: PropTypes.string,
   onCreate: PropTypes.func,
+  onUpdate: PropTypes.func,
 };
 
 Table.defaultProps = {
@@ -161,6 +176,7 @@ Table.defaultProps = {
   onRowClick: () => {},
   tableName: '',
   onCreate: () => {},
+  onUpdate: () => {},
 };
 
 export default Table;
