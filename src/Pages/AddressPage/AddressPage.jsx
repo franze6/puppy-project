@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { setAddress } from '../../utils/api';
+import { setAddress, updateAddress } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
 
@@ -22,6 +22,11 @@ const AddressPage = ({ person }) => {
     setAddress(arr, personId);
   }
 
+  function onUpdate(arr) {
+    const rowId = arr.id;
+    updateAddress(arr, rowId);
+  }
+
   const columns = [
     {
       name: 'address_plain',
@@ -38,7 +43,15 @@ const AddressPage = ({ person }) => {
   ];
   return (
     <div className={styles.page}>
-      <Table tableName={'Место жительства'} onCreate={onCreate} columns={columns} rows={list} canDelete canUpdate />
+      <Table
+        tableName={'Место жительства'}
+        onUpdate={onUpdate}
+        onCreate={onCreate}
+        columns={columns}
+        rows={list}
+        canDelete
+        canUpdate
+      />
     </div>
   );
 };
