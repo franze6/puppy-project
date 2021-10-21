@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
+import { setMessengers, deleteMessengers } from '../../utils/api';
+
 import Table from '../../Components/Table/Table';
 
 import { deleteMessengers } from '../../utils/api';
@@ -10,16 +12,22 @@ import styles from './ContactDetailsPage.scss';
 
 const ContactDetailsPage = ({ person }) => {
   const [list, setList] = useState([]);
+  const [personId, setPersonId] = useState();
 
   useEffect(async () => {
     const data = person;
+    setPersonId(data.id);
     setList(data.messenger || []);
   }, []);
 
   function onDelete(id) {
     deleteMessengers(id);
   }
-
+  
+  function onCreate(arr) {
+    setMessengers(arr, personId);
+  }
+  
   const columns = [
     {
       name: 'name',
@@ -45,11 +53,12 @@ const ContactDetailsPage = ({ person }) => {
     <div className={styles.page}>
       <Table
         tableName={'Контактная информация'}
+        onCreate={onCreate}
         columns={columns}
-        onDelete={onDelete}
         rows={list}
         canDelete
         canUpdate
+        onDelete={onDelete}
       />
     </div>
   );

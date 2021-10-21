@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
+import { setPassport, deletePassports } from '../../utils/api';
+
 import Table from '../../Components/Table/Table';
 
 import { deletePassports } from '../../utils/api';
@@ -10,14 +12,20 @@ import styles from './PassportPage.scss';
 
 const PassportPage = ({ person }) => {
   const [list, setList] = useState([]);
+  const [personId, setPersonId] = useState();
 
   useEffect(async () => {
     const data = person;
+    setPersonId(data.id);
     setList(data.passport || []);
   }, []);
 
   function onDelete(id) {
     deletePassports(id);
+  }
+
+  function onCreate(arr) {
+    setPassport(arr, personId);
   }
 
   const columns = [
@@ -54,7 +62,15 @@ const PassportPage = ({ person }) => {
   ];
   return (
     <div className={styles.page}>
-      <Table tableName={'Паспортные Даннные'} onDelete={onDelete} columns={columns} rows={list} canDelete canUpdate />
+      <Table
+        tableName={'Паспортные Даннные'}
+        onDelete={onDelete}
+        onCreate={onCreate}
+        columns={columns}
+        rows={list}
+        canDelete
+        canUpdate
+      />
     </div>
   );
 };
