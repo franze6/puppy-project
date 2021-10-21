@@ -36,11 +36,9 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onC
 
   // eslint-disable-next-line consistent-return
   useEffect(async () => {
-    if (editRowIndex === -1) {
+    if (createId === -1) {
       const arr = internalRows[internalRows.length - 1];
-      if (arr.length > 0) {
-        return onCreate(arr);
-      }
+      return onCreate(arr);
     }
   }, [createId]);
 
