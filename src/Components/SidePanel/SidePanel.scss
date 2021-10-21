@@ -60,11 +60,6 @@
   letter-spacing: 1px;
 }
 
-.icon {
-  margin-top: 10px;
-  margin-left: 20px;
-}
-
 .menu_item:hover {
   font-weight: 600;
   & .icon {
@@ -73,5 +68,56 @@
     transition: 0.6s;
     margin-top: 5px;
     margin-left: 15px;
+  }
+}
+
+.icon {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+@media (max-width: 1100px) {
+  .wrap {
+    max-width: 600px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .menu_wrap {
+    bottom: 0;
+    width: 100vw;
+    height: 4rem;
+  }
+
+  .logo_item {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+    margin-top: 8px;
+  }
+
+  .menu {
+    flex-direction: row;
+    display: flex;
+    margin-top: -70px;
+  }
+
+  .menu_list {
+    justify-content: center;
+    display: flex;
+  }
+
+  .icon {
+    margin-left: 0;
+  }
+
+  .menu_item:hover {
+    & .icon {
+      height: 40px;
+      width: 40px;
+      transition: 0.6s;
+      margin-top: 5px;
+      margin-left: 0;
+    }
   }
 }
