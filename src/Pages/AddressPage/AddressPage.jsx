@@ -6,8 +6,6 @@ import { setAddress, deleteAddresses, updateAddress } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
 
-import { deleteAddresses } from '../../utils/api';
-
 import styles from './AddressPage.scss';
 
 const AddressPage = ({ person }) => {
