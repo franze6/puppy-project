@@ -6,8 +6,8 @@ export async function getPersons(last_name = '', page = 1, page_size = 10) {
     .json()
     .then(res => {
       const obj = {
-        page_count: res.page_params.page_count,
-        record_count: res.page_params.record_count,
+        page_count: res.list,
+        record_count: res.count,
         results: res.results,
       };
       return obj;
