@@ -28,7 +28,7 @@
 }
 
 .content_active {
-  transform: translateX(200px);
+  transform: translateX(250px);
   transition: all 900ms cubic-bezier(0.8, 0, 0.33, 1);
 }
 
@@ -47,12 +47,19 @@
   margin-top: 65px;
 }
 
+@media (max-width: 1000px) {
+  .content {
+    margin-left: 20px;
+    transition: all 900ms cubic-bezier(0.8, 0, 0.33, 1);
+  }
+}
+
 @media (max-width: 700px) {
   .page {
     margin-left: 0;
     margin-bottom: 70px;
   }
-  .search {
-    left: 0;
-  }
+  // .search {
+  //   margin-left: 0;
+  // }
 }
