@@ -23,7 +23,8 @@ const SidePanel = ({ show, onClick }) => {
           <div className={active === 'menu' ? styles.menuActive : styles.menu_list} onClick={() => setActive('menu')}>
             <li className={styles.menu_item}>
               <Link to="/main">
-                <Icon name="home" className={styles.icon} /> {!show ? '' : 'ГЛАВНАЯ'}
+                <Icon name="home" className={styles.icon} />
+                <a className={styles.text_menu}>{!show ? '' : 'ГЛАВНАЯ'}</a>
               </Link>
             </li>
           </div>
@@ -34,7 +35,7 @@ const SidePanel = ({ show, onClick }) => {
             <li className={styles.menu_item}>
               <Link to="/persons">
                 <Icon name="persons" className={styles.icon} />
-                {!show ? '' : 'СОТРУДНИКИ'}
+                <a className={styles.text_menu}>{!show ? '' : 'СОТРУДНИКИ'}</a>
               </Link>
             </li>
           </div>

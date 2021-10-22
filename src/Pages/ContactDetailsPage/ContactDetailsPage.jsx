@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { setMessengers, updateMessengers } from '../../utils/api';
+import { setMessengers, deleteMessengers, updateMessengers } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
+
+import { deleteMessengers } from '../../utils/api';
 
 import styles from './ContactDetailsPage.scss';
 
@@ -18,6 +20,10 @@ const ContactDetailsPage = ({ person }) => {
     setList(data.messenger || []);
   }, []);
 
+  function onDelete(id) {
+    deleteMessengers(id);
+  }
+  
   function onCreate(arr) {
     setMessengers(arr, personId);
   }
@@ -58,6 +64,7 @@ const ContactDetailsPage = ({ person }) => {
         rows={list}
         canDelete
         canUpdate
+        onDelete={onDelete}
       />
     </div>
   );

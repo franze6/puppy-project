@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { setAddress, updateAddress } from '../../utils/api';
+import { setAddress, deleteAddresses, updateAddress } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
+
+import { deleteAddresses } from '../../utils/api';
 
 import styles from './AddressPage.scss';
 
@@ -17,6 +19,10 @@ const AddressPage = ({ person }) => {
     setPersonId(data.id);
     setList(data.address || []);
   }, []);
+
+  function onDelete(id) {
+    deleteAddresses(id);
+  }
 
   function onCreate(arr) {
     setAddress(arr, personId);
@@ -45,8 +51,9 @@ const AddressPage = ({ person }) => {
     <div className={styles.page}>
       <Table
         tableName={'Место жительства'}
-        onUpdate={onUpdate}
         onCreate={onCreate}
+        onDelete={onDelete}
+        onUpdate={onUpdate}
         columns={columns}
         rows={list}
         canDelete

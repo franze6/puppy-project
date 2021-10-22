@@ -14,7 +14,7 @@ const DateCell = ({ value, isEdit, onChange }) => {
     return (
       <DatePicker
         dateFormat="dd.MM.yyyy"
-        selected={new Date(value).toString() === 'Invalid Date' ? '' : new Date(value)}
+        selected={new Date(value).toString() === 'Invalid Date' ? new Date() : new Date(value)}
         onChange={e => onChange(e)}
         className={styles.customInput}
         dayClassName={function getClass(date) {
