@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { setMessengers, deleteMessengers } from '../../utils/api';
+import { setMessengers, deleteMessengers, updateMessengers } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
 
@@ -27,7 +27,12 @@ const ContactDetailsPage = ({ person }) => {
   function onCreate(arr) {
     setMessengers(arr, personId);
   }
-  
+
+  function onUpdate(arr) {
+    const rowId = arr.id;
+    updateMessengers(arr, rowId);
+  }
+
   const columns = [
     {
       name: 'name',
@@ -54,6 +59,7 @@ const ContactDetailsPage = ({ person }) => {
       <Table
         tableName={'Контактная информация'}
         onCreate={onCreate}
+        onUpdate={onUpdate}
         columns={columns}
         rows={list}
         canDelete

@@ -46,6 +46,46 @@ export async function setPassport(arr, id) {
   return resp;
 }
 
+export async function updatePassport(arr, id) {
+  const url = `http://pet.kandrusyak.ru:8000/api/passports/${id}/update/`;
+  const obj = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      series: arr.series,
+      number: arr.number,
+      issued_date: arr.issued_date,
+      issued_by: arr.issued_by,
+      issued_by_code: arr.issued_by_code,
+      person_id: arr.id,
+      update_at: new Date().toJSON(),
+    }),
+  };
+  const resp = await fetch(url, obj);
+  return resp;
+}
+
+export async function updateMessengers(arr, id) {
+  const url = `http://pet.kandrusyak.ru:8000/api/messengers/${id}/update/`;
+  const obj = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: arr.name,
+      is_active: arr.is_active,
+      uid: arr.uid,
+      person_id: id,
+      update_at: new Date().toJSON(),
+    }),
+  };
+  const resp = await fetch(url, obj);
+  return resp;
+}
+
 export async function setMessengers(arr, id) {
   const url = `http://pet.kandrusyak.ru:8000/api/messengers/create/`;
   const obj = {
@@ -55,7 +95,7 @@ export async function setMessengers(arr, id) {
     },
     body: JSON.stringify({
       name: arr.name,
-      is_active: arr.is_active,
+      is_active: arr.is_active || false,
       uid: arr.uid,
       person_id: id,
     }),
@@ -158,6 +198,23 @@ export async function getAddress() {
 
 export async function setAddress(arr, id) {
   const url = `http://pet.kandrusyak.ru:8000/api/addresses/create/`;
+  const obj = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      address_plain: arr.address_plain,
+      is_active: arr.is_active || false,
+      person_id: id,
+    }),
+  };
+  const resp = await fetch(url, obj);
+  return resp;
+}
+
+export async function updateAddress(arr, id) {
+  const url = `http://pet.kandrusyak.ru:8000/api/addresses/${id}/update/`;
   const obj = {
     method: 'POST',
     headers: {

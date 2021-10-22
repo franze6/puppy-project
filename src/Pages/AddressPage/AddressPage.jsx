@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { setAddress, deleteAddresses } from '../../utils/api';
+import { setAddress, deleteAddresses, updateAddress } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
 
@@ -27,6 +27,12 @@ const AddressPage = ({ person }) => {
   function onCreate(arr) {
     setAddress(arr, personId);
   }
+
+  function onUpdate(arr) {
+    const rowId = arr.id;
+    updateAddress(arr, rowId);
+  }
+
   const columns = [
     {
       name: 'address_plain',
@@ -47,6 +53,7 @@ const AddressPage = ({ person }) => {
         tableName={'Место жительства'}
         onCreate={onCreate}
         onDelete={onDelete}
+        onUpdate={onUpdate}
         columns={columns}
         rows={list}
         canDelete

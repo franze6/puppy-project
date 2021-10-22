@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { setPassport, deletePassports } from '../../utils/api';
+import { setPassport, deletePassports, updatePassport } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
 
@@ -26,6 +26,11 @@ const PassportPage = ({ person }) => {
 
   function onCreate(arr) {
     setPassport(arr, personId);
+  }
+
+  function onUpdate(arr) {
+    const rowId = arr.id;
+    updatePassport(arr, rowId);
   }
 
   const columns = [
@@ -64,6 +69,7 @@ const PassportPage = ({ person }) => {
     <div className={styles.page}>
       <Table
         tableName={'Паспортные Даннные'}
+        onUpdate={onUpdate}
         onDelete={onDelete}
         onCreate={onCreate}
         columns={columns}
