@@ -36,7 +36,7 @@ export async function setPassport(arr, id) {
     body: JSON.stringify({
       series: arr.series,
       number: arr.number,
-      issued_date: '2021-10-28',
+      issued_date: new Date(arr.issued_date).toJSON().substr(0, 10),
       issued_by: arr.issued_by,
       issued_by_code: arr.issued_by_code,
       person_id: id,
@@ -56,7 +56,7 @@ export async function updatePassport(arr, id) {
     body: JSON.stringify({
       series: arr.series,
       number: arr.number,
-      issued_date: arr.issued_date,
+      issued_date: new Date(arr.issued_date).toJSON().substr(0, 10),
       issued_by: arr.issued_by,
       issued_by_code: arr.issued_by_code,
       person_id: arr.id,

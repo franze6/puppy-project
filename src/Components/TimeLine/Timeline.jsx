@@ -24,11 +24,11 @@ const Timeline = ({ person }) => {
             </div>
             <div className={style.careers}>
               <div className={style.title}>Компания</div>
-              {curr.company_id.name}
+              {curr.company_id}
             </div>
             <div className={style.careers}>
               <div className={style.title}>Проект</div>
-              {curr.project_id.name}
+              {curr.project_id}
             </div>
             <div className={style.careers}>
               <div className={style.title}>Должность</div>
