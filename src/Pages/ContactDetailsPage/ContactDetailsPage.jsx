@@ -6,8 +6,6 @@ import { setMessengers, deleteMessengers, updateMessengers } from '../../utils/a
 
 import Table from '../../Components/Table/Table';
 
-import { deleteMessengers } from '../../utils/api';
-
 import styles from './ContactDetailsPage.scss';
 
 const ContactDetailsPage = ({ person }) => {
@@ -23,7 +21,6 @@ const ContactDetailsPage = ({ person }) => {
   function onDelete(id) {
     deleteMessengers(id);
   }
-  
   function onCreate(arr) {
     setMessengers(arr, personId);
   }
