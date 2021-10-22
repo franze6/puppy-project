@@ -96,12 +96,6 @@
   }
 }
 
-@media (max-width: 1100px) {
-  .wrap {
-    max-width: 600px;
-  }
-}
-
 @media (max-width: 800px) {
   .text_menu {
     margin-left: 5px;
@@ -117,7 +111,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .menu_wrap {
     bottom: 0;
     width: 100vw;
@@ -148,7 +142,7 @@
 
   .text_menu {
     display: flex;
-    top: -200px;
+    top: -1000px;
   }
 
   .menu_item:hover {
