@@ -87,11 +87,16 @@
 .name__table {
   font-size: 20px;
   font-weight: 600;
-  padding: 15px;
+  padding: 20px 20px;
+  position: absolute;
 }
 
 @media (max-width: 700px) {
   .buttonAdd {
     justify-content: flex-start;
+  }
+  .name__table {
+    position: relative;
+    padding: 10px 10px;
   }
 }
