@@ -24,7 +24,7 @@ const SidePanel = ({ show, onClick }) => {
             <li className={styles.menu_item}>
               <Link to="/main">
                 <Icon name="home" className={styles.icon} />
-                <a className={styles.text_menu}>{!show ? '' : 'ГЛАВНАЯ'}</a>
+                <a className={cn(styles.text_menu, { [styles.text_menu_open]: show })}>{'ГЛАВНАЯ'}</a>
               </Link>
             </li>
           </div>
@@ -35,7 +35,7 @@ const SidePanel = ({ show, onClick }) => {
             <li className={styles.menu_item}>
               <Link to="/persons">
                 <Icon name="persons" className={styles.icon} />
-                <a className={styles.text_menu}>{!show ? '' : 'СОТРУДНИКИ'}</a>
+                <a className={cn(styles.text_menu, { [styles.text_menu_open]: show })}>{'СОТРУДНИКИ'}</a>
               </Link>
             </li>
           </div>
