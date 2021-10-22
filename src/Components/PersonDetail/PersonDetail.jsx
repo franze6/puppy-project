@@ -54,7 +54,10 @@ const PersonDetail = ({ person }) => {
           </div>
           <div className={styles.title}>
             <div className={styles.label}> Место работы: </div>
-            <span className={styles.text}>{currentCareer.company_id ? currentCareer.company_id.name : ''}</span>
+            <span className={styles.text}>
+              {/* {currentCareer.company_id ? currentCareer.company_id.name : ''} */}
+              {currentCareer.company_id}
+            </span>
           </div>
         </div>
         <div className={styles.header__link}>
