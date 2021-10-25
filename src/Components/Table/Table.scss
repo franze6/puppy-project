@@ -4,8 +4,8 @@
   width: fit-content;
   font-size: 16px;
   background-color: #e0ebe0;
-  border-radius: 10px;
-  margin-top: 10px;
+  // border-radius: 10px;
+  margin-top: 20px;
 }
 
 .buttonAdd {
@@ -15,8 +15,10 @@
 }
 
 .thead {
+  font-weight: 600;
+  text-align: center;
   display: flex;
-  height: 45px;
+  height: 70px;
   padding-left: 6px;
   background-color: #e0ebe0;
   letter-spacing: 1px;
@@ -30,6 +32,7 @@
 }
 
 .tcol {
+  justify-content: center;
   display: flex;
   padding: 15px 20px;
   cursor: var(--pointer);
@@ -40,7 +43,7 @@
   display: flex;
   padding-left: 6px;
   background-color: #e0ebe0;
-  height: 56px;
+  height: 70px;
 
   .tcol {
     padding: 0 20px;
@@ -86,7 +89,7 @@
 
 .name__table {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 15px;
 }
 

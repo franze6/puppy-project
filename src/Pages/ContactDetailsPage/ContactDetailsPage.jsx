@@ -32,23 +32,23 @@ const ContactDetailsPage = ({ person }) => {
 
   const columns = [
     {
+      name: 'uid',
+      display: 'UID',
+      width: 350,
+      format: 'default',
+    },
+    {
       name: 'name',
       display: 'Тип',
       // display_field: 'type_name',
-      width: 180,
+      width: 300,
       format: 'default',
     },
     {
       name: 'is_active',
       display: 'Действующий',
-      width: 180,
-      format: 'bool',
-    },
-    {
-      name: 'uid',
-      display: 'UID',
       width: 200,
-      format: 'default',
+      format: 'bool',
     },
   ];
   return (
