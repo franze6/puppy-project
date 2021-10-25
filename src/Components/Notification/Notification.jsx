@@ -25,7 +25,7 @@ const Notification = ({ onClose }) => {
   }
 
   function onClickOk(i) {
-    setFullNote(i);
+    setFullNote(fullNote === i ? -1 : i);
   }
 
   return (
