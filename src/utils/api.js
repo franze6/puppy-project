@@ -1,12 +1,13 @@
-export async function getPersons(last_name = '', page = 1, page_size = 10) {
+export async function getPersons(last_name = '', limit = 1, offset) {
   // eslint-disable-next-line camelcase
-  const url = `http://pet.kandrusyak.ru:8000/api/persons/?last_name=${last_name}&page=${page}&limit=${page_size}`;
+  const url = `http://pet.kandrusyak.ru:8000/api/persons/?last_name=${last_name}&limit=${limit}&offset=${offset}`;
   const resp = await fetch(url);
   const json = await resp
     .json()
     .then(res => {
       const obj = {
-        page_count: res.list,
+        offset: res.offset,
+        limit: res.limit,
         record_count: res.count,
         results: res.results,
       };

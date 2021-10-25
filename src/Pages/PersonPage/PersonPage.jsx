@@ -12,25 +12,29 @@ import styles from './PesonPage.scss';
 const PersonPage = () => {
   const [list, setList] = useState([]);
   const [pageCount, setPageCount] = useState();
-  const [activePage, setActivePage] = useState(1);
+  const [activePage, setActivePage] = useState(0);
   const [recordCount, setRecordCount] = useState();
+  const [limit, setLimit] = useState();
   const history = useHistory();
   const { searchText } = useParams();
 
   async function onPageChange(e) {
     setActivePage(e);
-    const data = await getPersons('', e);
-    setList(data?.results || []);
   }
+
+  useEffect(async () => {
+    const data = await getPersons('', limit, activePage);
+    setList(data?.results || []);
+  }, [activePage]);
 
   useEffect(async () => {
     const data = await getPersons(searchText || '');
     if (searchText && data?.record_count === 1) history.replace(`/persons/${data?.results?.[0]?.id}`);
     setList(data?.results || []);
-    setPageCount(data?.page_count || 1);
+    setPageCount(data?.record_count / data?.limit || 1);
     setRecordCount(data?.record_count);
+    setLimit(data?.limit || 1);
   }, [searchText]);
-
   const columns = [
     {
       name: 'last_name',
@@ -88,7 +92,9 @@ const PersonPage = () => {
       />
       <div className={styles.pagination}>
         <Footer
-          activePageCount={`${(activePage - 1) * 10 + 1}-${recordCount < 10 ? recordCount : activePage * 10}`}
+          activePageCount={`${(activePage + 1) * limit}-${
+            recordCount < limit ? recordCount : (activePage + 1) * limit
+          }`}
           recordCount={recordCount}
           pageCount={pageCount}
           activePage={activePage}
