@@ -35,13 +35,13 @@ const AddressPage = ({ person }) => {
     {
       name: 'address_plain',
       display: 'Адрес',
-      width: 350,
+      width: 550,
       format: 'default',
     },
     {
       name: 'is_active',
       display: 'Актуальный',
-      width: 180,
+      width: 300,
       format: 'bool',
     },
   ];
