@@ -45,6 +45,7 @@ const Notification = ({ onClose }) => {
                 <Icon name="notes" />
               </div>
               <div className={styles.activeNote}>
+                <div className={styles.notificationTitle}>{e.title}</div>
                 {fullNote === i && <div className={styles.notificationTxt}>{e.text}</div>}
                 <div className={styles.notificationDate}>{new Date(e.date).toLocaleDateString()}</div>
                 <div className={styles.buttons}>
@@ -60,6 +61,7 @@ const Notification = ({ onClose }) => {
             <Icon name="notes" />
           </div>
           <div className={styles.activeNote}>
+            <div className={styles.notificationTitle}>{activeNote.title}</div>
             {activeNote.id === fullNote && <div className={styles.notificationTxt}>{activeNote.text}</div>}
             <div className={styles.notificationDate}>{new Date(activeNote.date).toLocaleDateString()} </div>
             <div className={styles.buttons}>
