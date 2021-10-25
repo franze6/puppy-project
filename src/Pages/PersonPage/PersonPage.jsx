@@ -47,13 +47,13 @@ const PersonPage = () => {
     {
       name: 'second_name',
       display: 'Отчество',
-      width: 150,
+      width: 180,
       format: 'default',
     },
     {
       name: 'birth_date',
       display: 'Дата рождения',
-      width: 150,
+      width: 180,
       format: 'date',
     },
     {
