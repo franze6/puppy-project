@@ -8,10 +8,11 @@ import Button from '../Kit/Button/Button';
 
 import styles from './Notification.scss';
 
-const Notification = ({ onClose, onClickOk }) => {
+const Notification = ({ onClose }) => {
   const [viewAll, setViewAll] = useState(false);
   const [activeNote, setActiveNote] = useState({});
   const [listNotification, setListNotification] = useState([]);
+  const [fullNote, setFullNote] = useState(-1);
 
   useEffect(async () => {
     const data = await getNotification();
@@ -21,6 +22,10 @@ const Notification = ({ onClose, onClickOk }) => {
 
   function onViewClick() {
     setViewAll(!viewAll);
+  }
+
+  function onClickOk(i) {
+    setFullNote(i);
   }
 
   return (
@@ -34,16 +39,16 @@ const Notification = ({ onClose, onClickOk }) => {
       {viewAll ? (
         listNotification
           .sort((a, b) => new Date(a.date) - new Date(b.date))
-          .map(e => (
+          .map((e, i) => (
             <div key={e.id} className={styles.notification}>
               <div className={styles.icon}>
                 <Icon name="notes" />
               </div>
               <div className={styles.activeNote}>
-                <div className={styles.notificationTxt}>{e.text}</div>
+                {fullNote === i && <div className={styles.notificationTxt}>{e.text}</div>}
                 <div className={styles.notificationDate}>{new Date(e.date).toLocaleDateString()}</div>
                 <div className={styles.buttons}>
-                  <Button onClick={onClickOk}>OK</Button>
+                  <Button onClick={() => onClickOk(i)}>{fullNote === i ? 'Скрыть' : 'Подробнее'}</Button>
                   <Button onClick={onClose}>Закрыть</Button>
                 </div>
               </div>
@@ -55,10 +60,12 @@ const Notification = ({ onClose, onClickOk }) => {
             <Icon name="notes" />
           </div>
           <div className={styles.activeNote}>
-            <div className={styles.notificationTxt}>{activeNote.text}</div>
+            {activeNote.id === fullNote && <div className={styles.notificationTxt}>{activeNote.text}</div>}
             <div className={styles.notificationDate}>{new Date(activeNote.date).toLocaleDateString()} </div>
             <div className={styles.buttons}>
-              <Button onClick={onClickOk}>OK</Button>
+              <Button onClick={() => onClickOk(fullNote === activeNote.id ? -1 : activeNote.id)}>
+                {activeNote.id === fullNote ? 'Свернуть' : 'Подробнее'}
+              </Button>
               <Button onClick={onClose}>Закрыть</Button>
             </div>
           </div>
@@ -70,12 +77,10 @@ const Notification = ({ onClose, onClickOk }) => {
 
 Notification.propTypes = {
   onClose: PropTypes.func,
-  onClickOk: PropTypes.func,
 };
 
 Notification.defaultProps = {
   onClose: () => {},
-  onClickOk: () => {},
 };
 
 export default Notification;
