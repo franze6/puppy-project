@@ -8,7 +8,7 @@ import Button from '../Kit/Button/Button';
 
 import styles from './Notification.scss';
 
-const Notification = ({ onClose }) => {
+const Notification = () => {
   const [viewAll, setViewAll] = useState(false);
   const [activeNote, setActiveNote] = useState({});
   const [listNotification, setListNotification] = useState([]);
@@ -28,6 +28,19 @@ const Notification = ({ onClose }) => {
     setFullNote(i);
   }
 
+  function onClickClose(e) {
+    e.is_active = false;
+    setListNotification(listNotification.filter(curr => curr.is_active === true));
+  }
+
+  function onClickCloseNote() {
+    activeNote.is_active = false;
+    setActiveNote(
+      listNotification.filter(curr => curr.is_active === true).sort((a, b) => new Date(b.date) - new Date(a.date))[0] ||
+        {},
+    );
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
@@ -39,6 +52,7 @@ const Notification = ({ onClose }) => {
       {viewAll ? (
         listNotification
           .sort((a, b) => new Date(a.date) - new Date(b.date))
+          .filter(e => e.is_active === true)
           .map((e, i) => (
             <div key={e.id} className={styles.notification}>
               <div className={styles.icon}>
@@ -49,26 +63,34 @@ const Notification = ({ onClose }) => {
                 <div className={styles.notificationDate}>{new Date(e.date).toLocaleDateString()}</div>
                 <div className={styles.buttons}>
                   <Button onClick={() => onClickOk(i)}>{fullNote === i ? 'Скрыть' : 'Подробнее'}</Button>
-                  <Button onClick={onClose}>Закрыть</Button>
+                  <Button onClick={() => onClickClose(e)}>Закрыть</Button>
                 </div>
               </div>
             </div>
           ))
       ) : (
-        <div className={styles.notification}>
-          <div className={styles.icon}>
-            <Icon name="notes" />
-          </div>
-          <div className={styles.activeNote}>
-            {activeNote.id === fullNote && <div className={styles.notificationTxt}>{activeNote.text}</div>}
-            <div className={styles.notificationDate}>{new Date(activeNote.date).toLocaleDateString()} </div>
-            <div className={styles.buttons}>
-              <Button onClick={() => onClickOk(fullNote === activeNote.id ? -1 : activeNote.id)}>
-                {activeNote.id === fullNote ? 'Свернуть' : 'Подробнее'}
-              </Button>
-              <Button onClick={onClose}>Закрыть</Button>
-            </div>
-          </div>
+        <div>
+          {activeNote.id ? (
+            <>
+              <div className={styles.notification}>
+                <div className={styles.icon}>
+                  <Icon name="notes" />
+                </div>
+                <div className={styles.activeNote}>
+                  {activeNote.id === fullNote && <div className={styles.notificationTxt}>{activeNote.text}</div>}
+                  <div className={styles.notificationDate}>{new Date(activeNote.date).toLocaleDateString()} </div>
+                  <div className={styles.buttons}>
+                    <Button onClick={() => onClickOk(fullNote === activeNote.id ? -1 : activeNote.id)}>
+                      {activeNote.id === fullNote ? 'Свернуть' : 'Подробнее'}
+                    </Button>
+                    <Button onClick={() => onClickCloseNote(activeNote)}>Закрыть</Button>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className={styles.notNote}> Уведомлений нет </div>
+          )}
         </div>
       )}
     </div>

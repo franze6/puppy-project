@@ -376,21 +376,25 @@ export async function getNotification() {
         id: 1,
         text: 'bla-bla 1',
         date: '2017-03-20',
+        is_active: true,
       },
       {
         id: 2,
         text: 'Тестовое уведомление номер два',
         date: '2021-05-01',
+        is_active: true,
       },
       {
         id: 3,
         text: 'bla-bla 3',
         date: '2021-03-01',
+        is_active: true,
       },
       {
         id: 4,
         text: 'bla-bla 4',
         date: '2019-09-10',
+        is_active: true,
       },
     ],
   };
