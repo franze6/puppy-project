@@ -31,7 +31,7 @@ const PersonPage = () => {
     const data = await getPersons(searchText || '');
     if (searchText && data?.record_count === 1) history.replace(`/persons/${data?.results?.[0]?.id}`);
     setList(data?.results || []);
-    setPageCount(data?.record_count / data?.limit || 1);
+    setPageCount(Math.ceil(data?.record_count / data?.limit) || 1);
     setRecordCount(data?.record_count);
     setLimit(data?.limit || 1);
   }, [searchText]);
@@ -92,7 +92,7 @@ const PersonPage = () => {
       />
       <div className={styles.pagination}>
         <Footer
-          activePageCount={`${(activePage + 1) * limit}-${
+          activePageCount={`${activePage * limit ? activePage * limit + 1 : 1}-${
             recordCount < limit ? recordCount : (activePage + 1) * limit
           }`}
           recordCount={recordCount}
