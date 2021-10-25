@@ -50,8 +50,6 @@
 }
 
 .menu_item {
-  width: max-content;
-  height: max-content;
   padding: 0;
   color: #000000;
   letter-spacing: 1px;
@@ -109,6 +107,16 @@
     width: 20px;
     transition: 0.6s;
   }
+
+  .menu_item:hover {
+    font-weight: 600;
+    align-items: center;
+    margin-top: 5px;
+    & .icon {
+      height: 30px;
+      width: 30px;
+    }
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -120,9 +128,6 @@
 
   .logo_item {
     display: none;
-    // justify-content: flex-start;
-    // margin-left: 10px;
-    // margin-top: 8px;
   }
 
   .menu {
