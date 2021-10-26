@@ -66,7 +66,7 @@ const PassportPage = ({ person }) => {
   return (
     <div className={styles.page}>
       <Table
-        tableName={'Паспортные Даннные'}
+        tableName={'Паспортные данные'}
         onUpdate={onUpdate}
         onDelete={onDelete}
         onCreate={onCreate}
