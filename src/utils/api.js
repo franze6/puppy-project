@@ -378,24 +378,28 @@ export async function getNotification() {
         text: 'bla-bla 1',
         title: 'Заголовок 1',
         date: '2017-03-20',
+        is_active: true,
       },
       {
         id: 2,
         text: 'Тестовое уведомление номер два',
         title: 'Заголовок 2',
         date: '2021-05-01',
+        is_active: true,
       },
       {
         id: 3,
         text: 'bla-bla 3',
         title: 'Заголовок 3',
         date: '2021-03-01',
+        is_active: true,
       },
       {
         id: 4,
         text: 'bla-bla 4',
         title: 'Заголовок 4',
         date: '2019-09-10',
+        is_active: true,
       },
     ],
   };
