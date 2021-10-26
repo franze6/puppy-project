@@ -4,26 +4,18 @@ import PropTypes from 'prop-types';
 
 import cn from 'classnames';
 
-import { getContactDetails } from '../../utils/api';
-
 import Icon from '../Kit/Icon/Icon';
 
 import styles from './PersonDetail.scss';
 import logo from './img/spanch-bob.jpg';
 
 const PersonDetail = ({ person }) => {
-  const [list, setList] = useState([]);
   const [isBirthDay, setBirthDay] = useState(false);
   const [editLink, setEditLink] = useState(false);
   const [editLinkTeleg, setEditLinkTeleg] = useState(false);
   const [editLinkMail, setEditLinkMail] = useState(false);
   const [editLinkWhats, setEditLinkWhats] = useState(false);
   const [currentCareer, setCurrentCareer] = useState({});
-
-  useEffect(async () => {
-    const data = await getContactDetails();
-    setList(data?.results || []);
-  }, []);
 
   useEffect(() => {
     const currentDate = new Date();
@@ -63,13 +55,13 @@ const PersonDetail = ({ person }) => {
         <div className={styles.header__link}>
           <div className={styles.title_contact}>
             <span className={styles.text}>
-              {list.map(contact =>
-                contact.type.type_name === 'Телефон' && contact.active ? (
+              {person.messenger.map(contact =>
+                contact.name === 'Телефон' && contact.is_active ? (
                   <a
                     className={cn({ [styles.link]: editLink, [styles.link__none]: !editLink })}
-                    href={`tel:${contact.UID}`}
+                    href={`tel:${contact.uid}`}
                   >
-                    {contact.UID}
+                    {contact.uid}
                   </a>
                 ) : (
                   ''
@@ -82,13 +74,13 @@ const PersonDetail = ({ person }) => {
           </div>
           <div className={styles.title_contact}>
             <span className={styles.text}>
-              {list.map(contact =>
-                contact.type.type_name === 'Telegram' && contact.active ? (
+              {person.messenger.map(contact =>
+                contact.name === 'Telegram' && contact.is_active ? (
                   <a
                     className={cn({ [styles.link]: editLinkTeleg, [styles.link__none]: !editLinkTeleg })}
-                    href={`tg:${contact.UID}`}
+                    href={`tg:${contact.uid}`}
                   >
-                    {contact.UID}
+                    {contact.uid}
                   </a>
                 ) : (
                   ''
@@ -101,13 +93,13 @@ const PersonDetail = ({ person }) => {
           </div>
           <div className={styles.title_contact}>
             <span className={styles.text}>
-              {list.map(contact =>
-                contact.type.type_name === 'e-mail' && contact.active ? (
+              {person.messenger.map(contact =>
+                contact.name === 'E-mail' && contact.is_active ? (
                   <a
                     className={cn({ [styles.link]: editLinkMail, [styles.link__none]: !editLinkMail })}
-                    href={`mailto:${contact.UID}`}
+                    href={`mailto:${contact.uid}`}
                   >
-                    {contact.UID}
+                    {contact.uid}
                   </a>
                 ) : (
                   ''
@@ -121,13 +113,13 @@ const PersonDetail = ({ person }) => {
           </div>
           <div className={styles.title_contact}>
             <span className={styles.text}>
-              {list.map(contact =>
-                contact.type.type_name === 'WhatsApp' && contact.active ? (
+              {person.messenger.map(contact =>
+                contact.name === 'WhatsApp' && contact.is_active ? (
                   <a
                     className={cn({ [styles.link]: editLinkWhats, [styles.link__none]: !editLinkWhats })}
-                    href={`whatsapp:${contact.UID}`}
+                    href={`whatsapp:${contact.uid}`}
                   >
-                    {contact.UID}
+                    {contact.uid}
                   </a>
                 ) : (
                   ''
