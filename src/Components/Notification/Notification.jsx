@@ -25,7 +25,7 @@ const Notification = () => {
   }
 
   function onClickOk(i) {
-    setFullNote(i);
+    setFullNote(fullNote === i ? -1 : i);
   }
 
   function onClickClose(e) {
@@ -59,6 +59,7 @@ const Notification = () => {
                 <Icon name="notes" />
               </div>
               <div className={styles.activeNote}>
+                <div className={styles.notificationTitle}>{e.title}</div>
                 {fullNote === i && <div className={styles.notificationTxt}>{e.text}</div>}
                 <div className={styles.notificationDate}>{new Date(e.date).toLocaleDateString()}</div>
                 <div className={styles.buttons}>

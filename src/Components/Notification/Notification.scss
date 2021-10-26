@@ -66,8 +66,18 @@
 
 .notificationTxt {
   color: #ffffff;
+  font-size: 15px;
+  word-wrap: break-word;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.notificationTitle {
+  color: #ffffff;
   font-size: 17px;
   word-wrap: break-word;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .notNote {
