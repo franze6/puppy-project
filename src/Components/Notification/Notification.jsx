@@ -49,7 +49,7 @@ const Notification = () => {
           {viewAll ? 'Скрыть' : 'Показать все'}
         </div>
       </div>
-      {viewAll ? (
+      {viewAll && listNotification.length > 0 ? (
         listNotification
           .sort((a, b) => new Date(a.date) - new Date(b.date))
           .filter(e => e.is_active === true)
@@ -63,8 +63,10 @@ const Notification = () => {
                 <div className={styles.notificationDate}>{new Date(e.date).toLocaleDateString()}</div>
                 <div className={styles.buttons}>
                   <Button onClick={() => onClickOk(i)}>{fullNote === i ? 'Скрыть' : 'Подробнее'}</Button>
-                  <Button onClick={() => onClickClose(e)}>Закрыть</Button>
                 </div>
+              </div>
+              <div className={styles.icon__plus} onClick={() => onClickClose(e)}>
+                <Icon name="plus" />
               </div>
             </div>
           ))
@@ -83,8 +85,10 @@ const Notification = () => {
                     <Button onClick={() => onClickOk(fullNote === activeNote.id ? -1 : activeNote.id)}>
                       {activeNote.id === fullNote ? 'Свернуть' : 'Подробнее'}
                     </Button>
-                    <Button onClick={() => onClickCloseNote(activeNote)}>Закрыть</Button>
                   </div>
+                </div>
+                <div className={styles.icon__plus} onClick={() => onClickCloseNote(activeNote)}>
+                  <Icon name="plus" />
                 </div>
               </div>
             </>
