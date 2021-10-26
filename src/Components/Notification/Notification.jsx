@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import { getNotification } from '../../utils/api';
 import Icon from '../Kit/Icon/Icon';
-import Button from '../Kit/Button/Button';
 
 import styles from './Notification.scss';
 
@@ -62,8 +61,12 @@ const Notification = () => {
                 <div className={styles.notificationTitle}>{e.title}</div>
                 {fullNote === i && <div className={styles.notificationTxt}>{e.text}</div>}
                 <div className={styles.notificationDate}>{new Date(e.date).toLocaleDateString()}</div>
-                <div className={styles.buttons}>
-                  <Button onClick={() => onClickOk(i)}>{fullNote === i ? 'Скрыть' : 'Подробнее'}</Button>
+                <div onClick={() => onClickOk(i)}>
+                  {fullNote === i ? (
+                    <div className={styles.buttons}>&#9206;Скрыть</div>
+                  ) : (
+                    <div className={styles.buttons}>&#9207;Подробнее</div>
+                  )}
                 </div>
               </div>
               <div className={styles.icon__plus} onClick={() => onClickClose(e)}>
@@ -73,19 +76,22 @@ const Notification = () => {
           ))
       ) : (
         <div>
-          {activeNote.id ? (
+          {activeNote.id && listNotification.length > 0 ? (
             <>
               <div className={styles.notification}>
                 <div className={styles.icon}>
                   <Icon name="notes" />
                 </div>
                 <div className={styles.activeNote}>
+                  <div className={styles.notificationTitle}>{activeNote.title}</div>
                   {activeNote.id === fullNote && <div className={styles.notificationTxt}>{activeNote.text}</div>}
                   <div className={styles.notificationDate}>{new Date(activeNote.date).toLocaleDateString()} </div>
-                  <div className={styles.buttons}>
-                    <Button onClick={() => onClickOk(fullNote === activeNote.id ? -1 : activeNote.id)}>
-                      {activeNote.id === fullNote ? 'Свернуть' : 'Подробнее'}
-                    </Button>
+                  <div onClick={() => onClickOk(fullNote === activeNote.id ? -1 : activeNote.id)}>
+                    {activeNote.id === fullNote ? (
+                      <div className={styles.buttons}>&#9206;Скрыть</div>
+                    ) : (
+                      <div className={styles.buttons}>&#9207;Подробнее</div>
+                    )}
                   </div>
                 </div>
                 <div className={styles.icon__plus} onClick={() => onClickCloseNote(activeNote)}>
