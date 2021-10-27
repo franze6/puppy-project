@@ -96,7 +96,7 @@ export async function setMessengers(arr, id) {
     },
     body: JSON.stringify({
       name: arr.name,
-      is_active: arr.is_active || false,
+      is_active: !!arr.is_active,
       uid: arr.uid,
       person_id: id,
     }),
@@ -206,7 +206,7 @@ export async function setAddress(arr, id) {
     },
     body: JSON.stringify({
       address_plain: arr.address_plain,
-      is_active: arr.is_active || false,
+      is_active: !!arr.is_active,
       person_id: id,
     }),
   };

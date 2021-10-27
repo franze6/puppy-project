@@ -7,10 +7,10 @@ const BoolCell = ({ value, isEdit, onChange }) => {
   if (isEdit) {
     return <Checkbox isMiddle={false} checked={!!value} onChange={e => onChange(e.currentTarget.checked)} />;
   }
-  return <Checkbox checked={value} isMiddle={false} disabled />;
+  return <Checkbox checked={!!value} isMiddle={false} disabled />;
 };
 BoolCell.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.any,
   checked: PropTypes.bool,
   isEdit: PropTypes.bool,
   onChange: PropTypes.func,
