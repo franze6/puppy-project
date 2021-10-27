@@ -231,27 +231,23 @@ export async function updateAddress(arr, id) {
   return resp;
 }
 
-export async function getCompany() {
+export async function getMessenger() {
   return [
     {
       id: 1,
-      name: 'ТСК',
+      name: 'Телефон',
     },
     {
       id: 2,
-      name: 'MS',
+      name: 'Telegram',
     },
     {
       id: 3,
-      name: 'LX',
+      name: 'E-mail',
     },
     {
       id: 4,
-      name: 'Ромашка',
-    },
-    {
-      id: 5,
-      name: 'Лютик',
+      name: 'WhatsApp',
     },
   ];
 }
