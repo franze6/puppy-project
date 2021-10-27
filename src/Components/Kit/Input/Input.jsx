@@ -74,6 +74,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  placeholder: '',
   isError: false,
   onChange: () => {},
   value: '',
