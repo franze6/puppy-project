@@ -51,8 +51,10 @@ const Table = ({
     const cellList = internalColumns
       .filter(curr => curr.name !== 'operations' && curr.name !== 'is_active')
       .map(curr => curr.name);
-    const previousRows = internalRows[internalRows.length - 1] || [];
-    setEmptyFields(cellList.filter(curr => !previousRows[curr]));
+    const previousRows = internalRows[internalRows.length - 1];
+    if (previousRows) {
+      setEmptyFields(cellList.filter(curr => !previousRows[curr]));
+    }
     if (createId === -1) {
       const arr = internalRows[internalRows.length - 1];
       return onCreate(arr);
