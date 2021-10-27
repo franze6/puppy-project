@@ -94,8 +94,10 @@ const Table = ({
   return (
     <>
       <div className={style.table}>
-        <div className={style.name__table}>{tableName}</div>
-        <div className={style.buttonAdd}>
+        <div className={cn(style.name__table, { [style.noneName__table]: tableName === 'Сотрудники' })}>
+          {tableName}
+        </div>
+        <div className={cn(style.buttonAdd, { [style.noneButtonAdd]: tableName === 'Сотрудники' })}>
           <Button
             onClick={() => {
               if (emptyFields.length === 0) {
