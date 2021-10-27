@@ -52,86 +52,86 @@ const PersonDetail = ({ person }) => {
             </span>
           </div>
         </div>
-        <div className={styles.header__link}>
-          <div className={styles.title_contact}>
-            <span className={styles.text}>
-              {person.messenger.map(contact =>
-                contact.name === 'Телефон' && contact.is_active ? (
-                  <a
-                    className={cn({ [styles.link]: editLink, [styles.link__none]: !editLink })}
-                    href={`tel:${contact.uid}`}
-                  >
-                    {contact.uid}
-                  </a>
-                ) : (
-                  ''
-                ),
-              )}
-            </span>
-            <div className={styles.label_contact} onClick={() => setEditLink(!editLink)}>
-              <Icon name="phone" className={styles.logo__link} />
-            </div>
-          </div>
-          <div className={styles.title_contact}>
-            <span className={styles.text}>
-              {person.messenger.map(contact =>
-                contact.name === 'Telegram' && contact.is_active ? (
-                  <a
-                    className={cn({ [styles.link]: editLinkTeleg, [styles.link__none]: !editLinkTeleg })}
-                    href={`tg:${contact.uid}`}
-                  >
-                    {contact.uid}
-                  </a>
-                ) : (
-                  ''
-                ),
-              )}
-            </span>
-            <div className={styles.label_contact} onClick={() => setEditLinkTeleg(!editLinkTeleg)}>
-              <Icon name="telegram" className={styles.logo__link} />
-            </div>
-          </div>
-          <div className={styles.title_contact}>
-            <span className={styles.text}>
-              {person.messenger.map(contact =>
-                contact.name === 'E-mail' && contact.is_active ? (
-                  <a
-                    className={cn({ [styles.link]: editLinkMail, [styles.link__none]: !editLinkMail })}
-                    href={`mailto:${contact.uid}`}
-                  >
-                    {contact.uid}
-                  </a>
-                ) : (
-                  ''
-                ),
-              )}
-            </span>
+      </div>
 
-            <div className={styles.label_contact} onClick={() => setEditLinkMail(!editLinkMail)}>
-              <Icon name="mail" className={styles.logo__link} />
-            </div>
-          </div>
-          <div className={styles.title_contact}>
-            <span className={styles.text}>
-              {person.messenger.map(contact =>
-                contact.name === 'WhatsApp' && contact.is_active ? (
-                  <a
-                    className={cn({ [styles.link]: editLinkWhats, [styles.link__none]: !editLinkWhats })}
-                    href={`whatsapp:${contact.uid}`}
-                  >
-                    {contact.uid}
-                  </a>
-                ) : (
-                  ''
-                ),
-              )}
-            </span>
-
-            <div className={styles.label_contact} onClick={() => setEditLinkWhats(!editLinkWhats)}>
-              <Icon name="whatsApp" className={styles.logo__link} />
-            </div>
+      <div className={styles.header__link}>
+        <div className={styles.title_contact}>
+          <span className={styles.text}>
+            {person.messenger.map(contact =>
+              contact.name === 'Телефон' && contact.is_active ? (
+                <a
+                  className={cn({ [styles.link]: editLink, [styles.link__none]: !editLink })}
+                  href={`tel:${contact.uid}`}
+                >
+                  {contact.uid}
+                </a>
+              ) : (
+                ''
+              ),
+            )}
+          </span>
+          <div className={styles.label_contact} onClick={() => setEditLink(!editLink)}>
+            <Icon name="phone" className={styles.logo__link} />
           </div>
         </div>
+        <div className={styles.title_contact}>
+          <span className={styles.text}>
+            {person.messenger.map(contact =>
+              contact.name === 'Telegram' && contact.is_active ? (
+                <a
+                  className={cn({ [styles.link]: editLinkTeleg, [styles.link__none]: !editLinkTeleg })}
+                  href={`tg:${contact.uid}`}
+                >
+                  {contact.uid}
+                </a>
+              ) : (
+                ''
+              ),
+            )}
+          </span>
+          <div className={styles.label_contact} onClick={() => setEditLinkTeleg(!editLinkTeleg)}>
+            <Icon name="telegram" className={styles.logo__link} />
+          </div>
+        </div>
+        <div className={styles.title_contact}>
+          <span className={styles.text}>
+            {person.messenger.map(contact =>
+              contact.name === 'E-mail' && contact.is_active ? (
+                <a
+                  className={cn({ [styles.link]: editLinkMail, [styles.link__none]: !editLinkMail })}
+                  href={`mailto:${contact.uid}`}
+                >
+                  {contact.uid}
+                </a>
+              ) : (
+                ''
+              ),
+            )}
+          </span>
+
+          <div className={styles.label_contact} onClick={() => setEditLinkMail(!editLinkMail)}>
+            <Icon name="mail" className={styles.logo__link} />
+          </div>
+        </div>
+        {person.messenger.map(contact =>
+          contact.name === 'WhatsApp' && contact.is_active ? (
+            <div className={styles.title_contact}>
+              <span className={styles.text}>
+                <a
+                  className={cn({ [styles.link]: editLinkWhats, [styles.link__none]: !editLinkWhats })}
+                  href={`whatsapp:${contact.uid}`}
+                >
+                  {contact.uid}
+                </a>
+              </span>
+              <div className={styles.label_contact} onClick={() => setEditLinkWhats(!editLinkWhats)}>
+                <Icon name="whatsApp" className={styles.logo__link} />
+              </div>
+            </div>
+          ) : (
+            ''
+          ),
+        )}
       </div>
     </div>
   );
