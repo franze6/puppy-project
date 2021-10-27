@@ -6,6 +6,8 @@ import { setAddress, deleteAddresses, updateAddress } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
 
+import Maps from '../../Components/Map/Map';
+
 import styles from './AddressPage.scss';
 
 const AddressPage = ({ person }) => {
@@ -57,6 +59,9 @@ const AddressPage = ({ person }) => {
         canDelete
         canUpdate
       />
+      <div className={styles.map}>
+        <Maps />
+      </div>
     </div>
   );
 };
