@@ -55,7 +55,7 @@ Checkbox.defaultProps = {
   disabled: false,
   isMiddle: true,
   onChange: () => {},
-  checked: true,
+  checked: false,
 };
 
 export default Checkbox;
