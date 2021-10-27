@@ -58,6 +58,8 @@ const PersonDetail = ({ person }) => {
               {person.messenger.map(contact =>
                 contact.name === 'Телефон' && contact.is_active ? (
                   <a
+                    key={contact.id}
+                    id={contact.id}
                     className={cn({ [styles.link]: editLink, [styles.link__none]: !editLink })}
                     href={`tel:${contact.uid}`}
                   >
@@ -77,6 +79,8 @@ const PersonDetail = ({ person }) => {
               {person.messenger.map(contact =>
                 contact.name === 'Telegram' && contact.is_active ? (
                   <a
+                    key={contact.id}
+                    id={contact.id}
                     className={cn({ [styles.link]: editLinkTeleg, [styles.link__none]: !editLinkTeleg })}
                     href={`tg:${contact.uid}`}
                   >
@@ -96,6 +100,8 @@ const PersonDetail = ({ person }) => {
               {person.messenger.map(contact =>
                 contact.name === 'E-mail' && contact.is_active ? (
                   <a
+                    key={contact.id}
+                    id={contact.id}
                     className={cn({ [styles.link]: editLinkMail, [styles.link__none]: !editLinkMail })}
                     href={`mailto:${contact.uid}`}
                   >
@@ -116,6 +122,8 @@ const PersonDetail = ({ person }) => {
               {person.messenger.map(contact =>
                 contact.name === 'WhatsApp' && contact.is_active ? (
                   <a
+                    key={contact.id}
+                    id={contact.id}
                     className={cn({ [styles.link]: editLinkWhats, [styles.link__none]: !editLinkWhats })}
                     href={`whatsapp:${contact.uid}`}
                   >
