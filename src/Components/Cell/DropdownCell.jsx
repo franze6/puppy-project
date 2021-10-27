@@ -13,7 +13,10 @@ const DropdownCell = ({ value, isEdit, getFunc, onChange }) => {
   }
   useEffect(async () => {
     const data = await getFunc();
-    setSelectedName(data.filter(curr => curr.name === value)[0].name);
+    const listSelectedName = data.filter(curr => curr.name === value);
+    if (listSelectedName.length > 0) {
+      setSelectedName(listSelectedName[0].name);
+    }
   }, []);
   if (isEdit) {
     if (isEdit) {
