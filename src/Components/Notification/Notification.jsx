@@ -48,7 +48,7 @@ const Notification = () => {
           {viewAll ? 'Скрыть' : 'Показать все'}
         </div>
       </div>
-      {viewAll && listNotification.length > 0 ? (
+      {activeNote.id && viewAll && listNotification.length > 0 ? (
         listNotification
           .sort((a, b) => new Date(a.date) - new Date(b.date))
           .filter(e => e.is_active === true)
