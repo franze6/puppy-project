@@ -34,6 +34,7 @@ const Table = ({
   const [createId, setCreateId] = useState();
   const [currentDeletingId, setCurrentDeletingId] = useState(-1);
   const [updateId, setUpdateId] = useState();
+  const [emptyFields, setEmptyFields] = useState([]);
   useEffect(() => {
     if ((canDelete || canUpdate) && internalColumns.findIndex(col => col.name === 'operations') === -1) {
       setInternalColumns([
@@ -47,6 +48,11 @@ const Table = ({
 
   // eslint-disable-next-line consistent-return
   useEffect(async () => {
+    const cellList = internalColumns
+      .filter(curr => curr.name !== 'operations' && curr.name !== 'is_active')
+      .map(curr => curr.name);
+    const previousRows = internalRows[internalRows.length - 1];
+    setEmptyFields(cellList.filter(curr => !previousRows[curr]));
     if (createId === -1) {
       const arr = internalRows[internalRows.length - 1];
       return onCreate(arr);
@@ -56,7 +62,7 @@ const Table = ({
   // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (editRowIndex === -1) {
-      const arr = internalRows.filter(curr => curr.id === updateId);
+      const arr = internalRows.filter(curr => curr.id === updateId && curr.created_at !== curr.update_at);
       if (arr.length > 0) {
         return onUpdate(arr[0]);
       }
@@ -90,10 +96,15 @@ const Table = ({
         <div className={style.buttonAdd}>
           <Button
             onClick={() => {
-              const newRowId = nanoid();
-              setInternalRows([...internalRows, { id: newRowId }]);
-              setEditRowIndex(newRowId);
-              setCreateId(newRowId);
+              if (emptyFields.length === 0) {
+                const newRowId = nanoid();
+                setInternalRows([...internalRows, { id: newRowId }]);
+                setEditRowIndex(newRowId);
+                setCreateId(newRowId);
+              } else {
+                // eslint-disable-next-line no-alert
+                alert('Введите и сохраните данные!');
+              }
             }}
           >
             <div className={style.iconAdd}>
@@ -142,13 +153,6 @@ const Table = ({
                     </div>
                   );
                 }
-                // if (col.display_field) {
-                //   return (
-                //     <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                //       {row[col.name][col.display_field]}
-                //     </div>
-                //   );
-                // }
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
                     <Cell
