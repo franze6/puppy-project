@@ -22,10 +22,10 @@ const SidePanel = ({ show, onClick }) => {
         <ul className={styles.menu}>
           <Link to="/main">
             <div className={active === 'menu' ? styles.menuActive : styles.menu_list} onClick={() => setActive('menu')}>
-              <li className={styles.menu_item}>
+              <div className={styles.menu_item}>
                 <Icon name="home" className={styles.icon} />
-                <a className={cn(styles.text_menu, { [styles.text_menu_open]: show })}>{'ГЛАВНАЯ'}</a>
-              </li>
+                <p className={cn(styles.text_menu, { [styles.text_menu_open]: show })}>{'ГЛАВНАЯ'}</p>
+              </div>
             </div>
           </Link>
           <Link to="/persons">
@@ -35,7 +35,7 @@ const SidePanel = ({ show, onClick }) => {
             >
               <li className={styles.menu_item}>
                 <Icon name="persons" className={styles.icon} />
-                <a className={cn(styles.text_menu, { [styles.text_menu_open]: show })}>{'СОТРУДНИКИ'}</a>
+                <p className={cn(styles.text_menu, { [styles.text_menu_open]: show })}>{'СОТРУДНИКИ'}</p>
               </li>
             </div>
           </Link>
