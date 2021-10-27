@@ -16,7 +16,18 @@ import Modal from '../Modal/Modal';
 
 import style from './Table.scss';
 
-const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onCreate, onDelete, onUpdate }) => {
+const Table = ({
+  columns,
+  rows,
+  onRowClick,
+  canUpdate,
+  canDelete,
+  tableName,
+  onCreate,
+  onDelete,
+  onUpdate,
+  getFunc,
+}) => {
   const [internalColumns, setInternalColumns] = useState(columns);
   const [internalRows, setInternalRows] = useState(rows);
   const [editRowIndex, setEditRowIndex] = useState(-1);
@@ -131,13 +142,13 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onC
                     </div>
                   );
                 }
-                if (col.display_field) {
-                  return (
-                    <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                      {row[col.name][col.display_field]}
-                    </div>
-                  );
-                }
+                // if (col.display_field) {
+                //   return (
+                //     <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
+                //       {row[col.name][col.display_field]}
+                //     </div>
+                //   );
+                // }
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
                     <Cell
@@ -145,6 +156,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onC
                       data={col}
                       isEdit={row.id === editRowIndex}
                       onChange={val => editRowCell(row.id, col.name, val)}
+                      getFunc={getFunc}
                     />
                   </div>
                 );
@@ -168,6 +180,7 @@ Table.propTypes = {
   onCreate: PropTypes.func,
   onUpdate: PropTypes.func,
   onDelete: PropTypes.func,
+  getFunc: PropTypes.func,
 };
 
 Table.defaultProps = {
@@ -178,6 +191,7 @@ Table.defaultProps = {
   onCreate: () => {},
   onUpdate: () => {},
   onDelete: () => {},
+  getFunc: () => {},
 };
 
 export default Table;

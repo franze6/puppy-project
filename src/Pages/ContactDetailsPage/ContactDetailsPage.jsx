@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { setMessengers, deleteMessengers, updateMessengers } from '../../utils/api';
+import { setMessengers, deleteMessengers, updateMessengers, getMessenger } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
 
@@ -40,9 +40,8 @@ const ContactDetailsPage = ({ person }) => {
     {
       name: 'name',
       display: 'Тип',
-      // display_field: 'type_name',
       width: 300,
-      format: 'default',
+      format: 'dropdown',
     },
     {
       name: 'is_active',
@@ -62,6 +61,7 @@ const ContactDetailsPage = ({ person }) => {
         canDelete
         canUpdate
         onDelete={onDelete}
+        getFunc={getMessenger}
       />
     </div>
   );
