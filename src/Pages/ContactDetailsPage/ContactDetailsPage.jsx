@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { setMessengers, deleteMessengers, updateMessengers } from '../../utils/api';
+import { setMessengers, deleteMessengers, updateMessengers, getMessenger } from '../../utils/api';
 
 import Table from '../../Components/Table/Table';
 
@@ -32,23 +32,22 @@ const ContactDetailsPage = ({ person }) => {
 
   const columns = [
     {
+      name: 'uid',
+      display: 'UID',
+      width: 350,
+      format: 'default',
+    },
+    {
       name: 'name',
       display: 'Тип',
-      // display_field: 'type_name',
-      width: 180,
-      format: 'default',
+      width: 300,
+      format: 'dropdown',
     },
     {
       name: 'is_active',
       display: 'Действующий',
-      width: 180,
-      format: 'bool',
-    },
-    {
-      name: 'uid',
-      display: 'UID',
       width: 200,
-      format: 'default',
+      format: 'bool',
     },
   ];
   return (
@@ -62,6 +61,7 @@ const ContactDetailsPage = ({ person }) => {
         canDelete
         canUpdate
         onDelete={onDelete}
+        getFunc={getMessenger}
       />
     </div>
   );

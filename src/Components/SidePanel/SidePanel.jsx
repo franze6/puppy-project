@@ -20,25 +20,25 @@ const SidePanel = ({ show, onClick }) => {
       </div>
       <nav>
         <ul className={styles.menu}>
-          <div className={active === 'menu' ? styles.menuActive : styles.menu_list} onClick={() => setActive('menu')}>
-            <li className={styles.menu_item}>
-              <Link to="/main">
+          <Link to="/main">
+            <div className={active === 'menu' ? styles.menuActive : styles.menu_list} onClick={() => setActive('menu')}>
+              <div className={styles.menu_item}>
                 <Icon name="home" className={styles.icon} />
-                <a className={cn(styles.text_menu, { [styles.text_menu_open]: show })}>{'ГЛАВНАЯ'}</a>
-              </Link>
-            </li>
-          </div>
-          <div
-            className={active === 'persons' ? styles.menuActive : styles.menu_list}
-            onClick={() => setActive('persons')}
-          >
-            <li className={styles.menu_item}>
-              <Link to="/persons">
+                <p className={cn(styles.text_menu, { [styles.text_menu_open]: show })}>{'ГЛАВНАЯ'}</p>
+              </div>
+            </div>
+          </Link>
+          <Link to="/persons">
+            <div
+              className={active === 'persons' ? styles.menuActive : styles.menu_list}
+              onClick={() => setActive('persons')}
+            >
+              <li className={styles.menu_item}>
                 <Icon name="persons" className={styles.icon} />
-                <a className={cn(styles.text_menu, { [styles.text_menu_open]: show })}>{'СОТРУДНИКИ'}</a>
-              </Link>
-            </li>
-          </div>
+                <p className={cn(styles.text_menu, { [styles.text_menu_open]: show })}>{'СОТРУДНИКИ'}</p>
+              </li>
+            </div>
+          </Link>
         </ul>
       </nav>
     </div>

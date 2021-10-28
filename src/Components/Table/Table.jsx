@@ -16,13 +16,25 @@ import Modal from '../Modal/Modal';
 
 import style from './Table.scss';
 
-const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onCreate, onDelete, onUpdate }) => {
+const Table = ({
+  columns,
+  rows,
+  onRowClick,
+  canUpdate,
+  canDelete,
+  tableName,
+  onCreate,
+  onDelete,
+  onUpdate,
+  getFunc,
+}) => {
   const [internalColumns, setInternalColumns] = useState(columns);
   const [internalRows, setInternalRows] = useState(rows);
   const [editRowIndex, setEditRowIndex] = useState(-1);
   const [createId, setCreateId] = useState();
   const [currentDeletingId, setCurrentDeletingId] = useState(-1);
   const [updateId, setUpdateId] = useState();
+  const [emptyFields, setEmptyFields] = useState([]);
   useEffect(() => {
     if ((canDelete || canUpdate) && internalColumns.findIndex(col => col.name === 'operations') === -1) {
       setInternalColumns([
@@ -36,6 +48,13 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onC
 
   // eslint-disable-next-line consistent-return
   useEffect(async () => {
+    const cellList = internalColumns
+      .filter(curr => curr.name !== 'operations' && curr.name !== 'is_active')
+      .map(curr => curr.name);
+    const previousRows = internalRows[internalRows.length - 1];
+    if (previousRows) {
+      setEmptyFields(cellList.filter(curr => !previousRows[curr]));
+    }
     if (createId === -1) {
       const arr = internalRows[internalRows.length - 1];
       return onCreate(arr);
@@ -45,7 +64,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onC
   // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (editRowIndex === -1) {
-      const arr = internalRows.filter(curr => curr.id === updateId);
+      const arr = internalRows.filter(curr => curr.id === updateId && curr.created_at !== curr.update_at);
       if (arr.length > 0) {
         return onUpdate(arr[0]);
       }
@@ -75,14 +94,21 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onC
   return (
     <>
       <div className={style.table}>
-        <div className={style.name__table}>{tableName}</div>
-        <div className={style.buttonAdd}>
+        <div className={cn(style.name__table, { [style.noneName__table]: tableName === 'Сотрудники' })}>
+          {tableName}
+        </div>
+        <div className={cn(style.buttonAdd, { [style.noneButtonAdd]: tableName === 'Сотрудники' })}>
           <Button
             onClick={() => {
-              const newRowId = nanoid();
-              setInternalRows([...internalRows, { id: newRowId }]);
-              setEditRowIndex(newRowId);
-              setCreateId(newRowId);
+              if (emptyFields.length === 0) {
+                const newRowId = nanoid();
+                setInternalRows([...internalRows, { id: newRowId }]);
+                setEditRowIndex(newRowId);
+                setCreateId(newRowId);
+              } else {
+                // eslint-disable-next-line no-alert
+                alert('Введите и сохраните данные!');
+              }
             }}
           >
             <div className={style.iconAdd}>
@@ -131,13 +157,6 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onC
                     </div>
                   );
                 }
-                if (col.display_field) {
-                  return (
-                    <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
-                      {row[col.name][col.display_field]}
-                    </div>
-                  );
-                }
                 return (
                   <div className={style.tcol} style={{ width: `${col.width}px` }} key={col.name}>
                     <Cell
@@ -145,6 +164,7 @@ const Table = ({ columns, rows, onRowClick, canUpdate, canDelete, tableName, onC
                       data={col}
                       isEdit={row.id === editRowIndex}
                       onChange={val => editRowCell(row.id, col.name, val)}
+                      getFunc={getFunc}
                     />
                   </div>
                 );
@@ -168,6 +188,7 @@ Table.propTypes = {
   onCreate: PropTypes.func,
   onUpdate: PropTypes.func,
   onDelete: PropTypes.func,
+  getFunc: PropTypes.func,
 };
 
 Table.defaultProps = {
@@ -178,6 +199,7 @@ Table.defaultProps = {
   onCreate: () => {},
   onUpdate: () => {},
   onDelete: () => {},
+  getFunc: () => {},
 };
 
 export default Table;

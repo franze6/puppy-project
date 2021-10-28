@@ -26,15 +26,13 @@
 }
 
 .content_active {
-  transform: translateX(400px);
+  transform: translateX(23vw);
   transition: all 900ms cubic-bezier(0.8, 0, 0.33, 1);
 }
 
 .search {
-  width: 100%;
   position: fixed;
   left: 100px;
-  background-color: #ffffff;
   z-index: 2;
 }
 
@@ -45,18 +43,6 @@
 }
 
 @media (max-width: 700px) {
-  .page {
-    margin-left: 0;
-    margin-bottom: 70px;
-  }
-  .search {
-    left: 0;
-  }
-  .content_active {
-    transform: translateX(0);
-  }
-}
-@media (max-width: 800px) {
   .page {
     margin-left: 0;
     margin-bottom: 70px;

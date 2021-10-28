@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 
 import style from './Button.scss';
 
-const Button = memo(({ children, outlined, onClick, className, big, small }) => {
+const Button = memo(({ children, outlined, onClick, className, big, small, disabled }) => {
   return (
     <div
+      disabled={disabled}
       onClick={onClick}
       className={cn(style.button, { [style.outlined]: outlined, [style.big]: big, [style.small]: small }, className)}
     >
@@ -22,6 +23,7 @@ Button.propTypes = {
   className: PropTypes.string,
   big: PropTypes.bool,
   small: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -31,6 +33,7 @@ Button.defaultProps = {
   className: '',
   big: false,
   small: false,
+  disabled: false,
 };
 
 Button.displayName = 'Button';

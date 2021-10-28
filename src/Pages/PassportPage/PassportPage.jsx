@@ -35,38 +35,38 @@ const PassportPage = ({ person }) => {
     {
       name: 'series',
       display: 'Серия',
-      width: 180,
+      width: 110,
       format: 'default',
     },
     {
       name: 'number',
       display: 'Номер',
-      width: 180,
+      width: 120,
       format: 'default',
     },
     {
       name: 'issued_by_code',
       display: 'Код подразделения',
-      width: 180,
+      width: 130,
       format: 'default',
     },
     {
       name: 'issued_date',
       display: 'Дата выдачи',
-      width: 180,
+      width: 170,
       format: 'date',
     },
     {
       name: 'issued_by',
       display: 'Кем выдан',
-      width: 250,
+      width: 320,
       format: 'default',
     },
   ];
   return (
     <div className={styles.page}>
       <Table
-        tableName={'Паспортные Даннные'}
+        tableName={'Паспортные данные'}
         onUpdate={onUpdate}
         onDelete={onDelete}
         onCreate={onCreate}

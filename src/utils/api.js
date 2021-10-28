@@ -1,12 +1,13 @@
-export async function getPersons(last_name = '', page = 1, page_size = 10) {
+export async function getPersons(last_name = '', limit = 1, offset) {
   // eslint-disable-next-line camelcase
-  const url = `http://pet.kandrusyak.ru:8000/api/persons/?last_name=${last_name}&page=${page}&limit=${page_size}`;
+  const url = `http://pet.kandrusyak.ru:8000/api/persons/?last_name=${last_name}&limit=${limit}&offset=${offset}`;
   const resp = await fetch(url);
   const json = await resp
     .json()
     .then(res => {
       const obj = {
-        page_count: res.list,
+        offset: res.offset,
+        limit: res.limit,
         record_count: res.count,
         results: res.results,
       };
@@ -95,7 +96,7 @@ export async function setMessengers(arr, id) {
     },
     body: JSON.stringify({
       name: arr.name,
-      is_active: arr.is_active || false,
+      is_active: !!arr.is_active,
       uid: arr.uid,
       person_id: id,
     }),
@@ -205,7 +206,7 @@ export async function setAddress(arr, id) {
     },
     body: JSON.stringify({
       address_plain: arr.address_plain,
-      is_active: arr.is_active || false,
+      is_active: !!arr.is_active,
       person_id: id,
     }),
   };
@@ -230,27 +231,23 @@ export async function updateAddress(arr, id) {
   return resp;
 }
 
-export async function getCompany() {
+export async function getMessenger() {
   return [
     {
       id: 1,
-      name: 'ТСК',
+      name: 'Телефон',
     },
     {
       id: 2,
-      name: 'MS',
+      name: 'Telegram',
     },
     {
       id: 3,
-      name: 'LX',
+      name: 'E-mail',
     },
     {
       id: 4,
-      name: 'Ромашка',
-    },
-    {
-      id: 5,
-      name: 'Лютик',
+      name: 'WhatsApp',
     },
   ];
 }
@@ -375,22 +372,30 @@ export async function getNotification() {
       {
         id: 1,
         text: 'bla-bla 1',
+        title: 'Заголовок 1',
         date: '2017-03-20',
+        is_active: true,
       },
       {
         id: 2,
         text: 'Тестовое уведомление номер два',
+        title: 'Заголовок 2',
         date: '2021-05-01',
+        is_active: true,
       },
       {
         id: 3,
         text: 'bla-bla 3',
+        title: 'Заголовок 3',
         date: '2021-03-01',
+        is_active: true,
       },
       {
         id: 4,
         text: 'bla-bla 4',
+        title: 'Заголовок 4',
         date: '2019-09-10',
+        is_active: true,
       },
     ],
   };

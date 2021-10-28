@@ -17,7 +17,9 @@ import SidePanel from './Components/SidePanel/SidePanel';
 const App = ({ route }) => {
   const history = useHistory();
   async function onSearch(searchTxt) {
-    history.replace(`/persons/search/${searchTxt}`);
+    if (searchTxt) {
+      history.replace(`/persons/search/${searchTxt}`);
+    }
   }
   const [showNav, setShowNav] = useState(false);
   return (

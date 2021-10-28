@@ -27,17 +27,27 @@ const DateCell = ({ value, isEdit, onChange }) => {
             hasCloseIcon={false}
             placeholder={'Дата'}
             size={'small'}
-            value={new Date(value).toString() === 'Invalid Date' ? '' : new Date(value)}
+            value={
+              new Date(value).toString() === 'Invalid Date'
+                ? new Date().toLocaleDateString()
+                : new Date(value).toLocaleDateString()
+            }
             suffix={<Icon name={'calendar'} className={styles.calendarIcon} />}
           />
         }
       />
     );
   }
-  return <div>{new Date(value).toString() === 'Invalid Date' ? '' : new Date(value).toLocaleDateString()}</div>;
+  return (
+    <div>
+      {new Date(value).toString() === 'Invalid Date'
+        ? new Date().toLocaleDateString()
+        : new Date(value).toLocaleDateString()}
+    </div>
+  );
 };
 DateCell.propTypes = {
-  value: PropTypes.node,
+  value: PropTypes.any,
   isEdit: PropTypes.bool,
   onChange: PropTypes.func,
 };
